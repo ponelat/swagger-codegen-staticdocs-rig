@@ -1,0 +1,24 @@
+{
+  "name": "swagger-codegen-staticdocs-rig",
+  "version": "0.1.0",
+  "description": "This is an ongoing development rig for working with mustache generator found in swagger-codegen The object is to generate docs based on data from swagger-codegen.",
+  "main": "index.html",
+  "scripts": {
+    "bs": "browser-sync start --config='bs-config.js'",
+    "compass": "bundle exec compass watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ponelat/swagger-codegen-staticdocs-rig.git"
+  },
+  "author": "Josh S Ponelat",
+  "license": "Apache 2",
+  "bugs": {
+    "url": "https://github.com/ponelat/swagger-codegen-staticdocs-rig/issues"
+  },
+  "homepage": "https://github.com/ponelat/swagger-codegen-staticdocs-rig",
+  "devDependencies": {
+    "gulp": "^3.8.10"
+  }
+}

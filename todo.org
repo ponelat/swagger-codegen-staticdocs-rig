@@ -1,0 +1,5 @@
+* Todo list for Swagger-codegen-staticdocs-rig [0/2]
+  - [ ] Setup partials
+  - [ ] structure panes
+    - [ ] api block
+    - [ ] code examples
