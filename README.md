@@ -5,11 +5,13 @@ This is an ongoing development rig for working with mustache generator found in 
 The object is to generate docs based on data from swagger-codegen. 
 
 ## Install
-TO get the components needed.
-With bower:
+#### Requirements
+- Ruby + bundle 
+- Node.js + bower
+#### To get the needed modules
     `bower install`
-    `gem install`
-    `bundle update` w q
-With ge
-To build the css and js needed for this rig
+    `bundle install`
+#### To build the CSS from the Sass files
+    `bundle exec compass clean && bundle exec compass compile`
+
 
