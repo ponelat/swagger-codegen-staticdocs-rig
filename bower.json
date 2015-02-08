@@ -5,5 +5,8 @@
   "dependencies": {
     "foundation": "zurb/bower-foundation",
     "jquery": "latest"
+  },
+  "devDependencies": {
+    "mustache": "~1.0.0"
   }
 }
