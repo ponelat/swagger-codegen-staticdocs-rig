@@ -1,3 +1,1442 @@
 {
-    "name": "bob"
+  "apiFolder" : "",
+  "apiInfo" : {
+    "apis" : [ {
+      "classname" : "UserApi",
+      "modelPackage" : "",
+      "package" : "",
+      "artifactId" : "swagger-client",
+      "imports" : [ {
+        "import" : "User"
+      }, {
+        "import" : "string"
+      }, {
+        "import" : "array"
+      } ],
+      "basePath" : "http://petstore.swagger.wordnik.com/v2",
+      "appName" : "Swagger Petstore",
+      "groupId" : "com.wordnik",
+      "infoEmail" : "hello@helloreverb.com",
+      "artifactVersion" : "1.0.0",
+      "licenseInfo" : "Apache 2.0",
+      "baseName" : "User",
+      "partner" : "our Partner",
+      "invokerPackage" : "com.wordnik.client",
+      "operations" : {
+        "operation" : [ {
+          "hasParams" : true,
+          "returnTypeIsPrimitive" : true,
+          "returnSimpleType" : true,
+          "path" : "/user",
+          "operationId" : "createUser",
+          "httpMethod" : "post",
+          "summary" : "Create user",
+          "notes" : "This can only be done by the logged in user.",
+          "baseName" : "User",
+          "produces" : [ {
+            "hasMore" : "true",
+            "mediaType" : "application/json"
+          }, {
+            "mediaType" : "application/xml"
+          } ],
+          "bodyParam" : {
+            "baseName" : "body",
+            "paramName" : "body",
+            "dataType" : "User",
+            "description" : "Created user object",
+            "isBodyParam" : true,
+            "required" : false
+          },
+          "allParams" : [ {"baseName" : "body", "paramName" : "body", "dataType" : "User", "description" : "Created user object",
+            "isBodyParam" : true,
+            "required" : false
+          } ],
+          "bodyParams" : [ {
+            "baseName" : "body",
+            "paramName" : "body",
+            "dataType" : "User",
+            "description" : "Created user object",
+            "isBodyParam" : true,
+            "required" : false
+          } ],
+          "pathParams" : [ ],
+          "queryParams" : [ ],
+          "headerParams" : [ ],
+          "formParams" : [ ],
+          "tags" : [ "User" ],
+          "responses" : [ ],
+          "responseHeaders" : [ ],
+          "imports" : [ "User" ],
+          "nickname" : "createUser"
+        }, {
+          "hasParams" : true,
+          "returnTypeIsPrimitive" : true,
+          "returnSimpleType" : true,
+          "path" : "/user/createWithArray",
+          "operationId" : "createUsersWithArrayInput",
+          "httpMethod" : "post",
+          "summary" : "Creates list of users with given input array",
+          "notes" : "",
+          "baseName" : "User",
+          "produces" : [ {
+            "hasMore" : "true",
+            "mediaType" : "application/json"
+          }, {
+            "mediaType" : "application/xml"
+          } ],
+          "bodyParam" : {
+            "isContainer" : true,
+            "baseName" : "body",
+            "paramName" : "body",
+            "dataType" : "array[User]",
+            "description" : "List of user object",
+            "isBodyParam" : true,
+            "required" : false
+          },
+          "allParams" : [ {
+            "isContainer" : true,
+            "baseName" : "body",
+            "paramName" : "body",
+            "dataType" : "array[User]",
+            "description" : "List of user object",
+            "isBodyParam" : true,
+            "required" : false
+          } ],
+          "bodyParams" : [ {
+            "isContainer" : true,
+            "baseName" : "body",
+            "paramName" : "body",
+            "dataType" : "array[User]",
+            "description" : "List of user object",
+            "isBodyParam" : true,
+            "required" : false
+          } ],
+          "pathParams" : [ ],
+          "queryParams" : [ ],
+          "headerParams" : [ ],
+          "formParams" : [ ],
+          "tags" : [ "User" ],
+          "responses" : [ ],
+          "responseHeaders" : [ ],
+          "imports" : [ "User", "array" ],
+          "nickname" : "createUsersWithArrayInput"
+        }, {
+          "hasParams" : true,
+          "returnTypeIsPrimitive" : true,
+          "returnSimpleType" : true,
+          "path" : "/user/createWithList",
+          "operationId" : "createUsersWithListInput",
+          "httpMethod" : "post",
+          "summary" : "Creates list of users with given input array",
+          "notes" : "",
+          "baseName" : "User",
+          "produces" : [ {
+            "hasMore" : "true",
+            "mediaType" : "application/json"
+          }, {
+            "mediaType" : "application/xml"
+          } ],
+          "bodyParam" : {
+            "isContainer" : true,
+            "baseName" : "body",
+            "paramName" : "body",
+            "dataType" : "array[User]",
+            "description" : "List of user object",
+            "isBodyParam" : true,
+            "required" : false
+          },
+          "allParams" : [ {
+            "isContainer" : true,
+            "baseName" : "body",
+            "paramName" : "body",
+            "dataType" : "array[User]",
+            "description" : "List of user object",
+            "isBodyParam" : true,
+            "required" : false
+          } ],
+          "bodyParams" : [ {
+            "isContainer" : true,
+            "baseName" : "body",
+            "paramName" : "body",
+            "dataType" : "array[User]",
+            "description" : "List of user object",
+            "isBodyParam" : true,
+            "required" : false
+          } ],
+          "pathParams" : [ ],
+          "queryParams" : [ ],
+          "headerParams" : [ ],
+          "formParams" : [ ],
+          "tags" : [ "User" ],
+          "responses" : [ ],
+          "responseHeaders" : [ ],
+          "imports" : [ "User", "array" ],
+          "nickname" : "createUsersWithListInput"
+        }, {
+          "hasParams" : true,
+          "returnSimpleType" : true,
+          "path" : "/user/login",
+          "operationId" : "loginUser",
+          "returnType" : "String",
+          "httpMethod" : "get",
+          "returnBaseType" : "string",
+          "summary" : "Logs user into the system",
+          "notes" : "",
+          "baseName" : "User",
+          "defaultResponse" : "null",
+          "produces" : [ {
+            "hasMore" : "true",
+            "mediaType" : "application/json"
+          }, {
+            "mediaType" : "application/xml"
+          } ],
+          "allParams" : [ {
+            "hasMore" : true,
+            "baseName" : "username",
+            "paramName" : "username",
+            "dataType" : "String",
+            "description" : "The user name for login",
+            "isQueryParam" : true,
+            "required" : false
+          }, {
+            "secondaryParam" : true,
+            "baseName" : "password",
+            "paramName" : "password",
+            "dataType" : "String",
+            "description" : "The password for login in clear text",
+            "isQueryParam" : true,
+            "required" : false
+          } ],
+          "bodyParams" : [ ],
+          "pathParams" : [ ],
+          "queryParams" : [ {
+            "hasMore" : true,
+            "baseName" : "username",
+            "paramName" : "username",
+            "dataType" : "String",
+            "description" : "The user name for login",
+            "isQueryParam" : true,
+            "required" : false
+          }, {
+            "secondaryParam" : true,
+            "baseName" : "password",
+            "paramName" : "password",
+            "dataType" : "String",
+            "description" : "The password for login in clear text",
+            "isQueryParam" : true,
+            "required" : false
+          } ],
+          "headerParams" : [ ],
+          "formParams" : [ ],
+          "tags" : [ "User" ],
+          "responses" : [ {
+            "code" : "400",
+            "message" : "Invalid username/password supplied"
+          } ],
+          "responseHeaders" : [ ],
+          "imports" : [ "string" ],
+          "nickname" : "loginUser"
+        }, {
+          "returnTypeIsPrimitive" : true,
+          "returnSimpleType" : true,
+          "path" : "/user/logout",
+          "operationId" : "logoutUser",
+          "httpMethod" : "get",
+          "summary" : "Logs out current logged in user session",
+          "notes" : "",
+          "baseName" : "User",
+          "produces" : [ {
+            "hasMore" : "true",
+            "mediaType" : "application/json"
+          }, {
+            "mediaType" : "application/xml"
+          } ],
+          "allParams" : [ ],
+          "bodyParams" : [ ],
+          "pathParams" : [ ],
+          "queryParams" : [ ],
+          "headerParams" : [ ],
+          "formParams" : [ ],
+          "tags" : [ "User" ],
+          "responses" : [ ],
+          "responseHeaders" : [ ],
+          "imports" : [ ],
+          "nickname" : "logoutUser"
+        }, {
+          "hasParams" : true,
+          "returnSimpleType" : true,
+          "path" : "/user/{username}",
+          "operationId" : "getUserByName",
+          "returnType" : "User",
+          "httpMethod" : "get",
+          "returnBaseType" : "User",
+          "summary" : "Get user by user name",
+          "notes" : "",
+          "baseName" : "User",
+          "defaultResponse" : "null",
+          "produces" : [ {
+            "hasMore" : "true",
+            "mediaType" : "application/json"
+          }, {
+            "mediaType" : "application/xml"
+          } ],
+          "allParams" : [ {
+            "baseName" : "username",
+            "paramName" : "username",
+            "dataType" : "String",
+            "description" : "The name that needs to be fetched. Use user1 for testing. ",
+            "isPathParam" : true,
+            "required" : true
+          } ],
+          "bodyParams" : [ ],
+          "pathParams" : [ {
+            "baseName" : "username",
+            "paramName" : "username",
+            "dataType" : "String",
+            "description" : "The name that needs to be fetched. Use user1 for testing. ",
+            "isPathParam" : true,
+            "required" : true
+          } ],
+          "queryParams" : [ ],
+          "headerParams" : [ ],
+          "formParams" : [ ],
+          "tags" : [ "User" ],
+          "responses" : [ {
+            "code" : "404",
+            "message" : "User not found",
+            "hasMore" : true
+          }, {
+            "code" : "400",
+            "message" : "Invalid username supplied"
+          } ],
+          "responseHeaders" : [ ],
+          "imports" : [ "User", "string" ],
+          "nickname" : "getUserByName"
+        }, {
+          "hasParams" : true,
+          "returnTypeIsPrimitive" : true,
+          "returnSimpleType" : true,
+          "path" : "/user/{username}",
+          "operationId" : "updateUser",
+          "httpMethod" : "put",
+          "summary" : "Updated user",
+          "notes" : "This can only be done by the logged in user.",
+          "baseName" : "User",
+          "produces" : [ {
+            "hasMore" : "true",
+            "mediaType" : "application/json"
+          }, {
+            "mediaType" : "application/xml"
+          } ],
+          "bodyParam" : {
+            "secondaryParam" : true,
+            "baseName" : "body",
+            "paramName" : "body",
+            "dataType" : "User",
+            "description" : "Updated user object",
+            "isBodyParam" : true,
+            "required" : false
+          },
+          "allParams" : [ {
+            "hasMore" : true,
+            "baseName" : "username",
+            "paramName" : "username",
+            "dataType" : "String",
+            "description" : "name that need to be deleted",
+            "isPathParam" : true,
+            "required" : true
+          }, {
+            "secondaryParam" : true,
+            "baseName" : "body",
+            "paramName" : "body",
+            "dataType" : "User",
+            "description" : "Updated user object",
+            "isBodyParam" : true,
+            "required" : false
+          } ],
+          "bodyParams" : [ {
+            "secondaryParam" : true,
+            "baseName" : "body",
+            "paramName" : "body",
+            "dataType" : "User",
+            "description" : "Updated user object",
+            "isBodyParam" : true,
+            "required" : false
+          } ],
+          "pathParams" : [ {
+            "hasMore" : true,
+            "baseName" : "username",
+            "paramName" : "username",
+            "dataType" : "String",
+            "description" : "name that need to be deleted",
+            "isPathParam" : true,
+            "required" : true
+          } ],
+          "queryParams" : [ ],
+          "headerParams" : [ ],
+          "formParams" : [ ],
+          "tags" : [ "User" ],
+          "responses" : [ {
+            "code" : "404",
+            "message" : "User not found",
+            "hasMore" : true
+          }, {
+            "code" : "400",
+            "message" : "Invalid user supplied"
+          } ],
+          "responseHeaders" : [ ],
+          "imports" : [ "User", "string" ],
+          "nickname" : "updateUser"
+        }, {
+          "hasParams" : true,
+          "returnTypeIsPrimitive" : true,
+          "returnSimpleType" : true,
+          "path" : "/user/{username}",
+          "operationId" : "deleteUser",
+          "httpMethod" : "delete",
+          "summary" : "Delete user",
+          "notes" : "This can only be done by the logged in user.",
+          "baseName" : "User",
+          "produces" : [ {
+            "hasMore" : "true",
+            "mediaType" : "application/json"
+          }, {
+            "mediaType" : "application/xml"
+          } ],
+          "allParams" : [ {
+            "baseName" : "username",
+            "paramName" : "username",
+            "dataType" : "String",
+            "description" : "The name that needs to be deleted",
+            "isPathParam" : true,
+            "required" : true
+          } ],
+          "bodyParams" : [ ],
+          "pathParams" : [ {
+            "baseName" : "username",
+            "paramName" : "username",
+            "dataType" : "String",
+            "description" : "The name that needs to be deleted",
+            "isPathParam" : true,
+            "required" : true
+          } ],
+          "queryParams" : [ ],
+          "headerParams" : [ ],
+          "formParams" : [ ],
+          "tags" : [ "User" ],
+          "responses" : [ {
+            "code" : "404",
+            "message" : "User not found",
+            "hasMore" : true
+          }, {
+            "code" : "400",
+            "message" : "Invalid username supplied"
+          } ],
+          "responseHeaders" : [ ],
+          "imports" : [ "string" ],
+          "nickname" : "deleteUser"
+        } ],
+        "classname" : "UserApi"
+      },
+      "infoUrl" : null,
+      "licenseUrl" : "http://www.apache.org/licenses/LICENSE-2.0.html",
+      "appDescription" : "This is a sample server Petstore server.  You can find out more about Swagger at <a href=\"http://swagger.wordnik.com\">http://swagger.wordnik.com</a> or on irc.freenode.net, #swagger.  For this sample, you can use the api key \"special-key\" to test the authorization filters"
+    }, {
+      "classname" : "PetApi",
+      "modelPackage" : "",
+      "package" : "",
+      "artifactId" : "swagger-client",
+      "imports" : [ {
+        "import" : "Pet"
+      }, {
+        "import" : "string"
+      }, {
+        "import" : "long"
+      } ],
+      "basePath" : "http://petstore.swagger.wordnik.com/v2",
+      "appName" : "Swagger Petstore",
+      "groupId" : "com.wordnik",
+      "infoEmail" : "hello@helloreverb.com",
+      "artifactVersion" : "1.0.0",
+      "licenseInfo" : "Apache 2.0",
+      "baseName" : "Pet",
+      "partner" : "our Partner",
+      "invokerPackage" : "com.wordnik.client",
+      "operations" : {
+        "operation" : [ {
+          "hasParams" : true,
+          "returnTypeIsPrimitive" : true,
+          "returnSimpleType" : true,
+          "path" : "/pet",
+          "operationId" : "updatePet",
+          "httpMethod" : "put",
+          "summary" : "Update an existing pet",
+          "notes" : "",
+          "baseName" : "Pet",
+          "consumes" : [ {
+            "hasMore" : "true",
+            "mediaType" : "application/json"
+          }, {
+            "mediaType" : "application/xml"
+          } ],
+          "produces" : [ {
+            "hasMore" : "true",
+            "mediaType" : "application/json"
+          }, {
+            "mediaType" : "application/xml"
+          } ],
+          "bodyParam" : {
+            "baseName" : "body",
+            "paramName" : "body",
+            "dataType" : "Pet",
+            "description" : "Pet object that needs to be added to the store",
+            "isBodyParam" : true,
+            "required" : false
+          },
+          "allParams" : [ {
+            "baseName" : "body",
+            "paramName" : "body",
+            "dataType" : "Pet",
+            "description" : "Pet object that needs to be added to the store",
+            "isBodyParam" : true,
+            "required" : false
+          } ],
+          "bodyParams" : [ {
+            "baseName" : "body",
+            "paramName" : "body",
+            "dataType" : "Pet",
+            "description" : "Pet object that needs to be added to the store",
+            "isBodyParam" : true,
+            "required" : false
+          } ],
+          "pathParams" : [ ],
+          "queryParams" : [ ],
+          "headerParams" : [ ],
+          "formParams" : [ ],
+          "tags" : [ "Pet" ],
+          "responses" : [ {
+            "code" : "405",
+            "message" : "Validation exception",
+            "hasMore" : true
+          }, {
+            "code" : "404",
+            "message" : "Pet not found",
+            "hasMore" : true
+          }, {
+            "code" : "400",
+            "message" : "Invalid ID supplied"
+          } ],
+          "responseHeaders" : [ ],
+          "imports" : [ "Pet" ],
+          "nickname" : "updatePet"
+        }, {
+          "hasParams" : true,
+          "returnTypeIsPrimitive" : true,
+          "returnSimpleType" : true,
+          "path" : "/pet",
+          "operationId" : "addPet",
+          "httpMethod" : "post",
+          "summary" : "Add a new pet to the store",
+          "notes" : "",
+          "baseName" : "Pet",
+          "consumes" : [ {
+            "hasMore" : "true",
+            "mediaType" : "application/json"
+          }, {
+            "mediaType" : "application/xml"
+          } ],
+          "produces" : [ {
+            "hasMore" : "true",
+            "mediaType" : "application/json"
+          }, {
+            "mediaType" : "application/xml"
+          } ],
+          "bodyParam" : {
+            "baseName" : "pet",
+            "paramName" : "pet",
+            "dataType" : "Pet",
+            "description" : "Pet object that needs to be added to the store",
+            "isBodyParam" : true,
+            "required" : false
+          },
+          "allParams" : [ {
+            "baseName" : "pet",
+            "paramName" : "pet",
+            "dataType" : "Pet",
+            "description" : "Pet object that needs to be added to the store",
+            "isBodyParam" : true,
+            "required" : false
+          } ],
+          "bodyParams" : [ {
+            "baseName" : "pet",
+            "paramName" : "pet",
+            "dataType" : "Pet",
+            "description" : "Pet object that needs to be added to the store",
+            "isBodyParam" : true,
+            "required" : false
+          } ],
+          "pathParams" : [ ],
+          "queryParams" : [ ],
+          "headerParams" : [ ],
+          "formParams" : [ ],
+          "tags" : [ "Pet" ],
+          "responses" : [ {
+            "code" : "405",
+            "message" : "Invalid input"
+          } ],
+          "responseHeaders" : [ ],
+          "imports" : [ "Pet" ],
+          "nickname" : "addPet"
+        }, {
+          "hasParams" : true,
+          "path" : "/pet/findByStatus",
+          "operationId" : "findPetsByStatus",
+          "returnType" : "array[Pet]",
+          "httpMethod" : "get",
+          "returnBaseType" : "Pet",
+          "returnContainer" : "Pet",
+          "summary" : "Finds Pets by status",
+          "notes" : "Multiple status values can be provided with comma seperated strings",
+          "baseName" : "Pet",
+          "defaultResponse" : "new ArrayList<Pet>() ",
+          "produces" : [ {
+            "hasMore" : "true",
+            "mediaType" : "application/json"
+          }, {
+            "mediaType" : "application/xml"
+          } ],
+          "allParams" : [ {
+            "baseName" : "status",
+            "paramName" : "status",
+            "dataType" : "array[String]",
+            "collectionFormat" : "multi",
+            "description" : "Status values that need to be considered for filter",
+            "baseType" : "String",
+            "isQueryParam" : true,
+            "required" : false
+          } ],
+          "bodyParams" : [ ],
+          "pathParams" : [ ],
+          "queryParams" : [ {
+            "baseName" : "status",
+            "paramName" : "status",
+            "dataType" : "array[String]",
+            "collectionFormat" : "multi",
+            "description" : "Status values that need to be considered for filter",
+            "baseType" : "String",
+            "isQueryParam" : true,
+            "required" : false
+          } ],
+          "headerParams" : [ ],
+          "formParams" : [ ],
+          "tags" : [ "Pet" ],
+          "responses" : [ {
+            "code" : "400",
+            "message" : "Invalid status value"
+          } ],
+          "responseHeaders" : [ ],
+          "imports" : [ "Pet", "string" ],
+          "nickname" : "findPetsByStatus"
+        }, {
+          "hasParams" : true,
+          "path" : "/pet/findByTags",
+          "operationId" : "findPetsByTags",
+          "returnType" : "array[Pet]",
+          "httpMethod" : "get",
+          "returnBaseType" : "Pet",
+          "returnContainer" : "Pet",
+          "summary" : "Finds Pets by tags",
+          "notes" : "Muliple tags can be provided with comma seperated strings. Use tag1, tag2, tag3 for testing.",
+          "baseName" : "Pet",
+          "defaultResponse" : "new ArrayList<Pet>() ",
+          "produces" : [ {
+            "hasMore" : "true",
+            "mediaType" : "application/json"
+          }, {
+            "mediaType" : "application/xml"
+          } ],
+          "allParams" : [ {
+            "baseName" : "tags",
+            "paramName" : "tags",
+            "dataType" : "array[String]",
+            "collectionFormat" : "multi",
+            "description" : "Tags to filter by",
+            "baseType" : "String",
+            "isQueryParam" : true,
+            "required" : false
+          } ],
+          "bodyParams" : [ ],
+          "pathParams" : [ ],
+          "queryParams" : [ {
+            "baseName" : "tags",
+            "paramName" : "tags",
+            "dataType" : "array[String]",
+            "collectionFormat" : "multi",
+            "description" : "Tags to filter by",
+            "baseType" : "String",
+            "isQueryParam" : true,
+            "required" : false
+          } ],
+          "headerParams" : [ ],
+          "formParams" : [ ],
+          "tags" : [ "Pet" ],
+          "responses" : [ {
+            "code" : "400",
+            "message" : "Invalid tag value"
+          } ],
+          "responseHeaders" : [ ],
+          "imports" : [ "Pet", "string" ],
+          "nickname" : "findPetsByTags"
+        }, {
+          "hasParams" : true,
+          "returnSimpleType" : true,
+          "path" : "/pet/{petId}",
+          "operationId" : "getPetById",
+          "returnType" : "Pet",
+          "httpMethod" : "get",
+          "returnBaseType" : "Pet",
+          "summary" : "Find pet by ID",
+          "notes" : "Returns a pet when ID < 10.  ID > 10 or nonintegers will simulate API error conditions",
+          "baseName" : "Pet",
+          "defaultResponse" : "null",
+          "produces" : [ {
+            "hasMore" : "true",
+            "mediaType" : "application/json"
+          }, {
+            "mediaType" : "application/xml"
+          } ],
+          "allParams" : [ {
+            "baseName" : "petId",
+            "paramName" : "petId",
+            "dataType" : "Long",
+            "description" : "ID of pet that needs to be fetched",
+            "isPathParam" : true,
+            "required" : true
+          } ],
+          "bodyParams" : [ ],
+          "pathParams" : [ {
+            "baseName" : "petId",
+            "paramName" : "petId",
+            "dataType" : "Long",
+            "description" : "ID of pet that needs to be fetched",
+            "isPathParam" : true,
+            "required" : true
+          } ],
+          "queryParams" : [ ],
+          "headerParams" : [ ],
+          "formParams" : [ ],
+          "tags" : [ "Pet" ],
+          "responses" : [ {
+            "code" : "404",
+            "message" : "Pet not found",
+            "hasMore" : true
+          }, {
+            "code" : "400",
+            "message" : "Invalid ID supplied"
+          } ],
+          "responseHeaders" : [ ],
+          "imports" : [ "Pet", "long" ],
+          "nickname" : "getPetById"
+        }, {
+          "hasParams" : true,
+          "returnTypeIsPrimitive" : true,
+          "returnSimpleType" : true,
+          "path" : "/pet/{petId}",
+          "operationId" : "updatePetWithForm",
+          "httpMethod" : "post",
+          "summary" : "Updates a pet in the store with form data",
+          "notes" : "",
+          "baseName" : "Pet",
+          "consumes" : [ {
+            "mediaType" : "application/x-www-form-urlencoded"
+          } ],
+          "produces" : [ {
+            "hasMore" : "true",
+            "mediaType" : "application/json"
+          }, {
+            "mediaType" : "application/xml"
+          } ],
+          "allParams" : [ {
+            "hasMore" : true,
+            "baseName" : "petId",
+            "paramName" : "petId",
+            "dataType" : "String",
+            "description" : "ID of pet that needs to be updated",
+            "isPathParam" : true,
+            "required" : true
+          }, {
+            "hasMore" : true,
+            "secondaryParam" : true,
+            "baseName" : "name",
+            "paramName" : "name",
+            "dataType" : "String",
+            "description" : "Updated name of the pet",
+            "required" : true
+          }, {
+            "secondaryParam" : true,
+            "baseName" : "status",
+            "paramName" : "status",
+            "dataType" : "String",
+            "description" : "Updated status of the pet",
+            "required" : true
+          } ],
+          "bodyParams" : [ ],
+          "pathParams" : [ {
+            "hasMore" : true,
+            "baseName" : "petId",
+            "paramName" : "petId",
+            "dataType" : "String",
+            "description" : "ID of pet that needs to be updated",
+            "isPathParam" : true,
+            "required" : true
+          } ],
+          "queryParams" : [ ],
+          "headerParams" : [ ],
+          "formParams" : [ ],
+          "tags" : [ "Pet" ],
+          "responses" : [ {
+            "code" : "405",
+            "message" : "Invalid input"
+          } ],
+          "responseHeaders" : [ ],
+          "imports" : [ "string" ],
+          "nickname" : "updatePetWithForm"
+        }, {
+          "hasParams" : true,
+          "returnTypeIsPrimitive" : true,
+          "returnSimpleType" : true,
+          "path" : "/pet/{petId}",
+          "operationId" : "deletePet",
+          "httpMethod" : "delete",
+          "summary" : "Deletes a pet",
+          "notes" : "",
+          "baseName" : "Pet",
+          "produces" : [ {
+            "hasMore" : "true",
+            "mediaType" : "application/json"
+          }, {
+            "mediaType" : "application/xml"
+          } ],
+          "allParams" : [ {
+            "hasMore" : true,
+            "baseName" : "api_key",
+            "paramName" : "api_key",
+            "dataType" : "String",
+            "description" : "",
+            "isHeaderParam" : true,
+            "required" : true
+          }, {
+            "secondaryParam" : true,
+            "baseName" : "petId",
+            "paramName" : "petId",
+            "dataType" : "Long",
+            "description" : "Pet id to delete",
+            "isPathParam" : true,
+            "required" : true
+          } ],
+          "bodyParams" : [ ],
+          "pathParams" : [ {
+            "secondaryParam" : true,
+            "baseName" : "petId",
+            "paramName" : "petId",
+            "dataType" : "Long",
+            "description" : "Pet id to delete",
+            "isPathParam" : true,
+            "required" : true
+          } ],
+          "queryParams" : [ ],
+          "headerParams" : [ {
+            "hasMore" : true,
+            "baseName" : "api_key",
+            "paramName" : "api_key",
+            "dataType" : "String",
+            "description" : "",
+            "isHeaderParam" : true,
+            "required" : true
+          } ],
+          "formParams" : [ ],
+          "tags" : [ "Pet" ],
+          "responses" : [ {
+            "code" : "400",
+            "message" : "Invalid pet value"
+          } ],
+          "responseHeaders" : [ ],
+          "imports" : [ "string", "long" ],
+          "nickname" : "deletePet"
+        } ],
+        "classname" : "PetApi"
+      },
+      "infoUrl" : null,
+      "licenseUrl" : "http://www.apache.org/licenses/LICENSE-2.0.html",
+      "appDescription" : "This is a sample server Petstore server.  You can find out more about Swagger at <a href=\"http://swagger.wordnik.com\">http://swagger.wordnik.com</a> or on irc.freenode.net, #swagger.  For this sample, you can use the api key \"special-key\" to test the authorization filters"
+    }, {
+      "classname" : "StoreApi",
+      "modelPackage" : "",
+      "package" : "",
+      "artifactId" : "swagger-client",
+      "imports" : [ {
+        "import" : "string"
+      }, {
+        "import" : "Order"
+      } ],
+      "basePath" : "http://petstore.swagger.wordnik.com/v2",
+      "appName" : "Swagger Petstore",
+      "groupId" : "com.wordnik",
+      "infoEmail" : "hello@helloreverb.com",
+      "artifactVersion" : "1.0.0",
+      "licenseInfo" : "Apache 2.0",
+      "baseName" : "Store",
+      "partner" : "our Partner",
+      "invokerPackage" : "com.wordnik.client",
+      "operations" : {
+        "operation" : [ {
+          "hasParams" : true,
+          "returnSimpleType" : true,
+          "path" : "/store/order",
+          "operationId" : "placeOrder",
+          "returnType" : "Order",
+          "httpMethod" : "post",
+          "returnBaseType" : "Order",
+          "summary" : "Place an order for a pet",
+          "notes" : "",
+          "baseName" : "Store",
+          "defaultResponse" : "null",
+          "produces" : [ {
+            "hasMore" : "true",
+            "mediaType" : "application/json"
+          }, {
+            "mediaType" : "application/xml"
+          } ],
+          "bodyParam" : {
+            "baseName" : "body",
+            "paramName" : "body",
+            "dataType" : "Order",
+            "description" : "order placed for purchasing the pet",
+            "isBodyParam" : true,
+            "required" : false
+          },
+          "allParams" : [ {
+            "baseName" : "body",
+            "paramName" : "body",
+            "dataType" : "Order",
+            "description" : "order placed for purchasing the pet",
+            "isBodyParam" : true,
+            "required" : false
+          } ],
+          "bodyParams" : [ {
+            "baseName" : "body",
+            "paramName" : "body",
+            "dataType" : "Order",
+            "description" : "order placed for purchasing the pet",
+            "isBodyParam" : true,
+            "required" : false
+          } ],
+          "pathParams" : [ ],
+          "queryParams" : [ ],
+          "headerParams" : [ ],
+          "formParams" : [ ],
+          "tags" : [ "Store" ],
+          "responses" : [ {
+            "code" : "400",
+            "message" : "Invalid Order"
+          } ],
+          "responseHeaders" : [ ],
+          "imports" : [ "Order" ],
+          "nickname" : "placeOrder"
+        }, {
+          "hasParams" : true,
+          "returnSimpleType" : true,
+          "path" : "/store/order/{orderId}",
+          "operationId" : "getOrderById",
+          "returnType" : "Order",
+          "httpMethod" : "get",
+          "returnBaseType" : "Order",
+          "summary" : "Find purchase order by ID",
+          "notes" : "For valid response try integer IDs with value <= 5 or > 10. Other values will generated exceptions",
+          "baseName" : "Store",
+          "defaultResponse" : "null",
+          "produces" : [ {
+            "hasMore" : "true",
+            "mediaType" : "application/json"
+          }, {
+            "mediaType" : "application/xml"
+          } ],
+          "allParams" : [ {
+            "baseName" : "orderId",
+            "paramName" : "orderId",
+            "dataType" : "String",
+            "description" : "ID of pet that needs to be fetched",
+            "isPathParam" : true,
+            "required" : true
+          } ],
+          "bodyParams" : [ ],
+          "pathParams" : [ {
+            "baseName" : "orderId",
+            "paramName" : "orderId",
+            "dataType" : "String",
+            "description" : "ID of pet that needs to be fetched",
+            "isPathParam" : true,
+            "required" : true
+          } ],
+          "queryParams" : [ ],
+          "headerParams" : [ ],
+          "formParams" : [ ],
+          "tags" : [ "Store" ],
+          "responses" : [ {
+            "code" : "404",
+            "message" : "Order not found",
+            "hasMore" : true
+          }, {
+            "code" : "400",
+            "message" : "Invalid ID supplied"
+          } ],
+          "responseHeaders" : [ ],
+          "imports" : [ "string", "Order" ],
+          "nickname" : "getOrderById"
+        }, {
+          "hasParams" : true,
+          "returnTypeIsPrimitive" : true,
+          "returnSimpleType" : true,
+          "path" : "/store/order/{orderId}",
+          "operationId" : "deleteOrder",
+          "httpMethod" : "delete",
+          "summary" : "Delete purchase order by ID",
+          "notes" : "For valid response try integer IDs with value < 1000. Anything above 1000 or nonintegers will generate API errors",
+          "baseName" : "Store",
+          "produces" : [ {
+            "hasMore" : "true",
+            "mediaType" : "application/json"
+          }, {
+            "mediaType" : "application/xml"
+          } ],
+          "allParams" : [ {
+            "baseName" : "orderId",
+            "paramName" : "orderId",
+            "dataType" : "String",
+            "description" : "ID of the order that needs to be deleted",
+            "isPathParam" : true,
+            "required" : true
+          } ],
+          "bodyParams" : [ ],
+          "pathParams" : [ {
+            "baseName" : "orderId",
+            "paramName" : "orderId",
+            "dataType" : "String",
+            "description" : "ID of the order that needs to be deleted",
+            "isPathParam" : true,
+            "required" : true
+          } ],
+          "queryParams" : [ ],
+          "headerParams" : [ ],
+          "formParams" : [ ],
+          "tags" : [ "Store" ],
+          "responses" : [ {
+            "code" : "404",
+            "message" : "Order not found",
+            "hasMore" : true
+          }, {
+            "code" : "400",
+            "message" : "Invalid ID supplied"
+          } ],
+          "responseHeaders" : [ ],
+          "imports" : [ "string" ],
+          "nickname" : "deleteOrder"
+        } ],
+        "classname" : "StoreApi"
+      },
+      "infoUrl" : null,
+      "licenseUrl" : "http://www.apache.org/licenses/LICENSE-2.0.html",
+      "appDescription" : "This is a sample server Petstore server.  You can find out more about Swagger at <a href=\"http://swagger.wordnik.com\">http://swagger.wordnik.com</a> or on irc.freenode.net, #swagger.  For this sample, you can use the api key \"special-key\" to test the authorization filters"
+    } ]
+  },
+  "modelPackage" : "",
+  "artifactId" : "swagger-client",
+  "models" : [ {
+    "model" : {
+      "name" : "User",
+      "classname" : "User",
+      "classVarName" : "User",
+      "modelJson" : "{\n  \"properties\" : {\n    \"id\" : {\n      \"type\" : \"integer\",\n      \"format\" : \"int64\"\n    },\n    \"username\" : {\n      \"type\" : \"string\"\n    },\n    \"firstName\" : {\n      \"type\" : \"string\"\n    },\n    \"lastName\" : {\n      \"type\" : \"string\"\n    },\n    \"email\" : {\n      \"type\" : \"string\"\n    },\n    \"password\" : {\n      \"type\" : \"string\"\n    },\n    \"phone\" : {\n      \"type\" : \"string\"\n    },\n    \"userStatus\" : {\n      \"type\" : \"integer\",\n      \"format\" : \"int32\",\n      \"description\" : \"User Status\"\n    }\n  },\n  \"xml\" : {\n    \"name\" : \"User\"\n  }\n}",
+      "vars" : [ {
+        "baseName" : "id",
+        "complexType" : "long",
+        "getter" : "getId",
+        "setter" : "setId",
+        "datatype" : "Long",
+        "name" : "id",
+        "defaultValue" : "null",
+        "baseType" : "long",
+        "hasMore" : true,
+        "required" : false,
+        "isNotContainer" : true,
+        "isEnum" : false,
+        "allowableValues" : { }
+      }, {
+        "baseName" : "username",
+        "complexType" : "string",
+        "getter" : "getUsername",
+        "setter" : "setUsername",
+        "datatype" : "String",
+        "name" : "username",
+        "defaultValue" : "null",
+        "baseType" : "string",
+        "hasMore" : true,
+        "required" : false,
+        "isNotContainer" : true,
+        "isEnum" : false
+      }, {
+        "baseName" : "firstName",
+        "complexType" : "string",
+        "getter" : "getFirstName",
+        "setter" : "setFirstName",
+        "datatype" : "String",
+        "name" : "firstName",
+        "defaultValue" : "null",
+        "baseType" : "string",
+        "hasMore" : true,
+        "required" : false,
+        "isNotContainer" : true,
+        "isEnum" : false
+      }, {
+        "baseName" : "lastName",
+        "complexType" : "string",
+        "getter" : "getLastName",
+        "setter" : "setLastName",
+        "datatype" : "String",
+        "name" : "lastName",
+        "defaultValue" : "null",
+        "baseType" : "string",
+        "hasMore" : true,
+        "required" : false,
+        "isNotContainer" : true,
+        "isEnum" : false
+      }, {
+        "baseName" : "email",
+        "complexType" : "string",
+        "getter" : "getEmail",
+        "setter" : "setEmail",
+        "datatype" : "String",
+        "name" : "email",
+        "defaultValue" : "null",
+        "baseType" : "string",
+        "hasMore" : true,
+        "required" : false,
+        "isNotContainer" : true,
+        "isEnum" : false
+      }, {
+        "baseName" : "password",
+        "complexType" : "string",
+        "getter" : "getPassword",
+        "setter" : "setPassword",
+        "datatype" : "String",
+        "name" : "password",
+        "defaultValue" : "null",
+        "baseType" : "string",
+        "hasMore" : true,
+        "required" : false,
+        "isNotContainer" : true,
+        "isEnum" : false
+      }, {
+        "baseName" : "phone",
+        "complexType" : "string",
+        "getter" : "getPhone",
+        "setter" : "setPhone",
+        "datatype" : "String",
+        "name" : "phone",
+        "defaultValue" : "null",
+        "baseType" : "string",
+        "hasMore" : true,
+        "required" : false,
+        "isNotContainer" : true,
+        "isEnum" : false
+      }, {
+        "baseName" : "userStatus",
+        "complexType" : "integer",
+        "getter" : "getUserStatus",
+        "setter" : "setUserStatus",
+        "description" : "User Status",
+        "datatype" : "Integer",
+        "name" : "userStatus",
+        "defaultValue" : "null",
+        "baseType" : "integer",
+        "required" : false,
+        "isNotContainer" : true,
+        "isEnum" : false,
+        "allowableValues" : { }
+      } ],
+      "imports" : [ "integer", "string", "long" ],
+      "hasVars" : true,
+      "hasMoreModels" : true
+    }
+  }, {
+    "model" : {
+      "name" : "Category",
+      "classname" : "Category",
+      "classVarName" : "Category",
+      "modelJson" : "{\n  \"properties\" : {\n    \"id\" : {\n      \"type\" : \"integer\",\n      \"format\" : \"int64\"\n    },\n    \"name\" : {\n      \"type\" : \"string\"\n    }\n  },\n  \"xml\" : {\n    \"name\" : \"Category\"\n  }\n}",
+      "vars" : [ {
+        "baseName" : "id",
+        "complexType" : "long",
+        "getter" : "getId",
+        "setter" : "setId",
+        "datatype" : "Long",
+        "name" : "id",
+        "defaultValue" : "null",
+        "baseType" : "long",
+        "hasMore" : true,
+        "required" : false,
+        "isNotContainer" : true,
+        "isEnum" : false,
+        "allowableValues" : { }
+      }, {
+        "baseName" : "name",
+        "complexType" : "string",
+        "getter" : "getName",
+        "setter" : "setName",
+        "datatype" : "String",
+        "name" : "name",
+        "defaultValue" : "null",
+        "baseType" : "string",
+        "required" : false,
+        "isNotContainer" : true,
+        "isEnum" : false
+      } ],
+      "imports" : [ "string", "long" ],
+      "hasVars" : true,
+      "hasMoreModels" : true
+    }
+  }, {
+    "model" : {
+      "name" : "Pet",
+      "classname" : "Pet",
+      "classVarName" : "Pet",
+      "modelJson" : "{\n  \"required\" : [ \"name\", \"photoUrls\" ],\n  \"properties\" : {\n    \"id\" : {\n      \"type\" : \"integer\",\n      \"format\" : \"int64\"\n    },\n    \"category\" : {\n      \"$ref\" : \"#/definitions/Category\"\n    },\n    \"name\" : {\n      \"type\" : \"string\",\n      \"example\" : \"doggie\"\n    },\n    \"photoUrls\" : {\n      \"type\" : \"array\",\n      \"items\" : {\n        \"type\" : \"string\"\n      }\n    },\n    \"tags\" : {\n      \"type\" : \"array\",\n      \"items\" : {\n        \"$ref\" : \"#/definitions/Tag\"\n      }\n    },\n    \"status\" : {\n      \"type\" : \"string\",\n      \"description\" : \"pet status in the store\"\n    }\n  },\n  \"xml\" : {\n    \"name\" : \"Pet\"\n  }\n}",
+      "vars" : [ {
+        "baseName" : "id",
+        "complexType" : "long",
+        "getter" : "getId",
+        "setter" : "setId",
+        "datatype" : "Long",
+        "name" : "id",
+        "defaultValue" : "null",
+        "baseType" : "long",
+        "hasMore" : true,
+        "required" : false,
+        "isNotContainer" : true,
+        "isEnum" : false,
+        "allowableValues" : { }
+      }, {
+        "baseName" : "category",
+        "complexType" : "Category",
+        "getter" : "getCategory",
+        "setter" : "setCategory",
+        "datatype" : "Category",
+        "name" : "category",
+        "defaultValue" : "null",
+        "baseType" : "Category",
+        "hasMore" : true,
+        "required" : false,
+        "isNotContainer" : true,
+        "isEnum" : false
+      }, {
+        "baseName" : "name",
+        "complexType" : "string",
+        "getter" : "getName",
+        "setter" : "setName",
+        "datatype" : "String",
+        "name" : "name",
+        "defaultValue" : "null",
+        "baseType" : "string",
+        "example" : "doggie",
+        "hasMore" : true,
+        "required" : true,
+        "isNotContainer" : true,
+        "isEnum" : false
+      }, {
+        "baseName" : "photoUrls",
+        "complexType" : "string",
+        "getter" : "getPhotoUrls",
+        "setter" : "setPhotoUrls",
+        "datatype" : "array[String]",
+        "name" : "photoUrls",
+        "defaultValue" : "new ArrayList<string>() ",
+        "baseType" : "array",
+        "containerType" : "array",
+        "hasMore" : true,
+        "required" : true,
+        "isContainer" : true,
+        "isEnum" : false
+      }, {
+        "baseName" : "tags",
+        "complexType" : "Tag",
+        "getter" : "getTags",
+        "setter" : "setTags",
+        "datatype" : "array[Tag]",
+        "name" : "tags",
+        "defaultValue" : "new ArrayList<Tag>() ",
+        "baseType" : "array",
+        "containerType" : "array",
+        "hasMore" : true,
+        "required" : false,
+        "isContainer" : true,
+        "isEnum" : false
+      }, {
+        "baseName" : "status",
+        "complexType" : "string",
+        "getter" : "getStatus",
+        "setter" : "setStatus",
+        "description" : "pet status in the store",
+        "datatype" : "String",
+        "name" : "status",
+        "defaultValue" : "null",
+        "baseType" : "string",
+        "required" : false,
+        "isNotContainer" : true,
+        "isEnum" : false
+      } ],
+      "imports" : [ "Category", "Tag", "string", "List", "long", "array" ],
+      "hasVars" : true,
+      "hasMoreModels" : true
+    }
+  }, {
+    "model" : {
+      "name" : "Tag",
+      "classname" : "Tag",
+      "classVarName" : "Tag",
+      "modelJson" : "{\n  \"properties\" : {\n    \"id\" : {\n      \"type\" : \"integer\",\n      \"format\" : \"int64\"\n    },\n    \"name\" : {\n      \"type\" : \"string\"\n    }\n  },\n  \"xml\" : {\n    \"name\" : \"Tag\"\n  }\n}",
+      "vars" : [ {
+        "baseName" : "id",
+        "complexType" : "long",
+        "getter" : "getId",
+        "setter" : "setId",
+        "datatype" : "Long",
+        "name" : "id",
+        "defaultValue" : "null",
+        "baseType" : "long",
+        "hasMore" : true,
+        "required" : false,
+        "isNotContainer" : true,
+        "isEnum" : false,
+        "allowableValues" : { }
+      }, {
+        "baseName" : "name",
+        "complexType" : "string",
+        "getter" : "getName",
+        "setter" : "setName",
+        "datatype" : "String",
+        "name" : "name",
+        "defaultValue" : "null",
+        "baseType" : "string",
+        "required" : false,
+        "isNotContainer" : true,
+        "isEnum" : false
+      } ],
+      "imports" : [ "string", "long" ],
+      "hasVars" : true,
+      "hasMoreModels" : true
+    }
+  }, {
+    "model" : {
+      "name" : "Order",
+      "classname" : "Order",
+      "classVarName" : "Order",
+      "modelJson" : "{\n  \"properties\" : {\n    \"id\" : {\n      \"type\" : \"integer\",\n      \"format\" : \"int64\"\n    },\n    \"petId\" : {\n      \"type\" : \"integer\",\n      \"format\" : \"int64\"\n    },\n    \"quantity\" : {\n      \"type\" : \"integer\",\n      \"format\" : \"int32\"\n    },\n    \"shipDate\" : {\n      \"type\" : \"string\",\n      \"format\" : \"date-time\"\n    },\n    \"status\" : {\n      \"type\" : \"string\",\n      \"description\" : \"Order Status\"\n    },\n    \"complete\" : {\n      \"type\" : \"boolean\"\n    }\n  },\n  \"xml\" : {\n    \"name\" : \"Order\"\n  }\n}",
+      "vars" : [ {
+        "baseName" : "id",
+        "complexType" : "long",
+        "getter" : "getId",
+        "setter" : "setId",
+        "datatype" : "Long",
+        "name" : "id",
+        "defaultValue" : "null",
+        "baseType" : "long",
+        "hasMore" : true,
+        "required" : false,
+        "isNotContainer" : true,
+        "isEnum" : false,
+        "allowableValues" : { }
+      }, {
+        "baseName" : "petId",
+        "complexType" : "long",
+        "getter" : "getPetId",
+        "setter" : "setPetId",
+        "datatype" : "Long",
+        "name" : "petId",
+        "defaultValue" : "null",
+        "baseType" : "long",
+        "hasMore" : true,
+        "required" : false,
+        "isNotContainer" : true,
+        "isEnum" : false,
+        "allowableValues" : { }
+      }, {
+        "baseName" : "quantity",
+        "complexType" : "integer",
+        "getter" : "getQuantity",
+        "setter" : "setQuantity",
+        "datatype" : "Integer",
+        "name" : "quantity",
+        "defaultValue" : "null",
+        "baseType" : "integer",
+        "hasMore" : true,
+        "required" : false,
+        "isNotContainer" : true,
+        "isEnum" : false,
+        "allowableValues" : { }
+      }, {
+        "baseName" : "shipDate",
+        "complexType" : "DateTime",
+        "getter" : "getShipDate",
+        "setter" : "setShipDate",
+        "datatype" : "Date",
+        "name" : "shipDate",
+        "defaultValue" : "null",
+        "baseType" : "DateTime",
+        "hasMore" : true,
+        "required" : false,
+        "isNotContainer" : true,
+        "isEnum" : false
+      }, {
+        "baseName" : "status",
+        "complexType" : "string",
+        "getter" : "getStatus",
+        "setter" : "setStatus",
+        "description" : "Order Status",
+        "datatype" : "String",
+        "name" : "status",
+        "defaultValue" : "null",
+        "baseType" : "string",
+        "hasMore" : true,
+        "required" : false,
+        "isNotContainer" : true,
+        "isEnum" : false
+      }, {
+        "baseName" : "complete",
+        "complexType" : "boolean",
+        "getter" : "getComplete",
+        "setter" : "setComplete",
+        "datatype" : "Boolean",
+        "name" : "complete",
+        "defaultValue" : "null",
+        "baseType" : "boolean",
+        "required" : false,
+        "isNotContainer" : true,
+        "isEnum" : false
+      } ],
+      "imports" : [ "DateTime", "integer", "string", "boolean", "long" ],
+      "hasVars" : true
+    }
+  } ],
+  "basePath" : "/v2",
+  "appName" : "Swagger Petstore",
+  "groupId" : "com.wordnik",
+  "infoEmail" : "hello@helloreverb.com",
+  "artifactVersion" : "1.0.0",
+  "licenseInfo" : "Apache 2.0",
+  "apiPackage" : "",
+  "partner" : "our Partner",
+  "invokerPackage" : "com.wordnik.client",
+  "infoUrl" : null,
+  "licenseUrl" : "http://www.apache.org/licenses/LICENSE-2.0.html",
+  "appDescription" : "This is a sample server Petstore server.  You can find out more about Swagger at <a href=\"http://swagger.wordnik.com\">http://swagger.wordnik.com</a> or on irc.freenode.net, #swagger.  For this sample, you can use the api key \"special-key\" to test the authorization filters"
 }
