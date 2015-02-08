@@ -1,3 +1,39 @@
-<h1>
-  {{name}} is indeed a name
-</h1>
+<div class="api-docs">
+  <!-- an api block -->
+  <table class="api-block" >
+    <thead>
+      <tr>
+        <th class="method method-post">POST</th>
+        <th class="endpoint" colspan= "2">/store/order/<span class="round method-arg">orderId</span></th>
+      </tr>
+      <tr>
+        <td colspan="2">
+          Place an order for a <a href="#">Pet</a>
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th colspan="2"> Method args </th>
+      </tr>
+      <tr>
+        <td class="argument">
+          <div class="argument-name">something</div>
+          <div class="type">String</div>
+        </td>
+        <td>For valid response try integer IDs with value &lt;= 5 or &gt; 10. Other values will generate exceptions</td>
+      </tr>
+      <tr>
+        <th colspan="2"> Param args </th>
+      </tr>
+      <tr>
+        <td class="arg-name">some param</td>
+        <td>Description</td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- end of api block -->
+  <section id="code-examples">
+    <p>Hello {{name}}</p>
+  </section>
+</div>

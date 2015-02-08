@@ -13,10 +13,12 @@ function get_values(col) {
 
 // Our mustache partials list, keys map to files found in 'mustache'
 var list_of_partials = {
-  'api-block': $.Deferred()
+  'api-block': $.Deferred(),
+  'top-bar': $.Deferred(),
+  'toc': $.Deferred()
 };
 
-// AJAX-in each partials
+// AJAX-in each partial
 $.each(list_of_partials, function(name,deferred){
   $.get('mustache/'+name+'.mustache',function (template) {
     deferred.resolve({name: name,template: template});
