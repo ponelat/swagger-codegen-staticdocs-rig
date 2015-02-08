@@ -1,0 +1,43 @@
+.api-methods {}
+
+.api-method-description {
+
+    position: relative;
+
+    .method {
+        font-weight: bold;
+    }
+
+    .method-post {
+        background-color: $color-green;
+    }
+
+    .endpoint {
+        font-family: $font-mono;
+        padding: 5px;
+        background-color: $color-blue;
+        .method-arg {
+
+            display: inline-block;
+            color: black;
+            &:before {
+                content: '{';
+            }
+            &:after {
+                content: '}';
+            }
+        }
+    }
+
+    .argument {
+        text-align: right;
+        .argument-name {
+            &:after {content: ':'; }
+        }
+        .type {
+            color: $aluminum;
+            font-family: $font-mono;
+        }
+    }
+
+}
