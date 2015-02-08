@@ -13,7 +13,12 @@
  |
  */
 module.exports = {
-    "files": "*.html,*.js,stylesheets/*.*",
+    "files": "*.html,\
+              data.json,\
+              *.js,\
+              js/*.js,\
+              mustache/*.mustache,\
+              stylesheets/*.*",
     "server": true,
     "proxy": false,
     "port": 3000,
