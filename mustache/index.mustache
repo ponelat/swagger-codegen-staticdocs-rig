@@ -1,0 +1,76 @@
+<nav class="top-bar" id="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="#">Something</a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+  </ul>
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="active"><a href="#">Right Nav Button Active</a></li>
+      <li class="has-dropdown">
+        <a href="#">Right Button with Dropdown</a>
+        <ul class="dropdown">
+          <li><a href="#">First link in dropdown</a></li>
+        </ul>
+      </li>
+    </ul>
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li><a href="#">Left Nav Button</a></li>
+    </ul>
+  </section>
+</nav>
+<nav id="toc-wrapper" >
+  <ul class="toc side-nav">
+    <li class="active"><a href="#">Link 1</a></li>
+    <li><a href="#">Link 2</a></li>
+    <li><a href="#">Link 3</a></li>
+    <li><a href="#">Link 4</a></li>
+  </ul>
+</nav>
+<section class="content">
+
+{{>api-block}}
+
+  <div class="api-docs">
+    <!-- an api block -->
+    <table class="api-block" >
+      <thead>
+        <tr>
+          <th class="method method-post">POST</th>
+          <th class="endpoint" colspan= "2">/store/order/<span class="round method-arg">orderId</span></th>
+        </tr>
+        <tr>
+          <td colspan="2">
+            Place an order for a <a href="#">Pet</a>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th colspan="2"> Method args </th>
+        </tr>
+        <tr>
+          <td class="argument">
+            <div class="argument-name">something</div>
+            <div class="type">String</div>
+          </td>
+          <td>For valid response try integer IDs with value &lt;= 5 or &gt; 10. Other values will generate exceptions</td>
+        </tr>
+        <tr>
+          <th colspan="2"> Param args </th>
+        </tr>
+        <tr>
+          <td class="arg-name">some param</td>
+          <td>Description</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- end of api block -->
+    <section id="code-examples">
+      <p>Hello {{name}}</p>
+    </section>
+  </div>
+</section>
