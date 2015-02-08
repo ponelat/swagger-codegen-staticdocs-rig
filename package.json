@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/ponelat/swagger-codegen-staticdocs-rig",
   "devDependencies": {
-    "gulp": "^3.8.10"
+    "browser-sync": "^2.0.0-rc8"
   }
 }
