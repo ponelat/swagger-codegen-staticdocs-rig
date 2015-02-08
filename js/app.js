@@ -13,7 +13,7 @@ function get_values(col) {
 
 // Our mustache partials list, keys map to files found in 'mustache'
 var list_of_partials = {
-  'api-block': $.Deferred(),
+  'api-method': $.Deferred(),
   'top-bar': $.Deferred(),
   'toc': $.Deferred()
 };
