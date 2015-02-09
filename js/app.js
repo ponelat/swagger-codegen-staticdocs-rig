@@ -59,6 +59,6 @@ $.when(
         $(document).foundation();
 
         // Highlight.js
-        hljs.initHighlightingOnLoad();
+        // hljs.initHighlightingOnLoad();
     });
 });
