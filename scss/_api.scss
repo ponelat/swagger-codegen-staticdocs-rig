@@ -1,6 +1,11 @@
-.api-methods {}
+.api-classes {}
 
-.api-method-description {
+h3.api-class-name {
+  display: block;
+  background-color: $color-feint-yellow;
+}
+
+.api-endpoint-description {
 
     position: relative;
 
@@ -11,11 +16,21 @@
     .method-post {
         background-color: $color-green;
     }
+    .method-get {
+        background-color: $color-yellow;
+    }
+    .method-put {
+        background-color: $color-blue;
+    }
+    .method-delete {
+        background-color: $color-red;
+    }
 
     .endpoint {
         font-family: $font-mono;
+        color: $color-almost-white;
         padding: 5px;
-        background-color: $color-blue;
+        background-color: $color-dark-grey;
         .method-arg {
 
             display: inline-block;

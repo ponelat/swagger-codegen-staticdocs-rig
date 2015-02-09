@@ -1,0 +1,52 @@
+<div class="api-endpoint">
+
+  <div class="api-endpoint-description">
+      <table class="api-block" >
+        <thead>
+          <tr>
+            <th class="method method-{{httpMethod}}">{{httpMethod}}</th>
+            <th class="endpoint" colspan= "2">{{path}}</th>
+          </tr>
+          <tr>
+            <td colspan="2">
+              {{summary}}
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+
+    {{#pathParams}}
+         <tr>
+            <th colspan="2"> Method args </th>
+          </tr>
+          <tr>
+            <td class="argument">
+              <div class="argument-name">{{paramName}}</div>
+              <div class="type">{{dataType}}</div>
+            </td>
+            <td>{{description}}</td>
+          </tr>
+    {{/pathParams}}
+
+    {{# bodyParams }}
+          <tr>
+            <th colspan="2"> Body params </th>
+          </tr>
+          <tr>
+            <td class="arg-name">{{dataType}}</td>
+            <td>{{description}}</td>
+          </tr>
+    {{/ bodyParams }}
+
+        </tbody>
+      </table>
+  </div>
+
+
+  <div class="api-endpoint-example">
+    <h3>Code Examples</h3>
+  </div>
+
+
+</div>
+

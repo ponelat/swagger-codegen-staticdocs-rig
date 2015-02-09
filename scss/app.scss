@@ -45,7 +45,14 @@
 
 $font-mono: 'Source Sans Pro' mono;
 $color-green: #3BA66D;
+$color-red: #DB4D42;
+$color-feint-yellow: #FFF0CD;
+$color-yellow: #D9B33D;
+$color-dark-green: #1F7641;
 $color-blue: #4578dd;
+
+$color-dark-grey: #333029;
+$color-almost-white: #EBEBEB;
 
 // My includes
 @import "structure";
@@ -56,4 +63,4 @@ $color-blue: #4578dd;
 // Style of stuctured elements
 @import "top-bar";
 @import "toc";
-@import "api-methods";
+@import "api";

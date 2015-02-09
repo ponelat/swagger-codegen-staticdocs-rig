@@ -3,7 +3,11 @@
 <aside id="toc"> {{>toc}} </aside>
 
 <section id="api-docs">
-  <div class="api-methods">
-    {{>api-method}}
+  <div class="api-classes">
+
+  {{#apiInfo.apis}}
+    {{>api-class }}
+  {{/apiInfo.apis}}
+
   </div>
 </section>
