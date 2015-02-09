@@ -22,8 +22,7 @@ h3.api-class-name {
       background-color: $color-dark-grey;
 
       .method {
-        border-radius: 2px;
-        display: inline-block;
+        color: $color-half-white;
         font-weight: bold;
         margin-right: 5px;
         padding-left: 5px;
@@ -31,10 +30,19 @@ h3.api-class-name {
         width: 5em;
       }
 
-      .method-post {background-color: $color-green; }
-      .method-get {background-color: $color-yellow; }
-      .method-put {background-color: $color-blue; }
-      .method-delete {background-color: $color-red; }
+      .path {
+        border-radius: 2px;
+        display: inline-block;
+        font-weight: bold;
+        margin-right: 5px;
+        padding: 0 5px;
+        float: left;
+      }
+
+      .path-post {background-color: $color-green; }
+      .path-get {background-color: $color-yellow; }
+      .path-put {background-color: $color-blue; }
+      .path-delete {background-color: $color-red; }
 
       .method-arg {
 
@@ -46,9 +54,6 @@ h3.api-class-name {
           &:after {
               content: '}';
           }
-      }
-
-      .endpoint-path {
       }
 
     }
