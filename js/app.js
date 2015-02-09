@@ -1,4 +1,4 @@
-/* global $,Mustache,document */
+/* global $,Mustache,document,hljs */
 
 // -------------- Utilities
 
@@ -57,5 +57,8 @@ $.when(
 
         // Foundation
         $(document).foundation();
+
+        // Highlight.js
+        hljs.initHighlightingOnLoad();
     });
 });
