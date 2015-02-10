@@ -13,8 +13,16 @@ The object is to generate docs based on data from swagger-codegen.
 
 #### To get the needed modules
 
-    `bower install`
-    `bundle install`
+    ```bash
+    bower install
+    bundle install
+    ```
+
+#### To serve the files
+
+    ```bash
+    npm run bs
+    ```
 
 #### To build the CSS from the Sass files
 
