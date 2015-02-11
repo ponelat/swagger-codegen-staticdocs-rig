@@ -1,3 +1,10 @@
 a {
   color: red;
 }
+
+a.anchor {
+  position: absolute;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
