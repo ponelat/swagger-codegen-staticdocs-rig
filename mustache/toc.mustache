@@ -1,8 +1,7 @@
 <nav id="toc-wrapper" >
   <ul class="toc side-nav">
-    <li class="active"><a href="#">Link 1</a></li>
-    <li><a href="#">Link 2</a></li>
-    <li><a href="#">Link 3</a></li>
-    <li><a href="#">Link 4</a></li>
+    {{#apiInfo.apis}}
+      <li><a href="#api-class-{{classname}}">{{classname}}</a></li>
+    {{/apiInfo.apis}}
   </ul>
 </nav>

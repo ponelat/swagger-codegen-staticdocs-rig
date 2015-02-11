@@ -1,4 +1,4 @@
-/* global $,Mustache,document */
+/* global $,Mustache,document,hljs */
 
 // -------------- Utilities
 
@@ -13,14 +13,33 @@ function get_values(col) {
 
 // Our mustache partials list, keys map to files found in 'mustache'
 var list_of_partials = {
-  'api-block': $.Deferred(),
   'top-bar': $.Deferred(),
-  'toc': $.Deferred()
+  'toc': $.Deferred(),
+  'api-class': $.Deferred(),
+  'api-endpoint': $.Deferred()
 };
+
+// --------------- Entry point...
+// ...after we load-in and render our mustache templates
+
+function mustache_loaded() {
+
+  // Foundation
+  $(document).foundation();
+
+  // Highlight.js (code syntax highlighting)
+  $('.highlight-js').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+
+}
+
+// --------------- jQuery rig to load in our mustache template(s), async
 
 // AJAX-in each partial
 $.each(list_of_partials, function(name,deferred){
   $.get('mustache/'+name+'.mustache',function (template) {
+    console.log('loaded mustache partial: '+name);
     deferred.resolve({name: name,template: template});
   })
   .fail(function(){
@@ -51,9 +70,8 @@ $.when(
 
         // Render and inject mustaches in all their glory
         var rendered = Mustache.render( template, data, partials);
-        $(document.body).prepend(rendered);
+        $(document.body).prepend(rendered).promise().done(mustache_loaded);
 
-        // Foundation
-        $(document).foundation();
     });
 });
+

@@ -1,3 +1,24 @@
+// My settings
+
+// $font-mono: 'Source Sans Pro' mono;
+$font-mono: Monaco,Consolas,"Lucida Console",monospace;
+
+$color-green: #3BA66D;
+$color-red: #DB4D42;
+$color-feint-yellow: #FFF0CD;
+$color-yellow: #D9B33D;
+$color-dark-green: #1F7641;
+$color-blue: #4578dd;
+
+$color-dark-grey: #333029;
+$color-almost-white: #EBEBEB;
+$color-half-white: #877D6A;
+
+$color-code-bg: $color-dark-grey;
+$color-api-header-separator: $color-almost-white;
+
+// ---------------------------------------------------------------------------
+
 // Foundation by ZURB
 // foundation.zurb.com
 // Licensed under MIT Open Source
@@ -63,10 +84,11 @@
 // Since the typical default browser font-size is 16px, that makes the calculation for grid size.
 // If you want your base font-size to be different and not have it affect the grid breakpoints,
 // set $rem-base to $base-font-size and make sure $base-font-size is a px value.
-// $base-font-size: 100%;
+$base-font-size: 13px;
 
 // The $base-font-size is 100% while $base-line-height is 150%
-// $base-line-height: 150%;
+$base-line-height: 180%;
+$rem-base: $base-font-size;
 
 // We use this to control whether or not CSS classes come through in the gem files.
 $include-html-classes: true;
@@ -126,7 +148,7 @@ $include-html-global-classes: $include-html-classes;
 
 // We use these to control various global styles
 // $body-bg: $white;
-// $body-font-color: $jet;
+$body-font-color: $color-dark-grey;
 // $body-font-family: $font-family-sans-serif;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
@@ -927,7 +949,7 @@ $include-html-global-classes: $include-html-classes;
 // Hide controls on small
 // $orbit-nav-hide-for-small: true;
 // $orbit-bullet-hide-for-small: true;
-// $orbit-timer-hide-for-small: true; 
+// $orbit-timer-hide-for-small: true;
 
 // 20. Pagination
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1265,7 +1287,7 @@ $include-html-global-classes: $include-html-classes;
 // $switch-paddle-bg: $white;
 // $switch-paddle-transition-speed: .15s;
 // $switch-paddle-transition-ease: ease-out;
-// $switch-active-color: $primary-color; 
+// $switch-active-color: $primary-color;
 
 // 30. Tables
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1456,7 +1478,7 @@ $include-html-global-classes: $include-html-classes;
 // Sticky Class
 // $topbar-sticky-class: ".sticky";
 // $topbar-arrows: true; //Set false to remove the triangle icon from the menu item
-// $topbar-dropdown-arrows: true; //Set false to remove the \00bb >> text from dropdown subnavigation li// 
+// $topbar-dropdown-arrows: true; //Set false to remove the \00bb >> text from dropdown subnavigation li//
 
 // 36. Visibility Classes
 // - - - - - - - - - - - - - - - - - - - - - - - - -

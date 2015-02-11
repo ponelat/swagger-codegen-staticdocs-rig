@@ -5,6 +5,7 @@
   "main": "index.html",
   "scripts": {
     "bs": "browser-sync start --config='bs-config.js'",
+    "install": "bower install && python bower_components/highlight.js/tools/build.py",
     "compass": "bundle exec compass watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,6 +20,7 @@
   },
   "homepage": "https://github.com/ponelat/swagger-codegen-staticdocs-rig",
   "devDependencies": {
-    "browser-sync": "^2.0.0-rc8"
+    "browser-sync": "^2.0.0-rc8",
+    "bower": "latest"
   }
 }

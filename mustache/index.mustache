@@ -2,4 +2,12 @@
 
 <aside id="toc"> {{>toc}} </aside>
 
-<section class="content"> {{>api-block}} </section>
+<section id="api-docs">
+  <div id="api-classes">
+
+  {{#apiInfo.apis}}
+    {{>api-class }}
+  {{/apiInfo.apis}}
+
+  </div>
+</section>

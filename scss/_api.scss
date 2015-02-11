@@ -1,0 +1,138 @@
+// ------------------------------------------- Mixins
+
+@mixin section-border {
+  position: absolute;
+  display: block;
+  left: 1rem;
+  right: 1rem;
+  content: " ";
+
+  background-color: $color-api-header-separator;
+  height: 1px;
+  text-display: none;
+  z-index: 100;
+}
+
+@mixin api-section-shared {
+    position: relative;
+    width: 50%;
+    padding: 2rem 2rem;
+    // border-top: 1px solid $color-almost-white;
+}
+
+@mixin api-section-left-side {
+  @include api-section-shared;
+
+  float: left;
+  z-index: 20;
+}
+
+@mixin api-section-right-side {
+  @include api-section-shared;
+
+  margin-left: 50%;
+}
+
+// ------------------------------------------- IDs
+
+#api-docs {
+    padding-left: 240px;
+}
+
+#api-classes {
+  position: relative;
+  margin-left: 50%;
+  background-color: $color-code-bg;
+}
+
+// ------------------------------------------- Classes
+
+// All but the first api-class
+.api-class + .api-class .api-class-header{
+
+  &:before {
+    @include section-border;
+    top: 0;
+  }
+}
+
+.api-class-header {
+  @include api-section-left-side;
+  margin-top: rem-calc(64px);
+
+  &:after {
+    @include section-border;
+    bottom: 0;
+  }
+}
+
+.api-section {
+  @include clearfix;
+  margin-left: -100%;
+  position: relative;
+}
+
+.api-section-description {
+
+    @include api-section-left-side;
+
+    .endpoint {
+      @include clearfix;
+
+      font-family: $font-mono;
+      color: $color-almost-white;
+      margin-top: 1rem ;
+      // background-color: $color-dark-grey;
+
+      .method {
+        color: $color-half-white;
+        font-weight: bold;
+        margin-right: 1rem;
+        float: left;
+        width: 4rem;
+      }
+
+      .path {
+        border-radius: rem-calc(4px);
+        display: inline-block;
+        font-weight: bold;
+        margin-right: 1rem;
+        padding: 0 0.5rem;
+        float: left;
+      }
+
+      .path-post {background-color: $color-green; }
+      .path-get {background-color: $color-yellow; }
+      .path-put {background-color: $color-blue; }
+      .path-delete {background-color: $color-red; }
+
+      .method-arg {
+
+          display: inline-block;
+          color: black;
+          &:before {
+              content: '{';
+          }
+          &:after {
+              content: '}';
+          }
+      }
+
+    }
+
+    .argument {
+        text-align: right;
+        .argument-name {
+            &:after {content: ':'; }
+        }
+        .type {
+            color: $aluminum;
+            font-family: $font-mono;
+        }
+    }
+
+}
+
+.api-section-example {
+  @include api-section-right-side;
+}

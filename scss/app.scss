@@ -41,92 +41,14 @@
   // @import "foundation/components/offcanvas";
   // @import "foundation/components/visibility";
 
-// My settings
+// My includes
+@import "structure";
 
-$font-mono: 'Source Sans Pro' mono;
-$color-green: #78DD45;
-$color-blue: #4578dd;
+// Generic styles
+@import "base-styles";
 
-#top-bar {
-	padding-left: 240px;
-	max-height: rem-calc(64px);
-	height: rem-calc(64px);
-	margin-bottom: rem-calc(256px - 64px);
-	background-color:$color-green;
-} 
-
-.content {
-  	padding-left: 240px;
-  	float: left;
-
-}
-
-.api-docs {
-	margin-left: 50%;
-} 
-
-#toc-wrapper { 
-	background-color: white;
-	width: 240px;
-	position: fixed;
-	bottom: 0;
-	top: 0;
-	left: 0;
-	z-index: 10;
-	border-right: 1px solid rgba(0,0,0,0.4);
-}
-
-#code-examples {
-	display: relative;
-	margin-left: 50%;
-	width: 50%;
-	background: #333;
-}
-
-.api-block {
-
-	position: relative;
-
-	& .method {
-		font-weight: bold;
-	}
-
-	& .method-post { 
-		background-color: $color-green;
-	}
-
-	& .endpoint {
-		font-family: $font-mono;
-		padding: 5px;
-		background-color: $color-blue;
-		& .method-arg {
-
-			display: inline-block;
-			color: black;
-			&:before {
-				content: '{';
-			}
-			&:after {
-				content: '}';
-			}
-		}
-	}
-
-	& .argument {
-		text-align: right;
-		& .argument-name {
-			&:after {content: ':'; }
-		}
-		& .type {
-			color: $aluminum;
-			font-family: $font-mono;
-		}
-	}
-
-}
-
-.code {
-	color: #fff;
-	background-color: #123123;
-}
-
+// Style of stuctured elements
+@import "top-bar";
+@import "toc";
+@import "api";
+@import "code";
