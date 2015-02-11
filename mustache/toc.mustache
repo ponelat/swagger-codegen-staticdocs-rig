@@ -1,7 +1,14 @@
 <nav id="toc-wrapper" >
-  <ul class="toc side-nav">
+  <dl class="toc side-nav">
     {{#apiInfo.apis}}
-      <li><a href="#api-class-{{classname}}">{{classname}}</a></li>
+      <dt class="toc-api-classname"> {{classname}} </dt>
+        <div class="toc-api-endpoints">
+          {{# operations }}
+            {{# operation }}
+              <dd> <a class="endpoint" href="#api-path-{{operationId}}"><span class="method-icon method-{{httpMethod}}"></span>{{operationId}}</a> </dd>
+            {{/ operation }}
+          {{/ operations }}
+        </div>
     {{/apiInfo.apis}}
-  </ul>
+  </dl>
 </nav>

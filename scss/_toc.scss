@@ -1,4 +1,79 @@
 #toc-wrapper {
+  overflow-y: auto;
   background-color: white;
-  border-right: 1px solid rgba(0,0,0,0.4);
+  border-right: 1px solid $color-trans-black;
+  min-height: 100%;
+}
+
+dl.side-nav {
+
+  dt {
+    margin: 0;
+    padding: 1rem;
+
+    color: $color-dark-grey;
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-trans-black;
+    }
+
+  }
+
+  .toc-api-endpoints {
+    overflow: hidden;
+    dd {
+
+      margin: 0;
+
+      a.endpoint {
+
+        color: $color-toc-links;
+        display: block;
+        padding: 0.7rem 2rem;
+        text-decoration: none;
+
+        &:hover {
+         background-color: rgba(0,0,0,0.14) ;
+        }
+
+        .method-icon {
+          position: relative;
+          display: inline-block;
+          font-family: $font-mono;
+
+          color: white;
+
+          font-size: 0.7rem;
+          width: 1.2rem;
+          line-height: 1.1rem;
+          left: -0.4rem;
+          top: -0.1rem;
+          border-radius: rem-calc(2px);
+
+          text-align: center;
+
+        }
+        .method-post {
+          &:before {content: "P"; }
+          background-color: $color-green;
+        }
+        .method-put {
+          &:before {content: "P"; }
+          background-color: $color-blue;
+        }
+        .method-get {
+          &:before {content: "G"; }
+          background-color: $color-yellow;
+        }
+        .method-delete {
+          &:before {content: "D"; }
+          background-color: $color-red;
+        }
+      }
+    }
+  }
 }
