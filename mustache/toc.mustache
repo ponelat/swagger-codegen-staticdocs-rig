@@ -1,11 +1,11 @@
 <nav id="toc-wrapper" >
   <dl class="toc side-nav">
     {{#apiInfo.apis}}
-      <dt> {{classname}} </dt>
-        <div>
+      <dt class="toc-api-classname"> {{classname}} </dt>
+        <div class="toc-api-endpoints">
           {{# operations }}
             {{# operation }}
-              <dd> <a class="method method-{{httpMethod}}" href="#api-path-{{operationId}}">{{path}}</a> </dd>
+              <dd> <a class="endpoint" href="#api-path-{{operationId}}"><span class="method-icon method-{{httpMethod}}"></span>{{operationId}}</a> </dd>
             {{/ operation }}
           {{/ operations }}
         </div>

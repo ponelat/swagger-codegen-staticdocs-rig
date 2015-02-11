@@ -19,10 +19,19 @@ var list_of_partials = {
   'api-endpoint': $.Deferred()
 };
 
+var SLIDEUP_DELAY = 500;
+
 // --------------- Entry point...
 // ...after we load-in and render our mustache templates
 
 function mustache_loaded() {
+
+  // Toggle TOC nav
+  $('.toc-api-endpoints').slideUp(0);
+  $('.toc-api-classname').click(function(){
+    $('.toc-api-endpoints').slideUp(SLIDEUP_DELAY);
+    $(this).next('.toc-api-endpoints').stop().slideDown(SLIDEUP_DELAY);
+  });
 
   // Foundation
   $(document).foundation();
