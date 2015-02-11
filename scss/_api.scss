@@ -1,3 +1,40 @@
+// ------------------------------------------- Mixins
+
+@mixin section-border {
+  position: absolute;
+  display: block;
+  left: 1rem;
+  right: 1rem;
+  content: " ";
+
+  background-color: $color-api-header-separator;
+  height: 1px;
+  text-display: none;
+  z-index: 100;
+}
+
+@mixin api-section-shared {
+    position: relative;
+    width: 50%;
+    padding: 2rem 2rem;
+    // border-top: 1px solid $color-almost-white;
+}
+
+@mixin api-section-left-side {
+  @include api-section-shared;
+
+  float: left;
+  z-index: 20;
+}
+
+@mixin api-section-right-side {
+  @include api-section-shared;
+
+  margin-left: 50%;
+}
+
+// ------------------------------------------- IDs
+
 #api-docs {
     padding-left: 240px;
 }
@@ -8,51 +45,59 @@
   background-color: $color-code-bg;
 }
 
-.api-class-header {
-  margin-left: -100%;
-  padding: 20px;
+// ------------------------------------------- Classes
+
+// All but the first api-class
+.api-class + .api-class .api-class-header{
+
+  &:before {
+    @include section-border;
+    top: 0;
+  }
 }
 
-.api-endpoint {
+.api-class-header {
+  @include api-section-left-side;
+  margin-top: rem-calc(64px);
+
+  &:after {
+    @include section-border;
+    bottom: 0;
+  }
+}
+
+.api-section {
   @include clearfix;
   margin-left: -100%;
   position: relative;
 }
 
-.api-endpoint-description {
+.api-section-description {
 
-    position: relative;
-    float: left;
-    width: 50%;
-    z-index: 20;
-
-    padding: 0px 30px;
+    @include api-section-left-side;
 
     .endpoint {
       @include clearfix;
 
-      border-top: 1px solid $color-almost-white;
       font-family: $font-mono;
       color: $color-almost-white;
-      padding: 0.5em;
-      margin-top: 1em ;
+      margin-top: 1rem ;
       // background-color: $color-dark-grey;
 
       .method {
         color: $color-half-white;
         font-weight: bold;
-        margin-right: 1em;
-        padding-left: 1em;
+        margin-right: 1rem;
         float: left;
-        width: 5em;
+        width: 4rem;
       }
 
       .path {
-        border-radius: 2px;
+        border-radius: rem-calc(4px);
         display: inline-block;
         font-weight: bold;
-        margin-right: 1em;
-        padding: 0 0.5em;
+        margin-right: 1rem;
+        padding: 0 0.5rem;
         float: left;
       }
 
@@ -88,8 +133,6 @@
 
 }
 
-.api-endpoint-example {
-  position: relative;
-  width: 50%;
-  margin-left: 50%;
+.api-section-example {
+  @include api-section-right-side;
 }
