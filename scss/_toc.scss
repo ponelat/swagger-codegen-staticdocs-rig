@@ -1,5 +1,36 @@
 #toc-wrapper {
-  overflow-y: scroll;
+  overflow-y: auto;
   background-color: white;
-  border-right: 1px solid rgba(0,0,0,0.4);
+  border-right: 1px solid rgba(0,0,0,0.14);
+  min-height: 100%;
+}
+
+dl.side-nav {
+  dt {
+  }
+  dd {
+    a {
+      color: $color-toc-links;
+      font-family: $font-mono;
+      text-decoration: none;
+    }
+    a.method {
+      &:before {
+        position: relative;
+        display: inline-block;
+        font-family: $font-mono;
+        font-size: 0.7rem;
+        width: 1.2rem;
+        line-height: 1.1rem;
+        left: -0.5rem;
+        color: white;
+        text-align: center;
+        border-radius: rem-calc(2px);
+      }
+    }
+    a.method-post {&:before {content: "P"; background-color: $color-green; } }
+    a.method-put {&:before {content: "P"; background-color: $color-blue; } }
+    a.method-get {&:before {content: "G"; background-color: $color-yellow; } }
+    a.method-delete {&:before {content: "D"; background-color: $color-red; } }
+  }
 }
