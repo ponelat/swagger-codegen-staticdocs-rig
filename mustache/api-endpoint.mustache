@@ -9,20 +9,39 @@
       <h3 class="path path-{{httpMethod}}"> {{path}} </h3>
     </div>
 
-    <p class="summary"> {{summary}} </p>
+    <p class="summary">{{summary}}</p>
+
+<h4 class="params-params" {{^ pathParams }}style="display: none;"{{/pathParams }} >
+  Path Params
+</h4>
 
 {{#pathParams}}
-    <div class="argument-name">{{paramName}}</div>
-    <div class="type">{{dataType}}</div>
+  <dl class="argument">
+
+    <dt class="argument-name-type-wrapper">
+      <div class="argument-name">{{paramName}}</div>
+      <div class="argument-type">{{dataType}}</div>
+    </dt>
+
     <p class="description"> {{description}} </p>
+  </dl>
 {{/pathParams}}
 
-{{# bodyParams }}
-    <div class="body-param">
-      <div class="body-paray">{{dataType}}</div>
-      <div class="body-param-description">{{description}}</div>
-    </div>
-{{/ bodyParams }}
+<h4 class="params-body" {{^ bodyParams }}style="display: none;"{{/bodyParams}} >
+  Body Params
+</h4>
+
+{{#bodyParams}}
+  <dl class="argument">
+
+    <dt class="argument-name-type-wrapper">
+      <div class="argument-name">{{paramName}}</div>
+      <div class="argument-type">{{dataType}}</div>
+    </dt>
+
+    <p class="description"> {{description}} </p>
+  </dl>
+{{/bodyParams}}
 
   </div>
 

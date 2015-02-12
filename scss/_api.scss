@@ -72,67 +72,6 @@
   position: relative;
 }
 
-.api-section-description {
-
-    @include api-section-left-side;
-
-    .endpoint {
-      @include clearfix;
-
-      font-family: $font-mono;
-      color: $color-almost-white;
-      margin-top: 1rem ;
-      // background-color: $color-dark-grey;
-
-      .method {
-        color: $color-half-white;
-        font-weight: bold;
-        margin-right: 1rem;
-        float: left;
-        width: 4rem;
-      }
-
-      .path {
-        border-radius: rem-calc(4px);
-        display: inline-block;
-        font-weight: bold;
-        margin-right: 1rem;
-        padding: 0 0.5rem;
-        float: left;
-      }
-
-      .path-post {background-color: $color-green; }
-      .path-get {background-color: $color-yellow; }
-      .path-put {background-color: $color-blue; }
-      .path-delete {background-color: $color-red; }
-
-      .method-arg {
-
-          display: inline-block;
-          color: black;
-          &:before {
-              content: '{';
-          }
-          &:after {
-              content: '}';
-          }
-      }
-
-    }
-
-    .argument {
-        text-align: right;
-        .argument-name {
-            &:after {content: ':'; }
-        }
-        .type {
-            color: $aluminum;
-            font-family: $font-mono;
-        }
-    }
-
-}
-
 .api-section-example {
   @include api-section-right-side;
 }
