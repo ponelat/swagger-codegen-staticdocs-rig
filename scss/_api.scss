@@ -16,7 +16,7 @@
 @mixin api-section-shared {
     position: relative;
     width: 50%;
-    padding: 2rem 2rem;
+    padding: $api-section-padding;
     // border-top: 1px solid $color-almost-white;
 }
 
@@ -74,6 +74,7 @@
 
 .api-section-example {
   @include api-section-right-side;
+  padding-top: $api-description-header-height + $api-section-padding;
   pre {
      margin-top: 0;
 

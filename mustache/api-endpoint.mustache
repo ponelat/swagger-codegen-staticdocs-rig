@@ -5,6 +5,7 @@
   <div class="api-section-description">
 
     <div class="endpoint">
+      <h3 class="classname">{{classname}}</h3>
       <h3 class="method">{{httpMethod}}</h3>
       <h3 class="path path-{{httpMethod}}"> {{path}} </h3>
     </div>
@@ -47,11 +48,6 @@
 
 
   <div class="api-section-example">
-    <pre>
-      <code class="highlight-js bash curl">{{>curl}}</code>
-      </pre>
-  </div>
-
-
+    <pre><code class="highlight-js bash curl">{{>curl}}</code></pre></div>
 </div>
 

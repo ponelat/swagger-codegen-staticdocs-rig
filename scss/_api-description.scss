@@ -8,7 +8,13 @@
 
         font-family: $font-mono;
         color: $color-almost-white;
-        margin-top: 1rem;
+        height: $api-description-header-height;
+
+        .classname {
+          color: $color-endpoint-classname;
+          float: left;
+          width: 10rem;
+        }
 
         .method {
             color: $color-half-white;
@@ -51,6 +57,7 @@
     }
 
     .summary {
+      margin-top: 0;
       color: $color-dark-grey;
       font-size: 1.2rem;
     }
