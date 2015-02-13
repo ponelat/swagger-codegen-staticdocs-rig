@@ -35,11 +35,11 @@
 
 // ------------------------------------------- IDs
 
-#api-docs {
-    padding-left: 240px;
+#main-wrapper {
+  padding-left: 240px;
 }
 
-#api-classes {
+[role=main] {
   position: relative;
   margin-left: 50%;
   background-color: $color-code-bg;
