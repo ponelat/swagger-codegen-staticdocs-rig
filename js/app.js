@@ -7,6 +7,13 @@ function get_values(col) {
   return $.map(col, function(value){return value; });
 }
 
+var mustache_functions = {
+  'uppercase': function () {
+    return function (text, render) {
+      return render(text).toUpperCase().trim();
+    };
+  }
+};
 
 
 // --------------- Our code....
@@ -15,6 +22,7 @@ function get_values(col) {
 var list_of_partials = {
   'top-bar': $.Deferred(),
   'toc': $.Deferred(),
+  'curl': $.Deferred(),
   'api-class': $.Deferred(),
   'api-endpoint': $.Deferred()
 };
@@ -77,8 +85,10 @@ $.when(
           partials[item.name] = item.template;
         });
 
+        var view = $.extend(data,mustache_functions);
+
         // Render and inject mustaches in all their glory
-        var rendered = Mustache.render( template, data, partials);
+        var rendered = Mustache.render( template, view, partials);
         $(document.body).prepend(rendered).promise().done(mustache_loaded);
 
     });
