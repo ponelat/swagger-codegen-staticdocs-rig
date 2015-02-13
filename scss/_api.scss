@@ -74,4 +74,18 @@
 
 .api-section-example {
   @include api-section-right-side;
+  pre {
+     margin-top: 0;
+
+    code {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    .curl {
+      &:before {
+        content: "$ "
+      }
+    }
+  }
 }
