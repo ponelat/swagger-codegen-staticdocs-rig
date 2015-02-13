@@ -23,6 +23,7 @@ var list_of_partials = {
   'top-bar': $.Deferred(),
   'toc': $.Deferred(),
   'curl': $.Deferred(),
+  'model': $.Deferred(),
   'api-class': $.Deferred(),
   'api-endpoint': $.Deferred()
 };

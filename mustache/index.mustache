@@ -5,9 +5,19 @@
 <div id="main-wrapper">
   <section role="main">
 
-    {{#apiInfo.apis}}
-      {{>api-class }}
-    {{/apiInfo.apis}}
+    <div id="api-classes">
+      {{#apiInfo.apis}}
+        {{>api-class }}
+      {{/apiInfo.apis}}
+    </div>
+
+    <div id="api-models">
+      {{#models}}
+        {{#model}}
+          {{>model}}
+        {{/model}}
+      {{/models}}
+   </div>
 
   </section>
 </div>
