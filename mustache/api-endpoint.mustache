@@ -17,14 +17,14 @@
 </h4>
 
 {{#pathParams}}
-  <dl class="argument">
+  <dl class="middle-list">
 
-    <dt class="argument-name-type-wrapper">
-      <div class="argument-name">{{paramName}}</div>
-      <div class="argument-type">{{dataType}}</div>
-    </dt>
+    <dt> {{paramName}} </dt>
+    <dd>
+          <div class="type">{{dataType}}</div>
+          <p> {{description}} </p>
+     </dd>
 
-    <p class="description"> {{description}} </p>
   </dl>
 {{/pathParams}}
 

@@ -62,31 +62,33 @@
       font-size: 1.2rem;
     }
 
-    .argument {
-
-      @include clearfix;
-
-      .argument-name-type-wrapper {
-
-
-        float: left;
-        display: block;
-        position: relative;
-        text-align: right;
-        width: 10rem;
-        margin-right: 1rem;
-
-        .argument-name {
-          font-weight: bold;
-        }
-        .argument-type {
-            color: $aluminum;
-            font-family: $font-mono;
-        }
-      }
-    }
     .description {
       margin-top: 0;
       float: left;
     }
 }
+    dl.middle-list {
+
+      @include clearfix;
+
+      dt {
+        display: block;
+        position: relative;
+        float: left;
+        text-align: right;
+        width: 10rem;
+        margin-right: 1rem;
+        font-weight: bold;
+      }
+
+      dd {
+        float: left;
+        .type {
+          color: $aluminum;
+          font-family: $font-mono;
+        }
+        p {
+          margin-top: 0;
+        }
+      }
+    }
