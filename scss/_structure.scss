@@ -1,13 +1,8 @@
-// ------------------------------------------- Mixins
-@mixin api-section-shared {
-    position: relative;
-    width: 50%;
-    padding: $api-section-padding;
-    // border-top: 1px solid $color-almost-white;
+// ------------------------------------------- Wrapper, Top and Nav
+
+#wrapper {
+  overflow-x: auto;
 }
-
-
-// ------------------------------------------- Top and nav
 
 #top-bar {
   padding-left: $nav-section-width;
@@ -41,19 +36,21 @@
 }
 
 .api-section-left {
-  @include api-section-shared;
+  position: relative;
+  width: 50%;
+  padding: $api-section-padding;
   float: left;
   z-index: 20;
 }
 
-.api-section-right {
-  @include api-section-shared;
-  margin-left: 50%;
-}
 
 // ------------------------------------------- Media Queries
 
 @media #{$small-up} {
+  #wrapper {
+    background-color: $color-section-right;
+  }
+
   #top-bar {
     padding-left: 1rem;
   }
@@ -72,28 +69,22 @@
   }
 
   .api-section-right {
-    display: none;
-  }
-
-  .api-section-show-code {
-    overflow-x: auto;
     background-color: $color-section-right;
-    .api-section {
-    }
-    .api-section-right {
-      background-color: $color-section-right;
-      padding: $api-section-padding;
-      padding-right: 0;
-      display: block;
-      clear: left;
-      code {
-        padding: 0;
-      }
-    }
+    padding: $api-section-padding;
+    padding-right: 0;
+    width: 51%; // To remove the artifact line that is formed..
+                 // ...on the border of this and #wrapper's background
+    clear: left;
+    margin-left: 50%;
+    display: block;
   }
 }
 
 @media #{$large-up} {
+  #wrapper {
+    background-color: $color-section-left;
+  }
+
   #top-bar {
     padding-left: $nav-section-width;
   }
@@ -116,7 +107,13 @@
   }
 
   .api-section-right {
+    position: relative;
     display: block;
+    background-color: inherit;
+    width: 50%;
+    padding: $api-section-padding;
+    margin-left: 50%;
+    clear: none;
   }
 
   // #nav-menu-button {

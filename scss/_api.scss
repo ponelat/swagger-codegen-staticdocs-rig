@@ -34,7 +34,14 @@
 }
 
 .api-section-example {
-  padding-top: $api-description-header-height + $api-section-padding;
+
+  @media #{$small-up} {
+    padding-top: $api-section-padding;
+  }
+  @media #{$large-up} {
+    padding-top: $api-section-padding + $api-description-header-height;
+  }
+
   pre {
      margin-top: 0;
 
