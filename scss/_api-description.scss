@@ -1,3 +1,6 @@
+$endpoint-font-size: 1.2rem !default;
+$endpoint-method-size: $endpoint-font-size * 4 !default;
+
 .api-section-description {
 
     .classname {
@@ -11,27 +14,23 @@
         font-family: $font-mono;
         color: $color-almost-white;
         height: $api-description-header-height;
-
-        .classname {
-          color: $color-endpoint-classname;
-          float: left;
-          width: 10rem;
-        }
+        font-size: $endpoint-font-size;
+        line-height: 150%;
 
         .method {
-            color: $color-half-white;
-            font-weight: bold;
-            margin-right: 1rem;
-            float: left;
-            width: 4rem;
+          color: $color-half-white;
+          font-weight: bold;
+          margin-right: 1rem;
+          float: left;
+          width: $endpoint-method-size;
         }
         .path {
-            border-radius: rem-calc(4px);
-            display: inline-block;
-            font-weight: bold;
-            margin-right: 1rem;
-            padding: 0 0.5rem;
-            float: left;
+          border-radius: rem-calc(4px);
+          display: inline-block;
+          font-weight: bold;
+          margin-right: 1rem;
+          padding: 0 0.5rem;
+          float: left;
         }
         .path-post {
             background-color: $color-green;
