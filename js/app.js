@@ -17,6 +17,31 @@ var mustache_functions = {
 
 };
 
+var SLIDEUP_DELAY = 500;
+
+function attach_toc_listeners() {
+
+  // Toggle TOC nav
+  $('.toc-api-endpoints').slideUp(0);
+  $('.toc-api-classname').click(function(){
+    $('.toc-api-endpoints').slideUp(SLIDEUP_DELAY);
+    $(this).next('.toc-api-endpoints').stop().slideDown(SLIDEUP_DELAY);
+  });
+
+  // Handle flyout TOC
+  $('.mobile-only .menu-icon').click(function(){
+    $('#wrapper').addClass('show-nav-section');
+  });
+  // NOTE: is this efficient, having a click event for escaping the fly-out toc?
+  $('#nav-wrapper a.endpoint, #main-wrapper').click(function(){
+    $('#wrapper').removeClass('show-nav-section');
+  });
+  $(document).keyup(function(e) {
+    if (e.keyCode === 27) { // esc
+      $('#wrapper').removeClass('show-nav-section');
+    }
+  });
+}
 
 // --------------- Our code....
 
@@ -30,27 +55,14 @@ var list_of_partials = {
   'api-endpoint': $.Deferred()
 };
 
-var SLIDEUP_DELAY = 500;
 
 // --------------- Entry point...
 // ...after we load-in and render our mustache templates
 
 function mustache_loaded() {
 
-  // Toggle TOC nav
-  $('.toc-api-endpoints').slideUp(0);
-  $('.toc-api-classname').click(function(){
-    $('.toc-api-endpoints').slideUp(SLIDEUP_DELAY);
-    $(this).next('.toc-api-endpoints').stop().slideDown(SLIDEUP_DELAY);
-  });
-
-  $('.mobile-only .menu-icon').click(function(){
-    $('#wrapper').addClass('show-nav-section');
-  });
-  // NOTE: is this efficient, having a click event for escaping the fly-out toc?
-  $('#nav-wrapper a.endpoint, #main-wrapper').click(function(){
-    $('#wrapper').removeClass('show-nav-section');
-  });
+  // TOC
+   attach_toc_listeners();
 
   // Foundation
   $(document).foundation();
