@@ -37,8 +37,9 @@ ie: it is driven by a JSON obejct and redered using mustache
 
 #### Needed
 
-- [ ] Show TOC in mobile view.
+- [x] Show TOC in mobile view.
 - [ ] Describe models.
+- [ ] Sticky top-bar, right-now we need data-topbar
 - [ ] Integrate models with API, link them together
 
 #### Possible
