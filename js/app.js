@@ -12,7 +12,9 @@ var mustache_functions = {
     return function (text, render) {
       return render(text).toUpperCase().trim();
     };
-  }
+  },
+  'menu-icon': '&ensp;&#9776;&ensp;' // A glyph that we use in lieu of an icon
+
 };
 
 
@@ -40,6 +42,13 @@ function mustache_loaded() {
   $('.toc-api-classname').click(function(){
     $('.toc-api-endpoints').slideUp(SLIDEUP_DELAY);
     $(this).next('.toc-api-endpoints').stop().slideDown(SLIDEUP_DELAY);
+  });
+
+  $('.mobile-only .menu-icon').click(function(){
+    $('#wrapper').addClass('show-nav-section');
+  });
+  $('#nav-wrapper a.endpoint').click(function(){
+    $('#wrapper').removeClass('show-nav-section');
   });
 
   // Foundation

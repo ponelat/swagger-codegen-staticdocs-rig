@@ -15,7 +15,7 @@
   bottom: 0;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 200;
 }
 
 // ------------------------------------------- Main
@@ -44,6 +44,7 @@
 }
 
 
+
 // ------------------------------------------- Media Queries
 
 @media #{$small-up} {
@@ -51,8 +52,12 @@
     background-color: $color-section-right;
   }
 
+
   #top-bar {
     padding-left: 1rem;
+    .mobile-only {
+      display: initial;
+    }
   }
 
   #nav-wrapper {
@@ -78,6 +83,7 @@
     margin-left: 50%;
     display: block;
   }
+
 }
 
 @media #{$large-up} {
@@ -87,6 +93,9 @@
 
   #top-bar {
     padding-left: $nav-section-width;
+    .mobile-only {
+      display: none;
+    }
   }
 
   #nav-wrapper {
@@ -121,3 +130,27 @@
   // }
 
 }
+
+// --------------------------- JS interactive
+  .show-nav-section {
+
+    #nav-wrapper {
+      left: 0;
+      &:before {
+        content: "";
+        position: fixed;
+        left: $nav-section-width;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background-color: $color-modal-mask;
+        z-index: 199;
+      }
+    }
+
+    [role=main] {
+      background-color: $color-section-left;
+      margin-left: 0;
+    }
+
+  }
