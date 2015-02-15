@@ -27,12 +27,68 @@
   margin-left: 50%;
 }
 
-#toc-wrapper {
+// ------------------------------------------- IDs
+
+#top-bar {
+  padding-left: $nav-section-width;
+}
+
+#nav-wrapper {
   background-color: white;
-  width: 240px;
+  width: $nav-section-width;
   position: fixed;
   bottom: 0;
   top: 0;
   left: 0;
   z-index: 10;
+}
+
+// ------------------------------------------- Roles
+
+[role=main] {
+  position: relative;
+  margin-left: 50%;
+  background-color: $color-code-bg;
+}
+
+// ------------------------------------------- Media Queries
+
+@media #{$small-up} {
+  #top-bar {
+    padding-left: 1rem;
+  }
+
+  #nav-wrapper {
+    left: -$nav-section-width;
+  }
+
+  // [role=main] {
+  //   margin-left: 100%;
+  // }
+  .api-section-left {
+
+  }
+}
+
+@media #{$large-up} {
+  #top-bar {
+    padding-left: $nav-section-width;
+  }
+
+  #nav-wrapper {
+    left: 0;
+  }
+
+  #main-wrapper {
+    padding-left: $nav-section-width;
+  }
+
+  // [role=main] {
+  //   margin-left: 50%;
+  // }
+
+  // #nav-menu-button {
+  //   display: hidden;
+  // }
+
 }
