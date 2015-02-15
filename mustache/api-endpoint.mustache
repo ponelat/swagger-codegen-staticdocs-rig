@@ -5,34 +5,49 @@
   <div class="api-section-description">
 
     <div class="endpoint">
+      <h3 class="classname">{{classname}}</h3>
       <h3 class="method">{{httpMethod}}</h3>
       <h3 class="path path-{{httpMethod}}"> {{path}} </h3>
     </div>
 
-    <p class="summary"> {{summary}} </p>
+    <p class="summary">{{summary}}</p>
+
+<h4 class="params-params" {{^ pathParams }}style="display: none;"{{/pathParams }} >
+  Path Params
+</h4>
 
 {{#pathParams}}
-    <div class="argument-name">{{paramName}}</div>
-    <div class="type">{{dataType}}</div>
-    <p class="description"> {{description}} </p>
+  <dl class="middle-list">
+
+    <dt> {{paramName}} </dt>
+    <dd>
+          <div class="type">{{dataType}}</div>
+          <p> {{description}} </p>
+     </dd>
+
+  </dl>
 {{/pathParams}}
 
-{{# bodyParams }}
-    <div class="body-param">
-      <div class="body-paray">{{dataType}}</div>
-      <div class="body-param-description">{{description}}</div>
-    </div>
-{{/ bodyParams }}
+<h4 class="params-body" {{^ bodyParams }}style="display: none;"{{/bodyParams}} >
+  Body Params
+</h4>
+
+{{#bodyParams}}
+  <dl class="argument">
+
+    <dt class="argument-name-type-wrapper">
+      <div class="argument-name">{{paramName}}</div>
+      <div class="argument-type">{{dataType}}</div>
+    </dt>
+
+    <p class="description"> {{description}} </p>
+  </dl>
+{{/bodyParams}}
 
   </div>
 
 
   <div class="api-section-example">
-    <pre> <code class="highlight-js javascript">
-      var something = 'something';
-    </code> </pre>
-  </div>
-
-
+    <pre><code class="highlight-js bash curl">{{>curl}}</code></pre></div>
 </div>
 

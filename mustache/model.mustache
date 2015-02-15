@@ -1,0 +1,31 @@
+<div class="api-section">
+
+<div class="api-section-left">
+  <a class="anchor" id="api-model-{{operationId}}">&nbsp;</a>
+
+  <h3 class="name">{{name}}</h3>
+
+  <h4 class="vars-headline" {{^vars}}style="display: none;"{{/vars}}>
+    Variables
+  </h4>
+
+  {{#vars}}
+    <dl class="middle-list">
+
+      <dt> {{name}} </dt>
+
+      <dd>
+        <div class="data-type">{{datatype}}</div>
+      </dd>
+
+    </dl>
+  {{/vars}}
+
+  </div>
+
+  <div class="api-section-right">
+    <pre><code class="highlight-js javascript">{{modelJson}}</code></pre>
+  </div>
+
+</div>
+

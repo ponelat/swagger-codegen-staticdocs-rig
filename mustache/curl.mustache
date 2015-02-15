@@ -1,0 +1,3 @@
+curl <span class="string">{{basePath}}</span>{{#pathParams}}<span class="keyword">/&#123;{{paramName}}&#125;</span>{{/pathParams}} \ {{#bodyParams}}
+  -d <span class="keyword">{{paramName}}</span>=&lt;<span class="string">{{dataType}}</span>&gt; \{{/bodyParams}}
+  -X <span class="keyword">{{#uppercase}} {{httpMethod}} {{/uppercase}}</span>
