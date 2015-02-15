@@ -9,6 +9,7 @@
 }
 
 #nav-wrapper {
+  overflow: auto;
   background-color: white;
   width: $nav-section-width;
   position: fixed;
