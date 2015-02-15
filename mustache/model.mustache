@@ -1,5 +1,6 @@
-<div class="api-section api-model">
+<div class="api-section">
 
+<div class="api-section-left">
   <a class="anchor" id="api-model-{{operationId}}">&nbsp;</a>
 
   <h3 class="name">{{name}}</h3>
@@ -9,19 +10,22 @@
   </h4>
 
   {{#vars}}
-    <dl class="argument">
+    <dl class="middle-list">
 
-      <dt class="argument-name-type-wrapper">
-        <div class="argument-name">{{paramName}}</div>
-        <div class="argument-type">{{dataType}}</div>
-      </dt>
+      <dt> {{name}} </dt>
 
-      <p class="description"> {{description}} </p>
+      <dd>
+        <div class="data-type">{{datatype}}</div>
+      </dd>
+
     </dl>
   {{/vars}}
 
-  <pre><code class="highligh-js json">{{modelJson}}</code></pre>
-
   </div>
+
+  <div class="api-section-right">
+    <pre><code class="highlight-js javascript">{{modelJson}}</code></pre>
+  </div>
+
 </div>
 
