@@ -74,6 +74,23 @@
   .api-section-right {
     display: none;
   }
+
+  .api-section-show-code {
+    overflow-x: auto;
+    background-color: $color-section-right;
+    .api-section {
+    }
+    .api-section-right {
+      background-color: $color-section-right;
+      padding: $api-section-padding;
+      padding-right: 0;
+      display: block;
+      clear: left;
+      code {
+        padding: 0;
+      }
+    }
+  }
 }
 
 @media #{$large-up} {
