@@ -145,6 +145,7 @@
         bottom: 0;
         top: 0;
         background-color: $color-modal-mask;
+        pointer-events: none;
         z-index: 199;
       }
     }

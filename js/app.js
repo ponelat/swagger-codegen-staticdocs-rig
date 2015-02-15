@@ -47,7 +47,8 @@ function mustache_loaded() {
   $('.mobile-only .menu-icon').click(function(){
     $('#wrapper').addClass('show-nav-section');
   });
-  $('#nav-wrapper a.endpoint').click(function(){
+  // NOTE: is this efficient, having a click event for escaping the fly-out toc?
+  $('#nav-wrapper a.endpoint, #main-wrapper').click(function(){
     $('#wrapper').removeClass('show-nav-section');
   });
 
