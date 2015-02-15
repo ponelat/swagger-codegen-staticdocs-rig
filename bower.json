@@ -4,10 +4,7 @@
   "private": "true",
   "dependencies": {
     "foundation": "zurb/bower-foundation",
-    "jquery": "latest"
-  },
-  "devDependencies": {
     "mustache": "~1.0.0",
-    "highlight.js": "~7.3.0"
+    "jquery": "latest"
   }
 }

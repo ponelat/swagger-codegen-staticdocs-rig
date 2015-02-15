@@ -67,10 +67,12 @@ function mustache_loaded() {
   // Foundation
   $(document).foundation();
 
+
   // Highlight.js (code syntax highlighting)
-  $('.highlight-js').each(function(i, block) {
-    hljs.highlightBlock(block);
+  hljs.configure({
+    languages: ['bash']
   });
+  hljs.initHighlighting();
 
 }
 
