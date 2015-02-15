@@ -1,6 +1,8 @@
 .api-section-description {
 
-    @include api-section-left-side;
+    .classname {
+      color: $color-endpoint-classname;
+    }
 
     .endpoint {
 

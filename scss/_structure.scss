@@ -1,4 +1,31 @@
-// api-docs is both the wrapper and the background for the method descriptions
+// ------------------------------------------- Mixins
+@mixin api-section-shared {
+    position: relative;
+    width: 50%;
+    padding: $api-section-padding;
+    // border-top: 1px solid $color-almost-white;
+}
+
+.api-section {
+  @include clearfix;
+  margin-left: -100%;
+  position: relative;
+   &:last-child {
+    position: relative;
+    height: 100%;
+   }
+}
+
+.api-section-left {
+  @include api-section-shared;
+  float: left;
+  z-index: 20;
+}
+
+.api-section-right {
+  @include api-section-shared;
+  margin-left: 50%;
+}
 
 #toc-wrapper {
   background-color: white;
