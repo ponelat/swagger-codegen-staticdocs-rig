@@ -2,12 +2,12 @@
 
 <a class="anchor" id="api-path-{{operationId}}">&nbsp;</a>
 
-  <div class="api-section-description">
+  <div class="api-section-description api-section-left">
 
+    <h4 class="classname">{{classname}}</h4>
     <div class="endpoint">
-      <h3 class="classname">{{classname}}</h3>
-      <h3 class="method">{{httpMethod}}</h3>
-      <h3 class="path path-{{httpMethod}}"> {{path}} </h3>
+      <span class="method">{{httpMethod}}</span>
+      <span class="path path-{{httpMethod}}"> {{path}} </span>
     </div>
 
     <p class="summary">{{summary}}</p>
@@ -47,7 +47,7 @@
   </div>
 
 
-  <div class="api-section-example">
+  <div class="api-section-example api-section-right">
     <pre><code class="highlight-js bash curl">{{>curl}}</code></pre></div>
 </div>
 

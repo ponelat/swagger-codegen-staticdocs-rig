@@ -1,11 +1,158 @@
-// api-docs is both the wrapper and the background for the method descriptions
+// ------------------------------------------- Wrapper, Top and Nav
 
-#toc-wrapper {
+#wrapper {
+  overflow-x: auto;
+}
+
+#top-bar {
+  padding-left: $nav-section-width;
+}
+
+#nav-wrapper {
+  overflow: auto;
   background-color: white;
-  width: 240px;
+  width: $nav-section-width;
   position: fixed;
   bottom: 0;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 200;
 }
+
+// ------------------------------------------- Main
+
+[role=main] {
+  position: relative;
+}
+
+.api-section {
+  @include clearfix;
+  margin-left: -100%;
+  position: relative;
+  // TODO: make sure the last section's anchor is on top of viewport
+   // &:last-child {
+   //  position: relative;
+   //  height: 100%;
+   // }
+}
+
+.api-section-left {
+  position: relative;
+  width: 50%;
+  padding: $api-section-padding;
+  float: left;
+  z-index: 20;
+}
+
+
+
+// ------------------------------------------- Media Queries
+
+@media #{$small-up} {
+  #wrapper {
+    background-color: $color-section-right;
+  }
+
+
+  #top-bar {
+    padding-left: 1rem;
+    .mobile-only {
+      display: initial;
+    }
+  }
+
+  #nav-wrapper {
+    left: -$nav-section-width;
+  }
+
+  [role=main] {
+    background-color: $color-section-left;
+    margin-left: 0;
+  }
+
+  .api-section-left {
+    margin-left: 50%;
+  }
+
+  .api-section-right {
+    background-color: $color-section-right;
+    padding: $api-section-padding;
+    padding-right: 0;
+    width: 51%; // To remove the artifact line that is formed..
+                 // ...on the border of this and #wrapper's background
+    clear: left;
+    margin-left: 50%;
+    display: block;
+  }
+
+}
+
+@media #{$large-up} {
+  #wrapper {
+    background-color: $color-section-left;
+  }
+
+  #top-bar {
+    padding-left: $nav-section-width;
+    .mobile-only {
+      display: none;
+    }
+  }
+
+  #nav-wrapper {
+    left: 0;
+  }
+
+  #main-wrapper {
+    padding-left: $nav-section-width;
+  }
+
+  [role=main] {
+    background-color: $color-section-right;
+    margin-left: 50%;
+  }
+
+  .api-section-left {
+    margin-left: 0;
+  }
+
+  .api-section-right {
+    position: relative;
+    display: block;
+    background-color: inherit;
+    width: 50%;
+    padding: $api-section-padding;
+    margin-left: 50%;
+    clear: none;
+  }
+
+  // #nav-menu-button {
+  //   display: hidden;
+  // }
+
+}
+
+// --------------------------- JS interactive
+  .show-nav-section {
+
+    #nav-wrapper {
+      left: 0;
+      &:before {
+        content: "";
+        position: fixed;
+        left: $nav-section-width;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background-color: $color-modal-mask;
+        pointer-events: none;
+        z-index: 199;
+      }
+    }
+
+    [role=main] {
+      background-color: $color-section-left;
+      margin-left: 0;
+    }
+
+  }

@@ -1,23 +1,29 @@
-<header id="top-bar"> {{>top-bar}} </header>
+<div id="wrapper">
 
-<aside id="toc"> {{>toc}} </aside>
+  <header > {{>top-bar}} </header>
 
-<div id="main-wrapper">
-  <section role="main">
+  <aside id="nav-wrapper">
+    {{>toc}}
+  </aside>
 
-    <div id="api-classes">
-      {{#apiInfo.apis}}
-        {{>api-class }}
-      {{/apiInfo.apis}}
-    </div>
+  <div id="main-wrapper">
+    <section role="main">
 
-    <div id="api-models">
-      {{#models}}
-        {{#model}}
-          {{>model}}
-        {{/model}}
-      {{/models}}
-   </div>
+      <div id="api-classes">
+        {{#apiInfo.apis}}
+          {{>api-class }}
+        {{/apiInfo.apis}}
+      </div>
 
-  </section>
+      <div id="api-models">
+        {{#models}}
+          {{#model}}
+            {{>model}}
+          {{/model}}
+        {{/models}}
+     </div>
+
+    </section>
+  </div>
+
 </div>

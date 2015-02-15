@@ -13,38 +13,6 @@
   z-index: 100;
 }
 
-@mixin api-section-shared {
-    position: relative;
-    width: 50%;
-    padding: $api-section-padding;
-    // border-top: 1px solid $color-almost-white;
-}
-
-@mixin api-section-left-side {
-  @include api-section-shared;
-
-  float: left;
-  z-index: 20;
-}
-
-@mixin api-section-right-side {
-  @include api-section-shared;
-
-  margin-left: 50%;
-}
-
-// ------------------------------------------- IDs
-
-#main-wrapper {
-  padding-left: 240px;
-}
-
-[role=main] {
-  position: relative;
-  margin-left: 50%;
-  background-color: $color-code-bg;
-}
-
 // ------------------------------------------- Classes
 
 // All but the first api-class
@@ -56,14 +24,6 @@
   }
 }
 
-.api-section-left {
-  @include api-section-left-side;
-}
-
-.api-section-right {
-  @include api-section-right-side;
-}
-
 .api-class-header {
   margin-top: rem-calc(64px);
 
@@ -73,19 +33,15 @@
   }
 }
 
-.api-section {
-  @include clearfix;
-  margin-left: -100%;
-  position: relative;
-   &:last-child {
-    position: relative;
-    height: 100%;
-   }
-}
-
 .api-section-example {
-  @include api-section-right-side;
-  padding-top: $api-description-header-height + $api-section-padding;
+
+  @media #{$small-up} {
+    padding-top: $api-section-padding;
+  }
+  @media #{$large-up} {
+    padding-top: $api-section-padding + $api-description-header-height;
+  }
+
   pre {
      margin-top: 0;
 
