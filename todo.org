@@ -10,10 +10,11 @@
 ** Code samples [0/2]
   - [ ] Bash support
   - [ ] Add context headers in code section
-** Models [2/4]
+** Models [3/5]
    - [X] Partial template
    - [X] Code example
-   - [ ] TOC list
+   - [X] TOC list
+   - [ ] Style them
    - [ ] Integrate with API endpoints
 ** Style [0/2]
    - [ ] Type layout, vertical rhythym
