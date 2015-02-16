@@ -1,5 +1,23 @@
-* Todo list for Swagger-codegen-staticdocs-rig [0/2]
-  - [ ] Setup partials
-  - [ ] structure panes
-    - [ ] api block
-    - [ ] code examples
+* TODO list for Swagger-codegen-staticdocs-rig
+** Basic [2/2]
+  - [X] Setp partials
+  - [X] Structure panes
+    - [X] api block
+    - [X] code examples
+** Mobile [1/2]
+  - [X] Breakpoints
+  - [ ] Sticky top-bar
+** Code samples [0/2]
+  - [ ] Bash support
+  - [ ] Add context headers in code section
+** Models [2/4]
+   - [X] Partial template
+   - [X] Code example
+   - [ ] TOC list
+   - [ ] Integrate with API endpoints
+** Style [0/2]
+   - [ ] Type layout, vertical rhythym
+   - [ ] headers, lists
+* Possible improvements [0/2]
+  - [ ] We can use 100% split widths on mobile view. So, horizontal scroll.
+  - [ ] In TOC: Switch between list of API methods and API endpoints(paths)

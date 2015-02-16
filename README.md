@@ -15,8 +15,10 @@ ie: it is driven by a JSON obejct and redered using mustache
 #### To get the needed modules
 
     ```bash
+
     bower install
     bundle install
+
     ```
 
 >   To build the highlight.js files, python is needed
@@ -24,26 +26,19 @@ ie: it is driven by a JSON obejct and redered using mustache
 #### To serve the files
 
     ```bash
+
     npm run bs
+
     ```
 
 #### To build the CSS from the Sass files
 
     ```bash
+
     npm run compass
+
     ```
 
 ## List
 
-#### Needed
-
-- [x] Show TOC in mobile view.
-- [ ] Describe models.
-- [ ] Sticky top-bar, right-now we need data-topbar
-- [ ] Integrate models with API, link them together
-
-#### Possible
-
-- [ ] We can use 100% split widths on mobile view. So, horizontal scroll.
-- [ ] Put in some context headers in code examples.
-- [ ] In TOC: Switch between list of API methods and API endpoints(paths) 
+> See todo.org
