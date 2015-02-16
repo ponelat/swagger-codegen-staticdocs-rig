@@ -22,8 +22,6 @@ ie: it is driven by a JSON obejct and redered using mustache
 bower install && bundle install
 ```
 
->   To build the highlight.js files, python is needed
-
 #### To serve the files
 
 ```bash
