@@ -6,7 +6,7 @@
     - [X] code examples
 ** Mobile [1/2]
   - [X] Breakpoints
-  - [ ] Sticky top-bar
+  - [X] Sticky top-bar
 ** Code samples [0/2]
   - [ ] Bash support
   - [ ] Add context headers in code section
