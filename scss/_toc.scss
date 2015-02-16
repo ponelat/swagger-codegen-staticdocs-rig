@@ -22,13 +22,15 @@ dl.side-nav {
 
   }
 
-  .toc-api-endpoints {
+  dt + div {
+
     overflow: hidden;
+
     dd {
 
       margin: 0;
 
-      a.endpoint {
+      & > a{
 
         color: $color-toc-links;
         display: block;
@@ -39,38 +41,54 @@ dl.side-nav {
          background-color: rgba(0,0,0,0.14) ;
         }
 
-        .method-icon {
-          position: relative;
-          display: inline-block;
-          font-family: $font-mono;
+        &.method-icon {
+          &:before {
+            position: relative;
+            display: inline-block;
+            font-family: $font-mono;
 
-          color: white;
+            color: white;
 
-          font-size: 0.7rem;
-          width: 1.2rem;
-          line-height: 1.1rem;
-          left: -0.4rem;
-          top: -0.1rem;
-          border-radius: rem-calc(2px);
+            font-size: 0.7rem;
+            width: 1.2rem;
+            line-height: 1.1rem;
+            left: -0.4rem;
+            top: -0.1rem;
+            border-radius: rem-calc(2px);
 
-          text-align: center;
+            text-align: center;
+          }
 
         }
-        .method-post {
-          &:before {content: "P"; }
-          background-color: $color-green;
+        &.method-post {
+          &:before {
+            content: "P";
+            background-color: $color-green;
+          }
         }
-        .method-put {
-          &:before {content: "P"; }
-          background-color: $color-blue;
+        &.method-put {
+          &:before {
+            content: "P";
+            background-color: $color-blue;
+          }
         }
-        .method-get {
-          &:before {content: "G"; }
-          background-color: $color-yellow;
+        &.method-get {
+          &:before {
+            content: "G";
+            background-color: $color-yellow;
+          }
         }
-        .method-delete {
-          &:before {content: "D"; }
-          background-color: $color-red;
+        &.method-delete {
+          &:before {
+            content: "D";
+            background-color: $color-red;
+          }
+        }
+        &.method-model {
+          &:before {
+            content: "-";
+            background-color: $color-purple;
+          }
         }
       }
     }

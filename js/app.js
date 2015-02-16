@@ -22,10 +22,10 @@ var SLIDEUP_DELAY = 500;
 function attach_toc_listeners() {
 
   // Toggle TOC nav
-  $('.toc-api-endpoints').slideUp(0);
-  $('.toc-api-classname').click(function(){
-    $('.toc-api-endpoints').slideUp(SLIDEUP_DELAY);
-    $(this).next('.toc-api-endpoints').stop().slideDown(SLIDEUP_DELAY);
+  $('dl.side-nav dt + div').slideUp(0);
+  $('dl.side-nav dt').click(function(){
+    $('dl.side-nav dt + div').slideUp(SLIDEUP_DELAY);
+    $(this).next('div').stop().slideDown(SLIDEUP_DELAY);
   });
 
   // Handle flyout TOC
@@ -33,7 +33,7 @@ function attach_toc_listeners() {
     $('#wrapper').addClass('show-nav-section');
   });
   // NOTE: is this efficient, having a click event for escaping the fly-out toc?
-  $('#nav-wrapper a.endpoint, #main-wrapper').click(function(){
+  $('a.side-nav-item, #main-wrapper').click(function(){
     $('#wrapper').removeClass('show-nav-section');
   });
   $(document).keyup(function(e) {
