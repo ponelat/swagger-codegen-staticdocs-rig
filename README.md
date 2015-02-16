@@ -5,6 +5,10 @@ This is an ongoing development rig for working with mustache generator found in 
 The object is to generate docs based on data from swagger-codegen. 
 ie: it is driven by a JSON obejct and redered using mustache
 
+> See Todo list... [todo.org](todo.org)
+
+> See [live version](http://ponelat.github.io/swagger-codegen-staticdocs-rig)
+
 ## Install
 
 #### Requirements
@@ -14,31 +18,20 @@ ie: it is driven by a JSON obejct and redered using mustache
 
 #### To get the needed modules
 
-    ```bash
-
-    bower install
-    bundle install
-
-    ```
+```bash
+bower install && bundle install
+```
 
 >   To build the highlight.js files, python is needed
 
 #### To serve the files
 
-    ```bash
-
-    npm run bs
-
-    ```
+```bash
+npm run bs
+```
 
 #### To build the CSS from the Sass files
 
-    ```bash
-
-    npm run compass
-
-    ```
-
-## List
-
-> See todo.org
+```bash
+npm run compass
+```
