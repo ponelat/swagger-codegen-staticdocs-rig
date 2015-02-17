@@ -7,8 +7,9 @@ $endpoint-method-size: $endpoint-font-size * 4 !default;
       color: $color-endpoint-classname;
     }
 
-    .endpoint {
+    header {
 
+      display: block;
         @include clearfix;
 
         font-family: $font-mono;
@@ -29,6 +30,7 @@ $endpoint-method-size: $endpoint-font-size * 4 !default;
           display: inline-block;
           font-weight: bold;
           margin-right: 1rem;
+          box-sizing: border;
           padding: 0 0.5rem;
           float: left;
         }
