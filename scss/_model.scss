@@ -2,4 +2,10 @@
   .name {
     font-size: 2em;
   }
+  .var-required {
+    &:after {
+      color: red;
+      content: '*';
+    }
+  }
 }
