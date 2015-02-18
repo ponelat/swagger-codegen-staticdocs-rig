@@ -29,9 +29,15 @@ $color-api-header-separator: $color-almost-white;
 $color-toc-links: $color-dark-grey;
 $color-endpoint-classname: $color-semi-grey;
 
+// Vertical rhythm
+$font-size: 15px;
+$baseline: 1.6;
+$vertical-unit-px: 24px;
+$vertical-unit: 1.6rem;
+
 $nav-section-width: 240px;
-$api-section-padding: 2rem;
-$api-description-header-height: 5rem;
+$api-section-padding: $vertical-unit;
+$api-description-header-height: $vertical-unit * 4;
 
 // $endpoint-font-size: 1.2rem !default;
 // $endpoint-method-size: $endpoint-font-size * 4 !default;
@@ -103,10 +109,10 @@ $api-description-header-height: 5rem;
 // Since the typical default browser font-size is 16px, that makes the calculation for grid size.
 // If you want your base font-size to be different and not have it affect the grid breakpoints,
 // set $rem-base to $base-font-size and make sure $base-font-size is a px value.
-$base-font-size: 13px;
+$base-font-size: $font-size;
 
 // The $base-font-size is 100% while $base-line-height is 150%
-$base-line-height: 180%;
+$base-line-height: $baseline;
 $rem-base: $base-font-size;
 
 // We use this to control whether or not CSS classes come through in the gem files.
@@ -1426,7 +1432,7 @@ $topbar-bg-color: $color-green;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
-$topbar-height: rem-calc(64);
+$topbar-height: $vertical-unit * 3;
 // $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar

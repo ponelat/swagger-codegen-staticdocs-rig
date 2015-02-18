@@ -1,0 +1,118 @@
+$type-size: 1rem !default;
+$type-vertical-unit: 1.6rem !default;
+
+$type-modular-scale: 6/5 !default;
+
+$type-snap-factor: 2 !default;
+$type-snap: $type-vertical-unit / $type-snap-factor !default;
+
+$type-family-offset: 2/3 !default;
+
+// ----------------------------------- Functions and mixins
+
+@function vsnap($val, $snap: $type-snap) {
+  @return ceil($val / $snap) * $snap; //Divide, ceiling, then multiply
+}
+
+@function ms ($i:1, $scale:$type-modular-scale, $base:$type-size) {
+  @return $base * pow($scale,$i - 1);
+}
+
+@function type-top-margin-offset ($snap) {
+  @return vsnap($snap + 0.1) - $snap;
+}
+
+@mixin font ($fs, $m:0, $offset: $type-family-offset, $unit:$type-vertical-unit) {
+  $snap: vsnap($fs);
+  $lh: $snap/$fs;
+  $mt: type-top-margin-offset($snap);
+
+  font-size: $fs;
+  line-height: $lh;
+
+  @if ($fs > $unit) {
+    margin-top: $mt * ( 1 - $offset);
+    padding-bottom: $mt * $offset;
+  } @else {
+    margin-top: $mt;
+    padding-bottom: 0;
+  }
+  margin-bottom: 0;
+}
+
+@mixin h_base {
+}
+
+// ----------------------------------- Some of my resets
+
+
+p {@include font(ms(1), 1); }
+h1,.h1 {@include h_base; @include font(ms(4)); }
+h2,.h2 {@include h_base; @include font(ms(3)); }
+h3,.h3 {@include h_base; @include font(ms(3)); }
+h4,.h4 {@include h_base; @include font(ms(1)); }
+h5,.h5 {@include h_base; @include font(ms(1)); }
+h6,.h6 {@include h_base; @include font(ms(1)); }
+
+code {
+  @include font(ms(1/2), 1);
+  span { @include font(ms(1/2), 1);}
+}
+
+dl,dt,dd,span {@include font(ms(1), 1); }
+
+dl {
+  margin-bottom: 0;
+  dt {
+    margin-bottom: 0;
+  }
+  dd {
+    margin-bottom: 0;
+  }
+}
+
+a.anchor {
+  position: absolute;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+dl.middle-list {
+
+  @include clearfix;
+
+  dt {
+    display: block;
+    position: relative;
+    float: left;
+    text-align: right;
+    width: 10em;
+    margin-right: 1em;
+    font-weight: bold;
+  }
+
+  dd {
+    float: left;
+    .type {
+      color: $aluminum;
+      font-family: $font-mono;
+    }
+  }
+}
+
+// ----------------------------------- Media Styles
+
+@media #{$medium-up} {
+
+  h1,.h1 {@include h_base; @include font(ms(6)); }
+  h2,.h2 {@include h_base; @include font(ms(5)); }
+  h3,.h3 {@include h_base; @include font(ms(4)); }
+  h4,.h3 {@include h_base; @include font(ms(3)); }
+  h5,.h5 {@include h_base; @include font(ms(2)); }
+  h6,.h6 {@include h_base; @include font(ms(1)); }
+
+}
+
+
+
