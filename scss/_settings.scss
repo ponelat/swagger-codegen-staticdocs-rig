@@ -21,6 +21,11 @@ $color-trans-black: rgba(0,0,0,0.1);
 $color-trans-black-heavy: rgba(0,0,0,0.5);
 
 // Named colors
+$color-method-post: $color-green;
+$color-method-put: $color-blue;
+$color-method-get: $color-yellow;
+$color-method-delete: $color-red;
+
 $color-modal-mask: $color-trans-black-heavy;
 $color-section-left: white;
 $color-section-right: $color-dark-grey;
@@ -37,7 +42,7 @@ $vertical-unit: 1.6rem;
 
 $nav-section-width: 240px;
 $api-section-padding: $vertical-unit;
-$api-description-header-height: $vertical-unit * 4;
+$api-description-header-height: $vertical-unit * 5;
 
 // $endpoint-font-size: 1.2rem !default;
 // $endpoint-method-size: $endpoint-font-size * 4 !default;
@@ -143,25 +148,25 @@ $include-html-global-classes: $include-html-classes;
 // $font-weight-normal: normal;
 // $font-weight-bold: bold;
 
-// $white       : #FFFFFF;
-// $ghost       : #FAFAFA;
-// $snow        : #F9F9F9;
-// $vapor       : #F6F6F6;
-// $white-smoke : #F5F5F5;
-// $silver      : #EFEFEF;
-// $smoke       : #EEEEEE;
-// $gainsboro   : #DDDDDD;
-// $iron        : #CCCCCC;
-// $base        : #AAAAAA;
-// $aluminum    : #999999;
-// $jumbo       : #888888;
-// $monsoon     : #777777;
-// $steel       : #666666;
-// $charcoal    : #555555;
-// $tuatara     : #444444;
-// $oil         : #333333;
-// $jet         : #222222;
-// $black       : #000000;
+$white       : #FFFFFF;
+$ghost       : #FAFAFA;
+$snow        : #F9F9F9;
+$vapor       : #F6F6F6;
+$white-smoke : #F5F5F5;
+$silver      : #EFEFEF;
+$smoke       : #EEEEEE;
+$gainsboro   : #DDDDDD;
+$iron        : #CCCCCC;
+$base        : #AAAAAA;
+$aluminum    : #999999;
+$jumbo       : #888888;
+$monsoon     : #777777;
+$steel       : #666666;
+$charcoal    : #555555;
+$tuatara     : #444444;
+$oil         : #333333;
+$jet         : #222222;
+$black       : #000000;
 
 // We use these as default colors throughout
 // $primary-color: #008CBA;

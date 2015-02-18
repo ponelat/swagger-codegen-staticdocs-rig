@@ -4,50 +4,49 @@
 
   <div class="api-section-description api-section-left">
 
-    <header>
+    <header class="method-{{httpMethod}}">
       <h4 class="classname">{{classname}}</h4>
       <span class="method">{{httpMethod}}</span>
       <span class="path path-{{httpMethod}}"> {{path}} </span>
+      <p class="summary">{{summary}}</p>
     </header>
 
-    <p class="summary">{{summary}}</p>
 
-<h4 class="params-params" {{^ pathParams }}style="display: none;"{{/pathParams }} >
-  Path Params
-</h4>
+    <div class="params params-path" {{^ pathParams }}style="display: none;"{{/pathParams }}>
+      <h5> Path Params </h5>
 
-{{#pathParams}}
-  <dl class="middle-list">
+      <dl class="middle-list">
+      {{#pathParams}}
 
-    <dt> {{paramName}} </dt>
-    <dd>
-          <div class="type">{{dataType}}</div>
-          <p> {{description}} </p>
-     </dd>
+        <dt> {{paramName}} </dt>
+        <dd>
+              <div class="type">{{dataType}}</div>
+              <p> {{description}} </p>
+         </dd>
 
-  </dl>
-{{/pathParams}}
+      {{/pathParams}}
+      </dl>
+    </div>
 
-<h4 class="params-body" {{^ bodyParams }}style="display: none;"{{/bodyParams}} >
-  Body Params
-</h4>
+    <div class="params params-body" {{^ bodyParams }}style="display: none;"{{/bodyParams }} >
+      <h5> Body Params </h5>
+      {{#bodyParams}}
+      <dl class="middle-list">
 
-{{#bodyParams}}
-  <dl class="argument">
+        <dt> {{paramName}} </dt>
+        <dd>
+            <div class="type">{{dataType}}</div>
+            <p> {{description}} </p>
+         </dd>
 
-    <dt class="argument-name-type-wrapper">
-      <div class="argument-name">{{paramName}}</div>
-      <div class="argument-type">{{dataType}}</div>
-    </dt>
-
-    <p class="description"> {{description}} </p>
-  </dl>
-{{/bodyParams}}
+      </dl>
+      {{/bodyParams}}
+    </div>
 
   </div>
 
-
   <div class="api-section-example api-section-right">
-    <pre><code class="bash">{{>curl}}</code></pre></div>
+    <pre><code class="bash">{{>curl}}</code></pre>
+  </div>
 </div>
 

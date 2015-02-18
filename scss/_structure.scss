@@ -92,11 +92,12 @@
 
   .api-section-left {
     margin-left: 50%;
+    padding: $api-section-padding/2;
   }
 
   .api-section-right {
     background-color: $color-section-right;
-    padding: $api-section-padding;
+    padding: $api-section-padding/2;
     padding-right: 0;
     width: 51%; // To remove the artifact line that is formed..
                  // ...on the border of this and #wrapper's background

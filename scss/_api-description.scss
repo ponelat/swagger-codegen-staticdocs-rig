@@ -1,3 +1,4 @@
+
 .api-section-description {
 
     .classname {
@@ -6,82 +7,72 @@
 
     header {
 
+      @include clearfix;
       display: block;
-        @include clearfix;
 
-        font-family: $font-mono;
-        color: $color-almost-white;
-        height: $api-description-header-height;
+      font-family: $font-mono;
+      color: $color-almost-white;
+      height: $api-description-header-height;
 
-        .method {
-          color: $color-half-white;
-          font-weight: bold;
-          margin-right: 1rem;
-          float: left;
-          width: 4em;
-        }
-        .path {
-          border-radius: rem-calc(4px);
+      border-left: 3px solid #eee;
+      padding-left: 1em;
+
+      margin-bottom: $vertical-unit;
+
+      &.method-post {border-left-color: $color-method-post; }
+      &.method-get {border-left-color: $color-method-get; }
+      &.method-put {border-left-color: $color-method-put; }
+      &.method-delete {border-left-color: $color-method-delete; }
+
+      .method {
+        color: $color-half-white;
+        font-weight: bold;
+        margin-right: 1rem;
+        float: left;
+        width: 4em;
+      }
+      .path {
+        border-radius: rem-calc(4px);
+        display: inline-block;
+        font-weight: bold;
+        margin-right: 1rem;
+        box-sizing: border;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        float: left;
+      }
+      .path-post {
+          background-color: $color-green;
+      }
+      .path-get {
+          background-color: $color-yellow;
+      }
+      .path-put {
+          background-color: $color-blue;
+      }
+      .path-delete {
+          background-color: $color-red;
+      }
+      .method-arg {
           display: inline-block;
-          font-weight: bold;
-          margin-right: 1rem;
-          box-sizing: border;
-          padding-left: 0.5rem;
-          padding-right: 0.5rem;
-          float: left;
-        }
-        .path-post {
-            background-color: $color-green;
-        }
-        .path-get {
-            background-color: $color-yellow;
-        }
-        .path-put {
-            background-color: $color-blue;
-        }
-        .path-delete {
-            background-color: $color-red;
-        }
-        .method-arg {
-            display: inline-block;
-            color: black;
-            &:before {
-                content: '{';
-            }
-            &:after {
-                content: '}';
-            }
-        }
+          color: black;
+          &:before {
+              content: '{';
+          }
+          &:after {
+              content: '}';
+          }
+      }
 
-    }
+      .summary {
+        color: $color-dark-grey;
+        padding-top: $vertical-unit;
+        clear: left;
+      }
 
-    .summary {
-      color: $color-dark-grey;
     }
 
     .description {
       float: left;
     }
 }
-    dl.middle-list {
-
-      @include clearfix;
-
-      dt {
-        display: block;
-        position: relative;
-        float: left;
-        text-align: right;
-        width: 10rem;
-        margin-right: 1rem;
-        font-weight: bold;
-      }
-
-      dd {
-        float: left;
-        .type {
-          color: $aluminum;
-          font-family: $font-mono;
-        }
-      }
-    }
