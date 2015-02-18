@@ -1,3 +1,9 @@
+@import "settings"; // Need: $small-up, $medium-up, $color-*
+
+$api-section-padding:  1.6rem * 1 !default;
+$topbar-height: 3rem !default;
+$api-description-header-height: 1.6rem * 4 !default;
+
 // ------------------------------------------- Mixins
 
 @mixin section-border {
@@ -25,7 +31,10 @@
 }
 
 .api-class-header {
-  margin-top: rem-calc(64px);
+  margin-top: $topbar-height;
+  // :first-child {
+  //   margin-top: 0;
+  // }
 
   &:after {
     @include section-border;
