@@ -24,7 +24,7 @@ function attach_toc_listeners() {
   $('dl.side-nav dt + div').slideUp(0);
   $('dl.side-nav dt').click(function(){
     $('dl.side-nav dt + div').slideUp(SLIDEUP_DELAY);
-    $(this).next('div').stop().slideDown(SLIDEUP_DELAY);
+    $(this).next('div').stop().slideToggle(SLIDEUP_DELAY);
   });
 
   // Handle flyout TOC
