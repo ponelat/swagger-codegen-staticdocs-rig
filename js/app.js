@@ -12,8 +12,7 @@ var mustache_functions = {
     return function (text, render) {
       return render(text).toUpperCase().trim();
     };
-  },
-  'menu-icon': '&ensp;&#9776;&ensp;' // A glyph that we use in lieu of an icon
+  }
 
 };
 
