@@ -43,7 +43,7 @@ $.each(list_of_partials, function(name,deferred){
 
 // Load files in and render
 $.when(
-  $.get('mustache/index.mustache'),
+  $.get('mustache/core.mustache'),
   $.getJSON('data.json'))
   .done(function (template,data) {
 
