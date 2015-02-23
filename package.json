@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/ponelat/swagger-codegen-staticdocs-rig",
   "devDependencies": {
-    "browser-sync": "^2.0.0-rc8",
-    "bower": "latest"
+    "bower": "latest",
+    "browser-sync": "latest"
   }
 }
