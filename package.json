@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "description": "This is an ongoing development rig for working with mustache generator found in swagger-codegen The object is to generate docs based on data from swagger-codegen.",
   "main": "index.html",
+  "swagger_path": "../swagger-codegen",
+  "swagger_templates": "modules/swagger-codegen/src/main/resources/htmlDocs",
   "scripts": {
     "bs": "browser-sync start --config='bs-config.js'",
     "install": "bower install",
     "compass": "bundle exec compass watch",
+    "copy_across": "cp mustache/* build/app.css $npm_package_swagger_path/$npm_package_swagger_templates",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
