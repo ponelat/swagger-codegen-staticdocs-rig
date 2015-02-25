@@ -1,3 +1,16 @@
+* Skype chat 25 Feb Notes:
+
+[ ] Highlight TOC items with scroll
+[ ] Hyperlink Models
+[ ] Flesh out top bar with some details
+[ ] Delineate the right column with headers and borders
+[ ] Curl samples structure
+      apiClass -> [operationId -> {request -> "mustache template", response -> "mustache temlate", summary -> "text or mustache" }]
+
+Personal Note
+[ ] Api-class should be used as part of anchor ID
+curl templaets external file.
+
 * TODO list for Swagger-codegen-staticdocs-rig
 ** Basic [2/2]
   - [X] Setp partials
@@ -8,7 +21,7 @@
   - [X] Breakpoints
   - [X] Sticky top-bar
 ** Code samples [0/2]
-  - [ ] Bash support
+  - [ ] Use segmentio/highlight
   - [ ] Add context headers in code section
 ** Models [3/5]
    - [X] Partial template
@@ -16,9 +29,9 @@
    - [X] TOC list
    - [ ] Style them
    - [ ] Integrate with API endpoints
-** Style [0/2]
-   - [ ] Type layout, vertical rhythym
-   - [ ] headers, lists
+** Style [1/3]
+   - [X] Type layout, vertical rhythym
+   - [X] headers, lists
 * Possible improvements [0/2]
   - [ ] We can use 100% split widths on mobile view. So, horizontal scroll.
   - [ ] In TOC: Switch between list of API methods and API endpoints(paths)
