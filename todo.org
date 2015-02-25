@@ -1,14 +1,17 @@
-* Skype chat 25 Feb Notes:
+* Skype chat 25 Feb Notes: [0/6]
+- [ ] Integrate with feature/threepan
 
-[ ] Highlight TOC items with scroll
-[ ] Hyperlink Models
-[ ] Flesh out top bar with some details
-[ ] Delineate the right column with headers and borders
-[ ] Curl samples structure
+- [ ] Highlight TOC items with scroll
+- [ ] Hyperlink Models
+- [ ] Delineate the right column with headers and borders
+- [ ] Flesh out top bar with some details
+
+- With source file
+- [ ] Curl samples structure
       apiClass -> [operationId -> {request -> "mustache template", response -> "mustache temlate", summary -> "text or mustache" }]
 
 Personal Note
-[ ] Api-class should be used as part of anchor ID
+- [ ] Api-class should be used as part of anchor ID
 curl templaets external file.
 
 * TODO list for Swagger-codegen-staticdocs-rig
@@ -17,19 +20,19 @@ curl templaets external file.
   - [X] Structure panes
     - [X] api block
     - [X] code examples
-** Mobile [1/2]
+** Mobile [2/2]
   - [X] Breakpoints
   - [X] Sticky top-bar
 ** Code samples [0/2]
   - [ ] Use segmentio/highlight
   - [ ] Add context headers in code section
-** Models [3/5]
+** Models [4/5]
    - [X] Partial template
    - [X] Code example
    - [X] TOC list
-   - [ ] Style them
+   - [X] Style them
    - [ ] Integrate with API endpoints
-** Style [1/3]
+** Style [2/2]
    - [X] Type layout, vertical rhythym
    - [X] headers, lists
 * Possible improvements [0/2]
