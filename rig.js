@@ -26,7 +26,7 @@ var list_of_partials = {
   'model': $.Deferred(),
   'api-class': $.Deferred(),
   'api-endpoint': $.Deferred(),
-  'app.js': $.Deferred()
+  'app_js': $.Deferred()
 };
 
 // --------------- jQuery rig to load in our mustache template(s), async
@@ -35,7 +35,7 @@ var list_of_partials = {
 $.each(list_of_partials, function(name,deferred){
   $.get('mustache/'+name+'.mustache',function (template) {
     console.log('loaded mustache partial: '+name);
-    deferred.resolve({name: name.replace('.','_'),template: template});
+    deferred.resolve({name: name,template: template});
   })
   .fail(function(){
     throw new Error('Could not load in partial: '+ name);
