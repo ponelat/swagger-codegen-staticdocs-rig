@@ -3,10 +3,22 @@
   "version": "0.1.0",
   "description": "This is an ongoing development rig for working with mustache generator found in swagger-codegen The object is to generate docs based on data from swagger-codegen.",
   "main": "index.html",
+  "vendor_files": "v/jquery.min.js v/highlight.min.js",
+
+  "swagger_path": "../swagger-codegen",
+  "swagger_templates": "modules/swagger-codegen/src/main/resources/threepane",
+  "swagger_generated": "samples/threepane",
+  "swagger_script": "bin/three-pane-petstore.sh",
+
   "scripts": {
     "bs": "browser-sync start --config='bs-config.js'",
     "install": "bower install",
     "compass": "bundle exec compass watch",
+
+    "copy_across": "cp -v mustache/* build/app.css $npm_package_vendor_files $npm_package_swagger_path/$npm_package_swagger_templates",
+    "swagger_make": "npm run copy_across && ( cd $npm_package_swagger_path && mvn clean && ./$npm_package_swagger_script )",
+    "swagger_bs": "(cd $npm_package_swagger_path/$npm_package_swagger_generated && browser-sync start --server --files='index.html' --startPath='index.html')",
+
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,7 +32,7 @@
   },
   "homepage": "https://github.com/ponelat/swagger-codegen-staticdocs-rig",
   "devDependencies": {
-    "browser-sync": "^2.0.0-rc8",
-    "bower": "latest"
+    "bower": "latest",
+    "browser-sync": "latest"
   }
 }

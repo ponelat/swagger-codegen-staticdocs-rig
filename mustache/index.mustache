@@ -1,30 +1,20 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{appName}} - Docs</title>
 
-<div id="wrapper">
+    <!-- highlight.js -->
+    <link rel="stylesheet" href="app.css" />
+  </head>
 
-  <header > {{>top-bar}} </header>
+  <body>
+    {{>core}}
 
-  <aside id="nav-wrapper">
-    {{>toc}}
-  </aside>
+    <!-- All content is rendered via index.mustache -->
+    <script src="jquery.min.js"></script>
+    <script src="highlight.min.js"></script>
+  </body>
 
-  <div id="main-wrapper">
-    <section role="main">
-
-      <div id="api-classes">
-        {{#apiInfo.apis}}
-          {{>api-class }}
-        {{/apiInfo.apis}}
-      </div>
-
-      <div id="api-models">
-        {{#models}}
-          {{#model}}
-            {{>model}}
-          {{/model}}
-        {{/models}}
-     </div>
-
-    </section>
-  </div>
-
-</div>
+  </html>
