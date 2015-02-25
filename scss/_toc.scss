@@ -39,7 +39,7 @@ dl.side-nav {
         padding: $vertical-unit/3 0 $vertical-unit/3 2em;
         text-decoration: none;
 
-        &:hover {
+        &:hover, &.nav-active {
          background-color: rgba(0,0,0,0.14) ;
         }
 

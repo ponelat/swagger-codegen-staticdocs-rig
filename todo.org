@@ -5,6 +5,7 @@
 - [ ] Hyperlink Models
 - [ ] Delineate the right column with headers and borders
 - [ ] Flesh out top bar with some details
+- [ ] Put logo in nav section
 
 - With source file
 - [ ] Curl samples structure
@@ -35,6 +36,8 @@ curl templaets external file.
 ** Style [2/2]
    - [X] Type layout, vertical rhythym
    - [X] headers, lists
+** Scrolling [0/1]
+   - [ ] Add jquery.scrollTo, see: [[https://github.com/flesler/jquery.scrollTo]]
 * Possible improvements [0/2]
   - [ ] We can use 100% split widths on mobile view. So, horizontal scroll.
   - [ ] In TOC: Switch between list of API methods and API endpoints(paths)
