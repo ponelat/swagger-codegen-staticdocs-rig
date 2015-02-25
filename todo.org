@@ -1,5 +1,5 @@
-* Skype chat 25 Feb Notes: [0/6]
-- [ ] Integrate with feature/threepan
+* Skype chat 25 Feb Notes: [1/7]
+- [X] Integrate with feature/threepan
 
 - [ ] Highlight TOC items with scroll
 - [ ] Hyperlink Models
