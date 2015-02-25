@@ -5,11 +5,21 @@
   "main": "index.html",
   "swagger_path": "../swagger-codegen",
   "swagger_templates": "modules/swagger-codegen/src/main/resources/htmlDocs",
+  "swagger_jar": "modules/swagger-codegen-distribution/target/swagger-codegen-distribution-2.1.2-M1-SNAPSHOT.jar",
+  "swagger_html_files": "modules/swagger-codegen/src/main/resources/htmlDocs/*",
+  "swagger_target_html_files": "modules/swagger-codegen/target/classes/htmlDocs/*",
+  "swagger_generated": "swagger_gen",
+  "spec_file": "petstore-spec.json",
+  "vendor_files": "v/jquery.min.js v/highlight.min.js",
   "scripts": {
     "bs": "browser-sync start --config='bs-config.js'",
     "install": "bower install",
     "compass": "bundle exec compass watch",
-    "copy_across": "cp mustache/* build/app.css $npm_package_swagger_path/$npm_package_swagger_templates",
+    "swagger_clean": "(cd $npm_package_swagger_path && echo `pwd` && rm -rfv $npm_package_swagger_jar $npm_package_swagger_target_html_files)",
+    "swagger_html": "java -jar $npm_package_swagger_path/$npm_package_swagger_jar -i $npm_package_spec_file -l html -o $npm_package_swagger_generated ",
+    "swagger_package": "(cd $npm_package_swagger_path && mvn package)",
+    "swagger_bs": "(cd build && browser-sync start --server --files='index.html' --startPath='index.html')",
+    "copy_across": "cp -v mustache/* build/app.css $npm_package_vendor_files $npm_package_swagger_path/$npm_package_swagger_templates",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
