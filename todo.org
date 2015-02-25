@@ -1,7 +1,7 @@
-* Skype chat 25 Feb Notes: [1/7]
+* Skype chat 25 Feb Notes: [2/8]
 - [X] Integrate with feature/threepan
 
-- [ ] Highlight TOC items with scroll
+- [X] Highlight TOC items with scroll
 - [ ] Hyperlink Models
 - [ ] Delineate the right column with headers and borders
 - [ ] Flesh out top bar with some details
