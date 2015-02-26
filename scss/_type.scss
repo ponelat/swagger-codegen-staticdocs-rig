@@ -75,9 +75,8 @@ a.anchor {
   height: 0;
 }
 
-// -------------------------------- Mobile / Tablet
+// -------------------------------- Mobile / Tablet - default
 
-@media #{$small-up} {
 
   p {@include font(ms(1), 1); }
   h1,.h1 {@include h_base; @include font(ms(4)); }
@@ -109,10 +108,10 @@ a.anchor {
       width: inherit;
       margin-right: 0;
       font-weight: bold;
+      margin-right: 2em;
     }
 
     .type {
-      margin-left: 2em;
       float: left;
       color: $aluminum;
       font-family: $font-mono;
@@ -125,33 +124,28 @@ a.anchor {
     }
   }
 
-}
-
 // ----------------------------------- Desktop
 
-@media #{$medium-up} {
+@media #{$media-split-sections} {
+
+
+  h1,.h1 {@include h_base; @include font(ms(6)); }
+  h2,.h2 {@include h_base; @include font(ms(5)); }
+  h3,.h3 {@include h_base; @include font(ms(4)); }
+  h4,.h3 {@include h_base; @include font(ms(3)); }
+  h5,.h5 {@include h_base; @include font(ms(2)); }
+  h6,.h6 {@include h_base; @include font(ms(1)); }
 
   dl.middle-list {
 
-    @include clearfix;
-    position: relative;
-
     .type {
-      margin-left: 0;
       margin-right: 2em;
-      float: left;
-      color: $aluminum;
-      font-family: $font-mono;
     }
 
     dt {
-      display: block;
-      // position: relative;
-      float: left;
       text-align: right;
       width: 7em;
       margin-right: 2em;
-      font-weight: bold;
     }
 
     dd {
@@ -161,12 +155,6 @@ a.anchor {
     }
   }
 
-  h1,.h1 {@include h_base; @include font(ms(6)); }
-  h2,.h2 {@include h_base; @include font(ms(5)); }
-  h3,.h3 {@include h_base; @include font(ms(4)); }
-  h4,.h3 {@include h_base; @include font(ms(3)); }
-  h5,.h5 {@include h_base; @include font(ms(2)); }
-  h6,.h6 {@include h_base; @include font(ms(1)); }
 
 }
 
