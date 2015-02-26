@@ -46,6 +46,9 @@ $nav-section-width: 240px;
 $api-section-padding: $vertical-unit;
 $api-description-header-height: $vertical-unit * 5;
 
+
+
+
 // $endpoint-font-size: 1.2rem !default;
 // $endpoint-method-size: $endpoint-font-size * 4 !default;
 
@@ -231,6 +234,11 @@ $xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max
 
 $xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})";
 $xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (max-width:#{upper-bound($xxlarge-range)})";
+
+
+// Media breakpoints for swagger
+$media-show-nav: $medium-up;
+$media-split-sections: $large-up;
 
 // Legacy
 // $small: $medium-up;

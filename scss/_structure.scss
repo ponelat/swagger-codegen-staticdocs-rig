@@ -106,24 +106,10 @@
 
 }
 
-@media #{$large-up} {
+// Split into two section...
+@media #{$media-split-sections} {
   #wrapper {
     background-color: $color-section-left;
-  }
-
-  #top-bar {
-    padding-left: $nav-section-width;
-    .mobile-only {
-      display: none;
-    }
-  }
-
-  #nav-wrapper {
-    left: 0;
-  }
-
-  #main-wrapper {
-    padding-left: $nav-section-width;
   }
 
   [role=main] {
@@ -154,6 +140,25 @@
 
     }
   }
+}
+
+@media #{$media-show-nav} {
+  // Show nav section....
+  #top-bar {
+    padding-left: $nav-section-width;
+    .mobile-only {
+      display: none;
+    }
+  }
+
+  #nav-wrapper {
+    left: 0;
+  }
+
+  #main-wrapper {
+    padding-left: $nav-section-width;
+  }
+
 
   // #nav-menu-button {
   //   display: hidden;
