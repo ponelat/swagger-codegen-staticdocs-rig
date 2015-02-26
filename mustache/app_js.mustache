@@ -97,14 +97,16 @@ function add_scroll_highlighter() {
     var winTop = $win.scrollTop()// - TOPBAR_H;
     var winH = $win.height();
     var docH = $(document).height();
+    var topbarH = $('#top-bar').outerHeight(true);
+    var top = winTop + topbarH;
 
     $.each(list_of_hrefs, function(i, href) {
 
       var $href = $(href);
       var hrefTop = $href.offset().top; // get the offset of the div from the top of page
-      var hrefH= $href.parents('.api-section').height(); // get the height of the div in question
+      var hrefH= $href.parents('.api-section').outerHeight(true); // get the height of the div in question
 
-      if (winTop >= hrefTop && winTop < (hrefTop + hrefH)) {
+      if (top >= hrefTop && top < (hrefTop + hrefH)) {
         window.navAccordian.setTo(href);
         $("a[href='" + href + "']").addClass("nav-active");
       } else {
