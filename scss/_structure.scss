@@ -40,6 +40,8 @@
 
 .api-section {
   @include clearfix;
+  // padding-top: 1.5 * $vertical-unit;
+  padding-bottom: 3 * $vertical-unit;
   margin-left: -100%;
   position: relative;
 
