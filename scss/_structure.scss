@@ -92,6 +92,7 @@
   }
 
   .api-section-right {
+    box-sizing: border-box;
     background-color: $color-section-right;
     padding: $api-section-padding/2;
     padding-right: 0;
@@ -100,7 +101,7 @@
     clear: left;
     margin-left: 50%;
     display: block;
-    border-bottom: 2px solid $color-right-section-border;
+    &:before { display: none; }
   }
 
 }
@@ -143,6 +144,15 @@
     margin-left: 50%;
     border: none;
     clear: none;
+    &:before {
+      position: absolute;
+      content: ' ';
+      border-bottom: 7px solid $color-right-section-border;
+      bottom: 0px;
+      left: 0;
+      right: 0;
+
+    }
   }
 
   // #nav-menu-button {
