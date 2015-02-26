@@ -100,6 +100,7 @@
     clear: left;
     margin-left: 50%;
     display: block;
+    border-bottom: 2px solid $color-right-section-border;
   }
 
 }
@@ -140,6 +141,7 @@
     width: 50%;
     padding: $api-section-padding;
     margin-left: 50%;
+    border: none;
     clear: none;
   }
 
