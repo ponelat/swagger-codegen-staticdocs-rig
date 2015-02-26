@@ -18,7 +18,7 @@ module.exports = {
               *.js,\
               js/*.js,\
               mustache/*.mustache,\
-              stylesheets/*.*",
+              build/*.*",
     "server": true,
     "proxy": false,
     "port": 3000,
