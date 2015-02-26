@@ -1,11 +1,13 @@
-// ------------------------------------------- Wrapper, Top and Nav
+
+// ------------------------------------------- Base styles (pre-breakpoint), mobile
 
 #wrapper {
+  background-color: $color-section-right;
   overflow-x: auto;
 }
 
 #top-bar {
-  padding-left: $nav-section-width;
+  padding-left: 1rem;
   position: fixed;
   border-top: 0;
   top: 0;
@@ -16,20 +18,20 @@
 }
 
 #nav-wrapper {
+  position: fixed;
   overflow: auto;
   background-color: white;
-  width: $nav-section-width;
-  position: fixed;
   bottom: 0;
   top: 0;
-  left: 0;
+  left: -$nav-section-width;
+  width: $nav-section-width;
   z-index: 200;
 }
 
-// ------------------------------------------- Main
-
 [role=main] {
   position: relative;
+  background-color: $color-section-left;
+  margin-left: 0;
 }
 
 .api-section {
@@ -54,57 +56,36 @@
 
 .api-section-left {
   position: relative;
-  width: 50%;
-  padding: $api-section-padding;
   float: left;
+  margin-left: 50%;
+  width: 50%;
+  padding: $api-section-padding/2;
   z-index: 20;
 }
 
-
-
-// ------------------------------------------- Media Queries
-
-@media #{$small-up} {
-  #wrapper {
-    background-color: $color-section-right;
-  }
-
-
-  #top-bar {
-    padding-left: 1rem;
-    .mobile-only {
-      display: initial;
-    }
-  }
-
-  #nav-wrapper {
-    left: -$nav-section-width;
-  }
-
-  [role=main] {
-    background-color: $color-section-left;
-    margin-left: 0;
-  }
-
-  .api-section-left {
-    margin-left: 50%;
-    padding: $api-section-padding/2;
-  }
-
-  .api-section-right {
-    box-sizing: border-box;
-    background-color: $color-section-right;
-    padding: $api-section-padding/2;
-    padding-right: 0;
-    width: 51%; // To remove the artifact line that is formed..
-                 // ...on the border of this and #wrapper's background
-    clear: left;
-    margin-left: 50%;
+.api-section-right {
+  box-sizing: border-box;
+  background-color: $color-section-right;
+  padding: $api-section-padding/2;
+  padding-right: 0;
+  width: 51%; // To remove the artifact line that is formed..
+               // ...on the border of this and #wrapper's background
+  clear: left;
+  margin-left: 50%;
+  display: block;
+  &:before {
     display: block;
-    &:before { display: none; }
+    position: absolute;
+    content: ' ';
+    border-bottom: 2px solid $color-right-section-border;
+    bottom: 0px;
+    left: 0;
+    right: 0;
   }
-
 }
+
+
+// ------------------------------- Media breakpoints
 
 // Split into two section...
 @media #{$media-split-sections} {
@@ -130,15 +111,7 @@
     margin-left: 50%;
     border: none;
     clear: none;
-    &:before {
-      position: absolute;
-      content: ' ';
-      border-bottom: 7px solid $color-right-section-border;
-      bottom: 0px;
-      left: 0;
-      right: 0;
-
-    }
+    &:before { display: none; }
   }
 }
 
