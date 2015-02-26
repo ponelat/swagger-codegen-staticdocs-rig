@@ -43,6 +43,17 @@
       {{/bodyParams}}
     </div>
 
+    <div class="params params-response" {{^ responses }}style="display: none;"{{/responses }} >
+      <h5> Error Responses </h5>
+      {{#responses}}
+      <dl class="middle-list">
+
+        <dt> {{code}} </dt>
+        <dd> {{message}} </dd>
+
+      </dl>
+      {{/responses}}
+    </div>
   </div>
 
   <div class="api-section-example api-section-right">
