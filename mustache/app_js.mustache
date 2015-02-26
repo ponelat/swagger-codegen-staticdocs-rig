@@ -1,6 +1,8 @@
 /* global $,Mustache,document,hljs */
 /* vim: set ft=javascript: */
 
+var TOPBAR_H = 24 * 3;
+
 // Accordian made into an object
 function Accordian(sel, delay) {
   this.delay = delay || 400;
@@ -23,17 +25,27 @@ Accordian.prototype.attach_click = function() {
   });
 };
 
-Accordian.prototype.setTo = function (id) {
-  this.collapseAll();
+Accordian.prototype.setTo = function (id){
   var $a = $(this.sel + ' dd a[href=' + id + ']');
+  var $con = $a.parents('dt + div')
 
-  $a.parents('dt + div').stop(true).slideDown();
+  this.collapseAll(undefined, $con);
+
+  if ($con.css('display') === 'none' ) {
+    $a.parents('dt + div').slideDown();
+  } // else it is already down
+
 }
 
-Accordian.prototype.collapseAll = function(delay) {
+Accordian.prototype.collapseAll = function(delay, ignore) {
   if (delay === undefined) { delay = this.delay }
 
-  $(this.sel +' dt + div').slideUp(delay);
+  if(ignore) {
+    $(this.sel +' dt + div').not(ignore).slideUp(delay);
+  } else {
+    $(this.sel +' dt + div').slideUp(delay);
+  }
+
 }
 
 // Imperative ....
@@ -82,18 +94,16 @@ function add_scroll_highlighter() {
   $(window).scroll(function(){
 
     var $win = $(window);
-    var winTop = $win.scrollTop();
+    var winTop = $win.scrollTop()// - TOPBAR_H;
     var winH = $win.height();
     var docH = $(document).height();
 
-    console.log(winTop, winH, docH);
     $.each(list_of_hrefs, function(i, href) {
 
       var $href = $(href);
       var hrefTop = $href.offset().top; // get the offset of the div from the top of page
-      var hrefH= $href.parent().height(); // get the height of the div in question
+      var hrefH= $href.parents('.api-section').height(); // get the height of the div in question
 
-      console.log(winTop, hrefTop, winTop, (hrefTop + hrefH));
       if (winTop >= hrefTop && winTop < (hrefTop + hrefH)) {
         window.navAccordian.setTo(href);
         $("a[href='" + href + "']").addClass("nav-active");
