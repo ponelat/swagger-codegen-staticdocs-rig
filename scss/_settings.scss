@@ -11,7 +11,7 @@ $color-dark-green: #1F7641;
 $color-blue: #4578dd;
 $color-purple: #A055CB;
 
-$color-dark-grey: rgba(51,48,41, 1);
+$color-dark-brown: rgba(51,48,41, 1);
 $color-almost-white: #EBEBEB;
 $color-half-white: #877D6A;
 
@@ -21,6 +21,9 @@ $color-trans-black: rgba(0,0,0,0.1);
 $color-trans-black-heavy: rgba(0,0,0,0.5);
 
 // Named colors
+$color-toc-links: $color-dark-brown;
+$color-toc-term: $color-dark-brown;
+
 $color-right-section-border: #888;
 $color-method-post: $color-green;
 $color-method-put: $color-blue;
@@ -29,12 +32,17 @@ $color-method-delete: $color-red;
 
 $color-modal-mask: $color-trans-black-heavy;
 $color-section-left: white;
-$color-section-right: $color-dark-grey;
 
+$color-section-right: $color-dark-brown;
+$color-section-right-text-shadow: rgba(0,0,0,0.2);
+$color-section-right-text: lighten($color-dark-brown, 60%);
+
+$color-description-summary: $color-dark-brown;
 $color-api-header-separator: $color-almost-white;
-$color-toc-links: $color-dark-grey;
 $color-endpoint-classname: $color-semi-grey;
 $color-params-header: $color-semi-grey;
+$color-gash-white: rgba(255,255,255,0.3);
+$color-gash-black: rgba(0,0,0,0.1);
 
 // Vertical rhythm
 $font-size: 15px;
@@ -183,7 +191,7 @@ $black       : #000000;
 
 // We use these to control various global styles
 // $body-bg: $white;
-$body-font-color: $color-dark-grey;
+$body-font-color: $color-dark-brown;
 // $body-font-family: $font-family-sans-serif;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
