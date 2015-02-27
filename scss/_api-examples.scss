@@ -1,0 +1,22 @@
+.api-section-example {
+
+  padding-top: $api-section-padding;
+  padding-bottom: $api-section-padding;
+
+  color: $color-section-right-text;
+  text-shadow: 2px 1px 0px $color-section-right-text-shadow;
+
+  @media #{$media-split-sections} {
+    padding-top: $api-section-padding + $api-description-header-height;
+  }
+
+  pre {
+     margin-top: 0;
+
+    code {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+  }
+}

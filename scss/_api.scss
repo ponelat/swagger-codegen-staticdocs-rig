@@ -41,27 +41,3 @@ $api-description-header-height: 1.6rem * 4 !default;
     bottom: 0;
   }
 }
-
-.api-section-example {
-
-  padding-top: $api-section-padding;
-
-  @media #{$media-split-sections} {
-    padding-top: $api-section-padding + $api-description-header-height;
-  }
-
-  pre {
-     margin-top: 0;
-
-    code {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    .curl {
-      &:before {
-        content: "$ "
-      }
-    }
-  }
-}
