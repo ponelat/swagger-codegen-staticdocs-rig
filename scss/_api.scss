@@ -25,7 +25,6 @@ $api-description-header-height: 1.6rem * 4 !default;
 .api-class + .api-class .api-class-header{
 
   &:before {
-    @include section-border;
     top: 0;
   }
 }
@@ -37,7 +36,6 @@ $api-description-header-height: 1.6rem * 4 !default;
   // }
 
   &:after {
-    @include section-border;
     bottom: 0;
   }
 }
