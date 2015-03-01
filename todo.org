@@ -1,17 +1,14 @@
-* Skype chat 25 Feb Notes: [2/9]
+* Skype chat 25 Feb Notes: [4/10]
 - [X] Integrate with feature/threepan
 
 - [X] Highlight TOC items with scroll
 - [ ] Hyperlink Models
-      Can't don't have enough info...
-- [ ] Delineate the right column with headers and borders
-- [ ] Create a code file for samples. js/code-curl.js, js/code-java.js, etc
+      Can't, don't have enough info...
+- [X] Delineate the right column with headers and borders
+- [X] Create a code file for samples. js/code-curl.js, js/code-java.js, etc
 - [ ] Flesh out top bar with some details
+- [ ] Put a tablet menu for code samples in topbar
 - [ ] Put logo in nav section
-
-- With source file
-- [ ] Curl samples structure
-      apiClass -> [operationId -> {request -> "mustache template", response -> "mustache temlate", summary -> "text or mustache" }]
 
 Personal Note
 - [ ] Api-class should be used as part of anchor ID
