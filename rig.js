@@ -12,8 +12,8 @@ var mustache_functions = {
     return function (text, render) {
       return render(text).toUpperCase().trim();
     };
-  }
-
+  },
+  'code-samples': [ 'curl', 'java' ]
 };
 
 // --------------- Our code....
@@ -22,11 +22,12 @@ var mustache_functions = {
 var list_of_partials = {
   'top-bar': $.Deferred(),
   'toc': $.Deferred(),
-  'curl': $.Deferred(),
   'model': $.Deferred(),
   'api-class': $.Deferred(),
   'api-endpoint': $.Deferred(),
-  'app_js': $.Deferred()
+  'app_js': $.Deferred(),
+  'code-sample': $.Deferred(),
+  'load-code-scripts': $.Deferred()
 };
 
 // --------------- jQuery rig to load in our mustache template(s), async
@@ -66,7 +67,6 @@ $.when(
         var view = $.extend(data,mustache_functions);
 
         // Render and inject mustaches in all their glory
-        console.log('partials',partials);
         var rendered = Mustache.render( template, view, partials);
         $(document.body).prepend(rendered).promise().done(app_setup);
 

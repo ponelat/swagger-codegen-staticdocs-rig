@@ -42,6 +42,7 @@
   // @import "foundation/components/visibility";
 
 // Core styles
+@import "mixins";
 @import "structure";
 @import "type";
 
@@ -49,8 +50,10 @@
 @import "hljs";
 
 // Style of stuctured elements
+@import "top-bar";
 @import "toc";
 @import "api";
 @import "api-description";
+@import "api-examples";
 @import "model";
 @import "params";

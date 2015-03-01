@@ -12,7 +12,6 @@
 
       font-family: $font-mono;
       color: $color-almost-white;
-      height: $api-description-header-height;
 
       border-left: 3px solid #eee;
       padding-left: 1em;
@@ -65,7 +64,7 @@
       }
 
       .summary {
-        color: $color-dark-grey;
+        color: $color-description-summary;
         padding-top: $vertical-unit;
         clear: left;
       }

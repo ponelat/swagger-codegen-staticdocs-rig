@@ -13,38 +13,34 @@
 
 
     <div class="params params-path" {{^ pathParams }}style="display: none;"{{/pathParams }}>
-      <h5> Path Params </h5>
+      <h6> Path Params </h6>
 
       <dl class="middle-list">
       {{#pathParams}}
 
         <dt> {{paramName}} </dt>
-        <dd>
-              <div class="type">{{dataType}}</div>
-              <p> {{description}} </p>
-         </dd>
+        <p class="type">{{dataType}}</p>
+        <dd> {{description}} </dd>
 
       {{/pathParams}}
       </dl>
     </div>
 
     <div class="params params-body" {{^ bodyParams }}style="display: none;"{{/bodyParams }} >
-      <h5> Body Params </h5>
+      <h6> Body Params </h6>
       {{#bodyParams}}
       <dl class="middle-list">
 
         <dt> {{paramName}} </dt>
-        <dd>
-            <div class="type">{{dataType}}</div>
-            <p> {{description}} </p>
-         </dd>
+        <p class="type">{{dataType}}</p>
+        <dd> {{description}} </dd>
 
       </dl>
       {{/bodyParams}}
     </div>
 
     <div class="params params-response" {{^ responses }}style="display: none;"{{/responses }} >
-      <h5> Error Responses </h5>
+      <h6> Error Responses </h6>
       {{#responses}}
       <dl class="middle-list">
 
@@ -56,8 +52,7 @@
     </div>
   </div>
 
-  <div class="api-section-example api-section-right">
-    <pre><code class="bash">{{>curl}}</code></pre>
-  </div>
+  <div id="code-samples-{{classname}}-{{operationId}}" class="api-section-example api-section-right"> </div>
+
 </div>
 

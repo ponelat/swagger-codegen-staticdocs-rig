@@ -1,10 +1,11 @@
-* Skype chat 25 Feb Notes: [2/8]
+* Skype chat 25 Feb Notes: [2/9]
 - [X] Integrate with feature/threepan
 
 - [X] Highlight TOC items with scroll
 - [ ] Hyperlink Models
       Can't don't have enough info...
 - [ ] Delineate the right column with headers and borders
+- [ ] Create a code file for samples. js/code-curl.js, js/code-java.js, etc
 - [ ] Flesh out top bar with some details
 - [ ] Put logo in nav section
 
@@ -25,9 +26,10 @@ curl templaets external file.
 ** Mobile [2/2]
   - [X] Breakpoints
   - [X] Sticky top-bar
-** Code samples [0/2]
+** Code samples [0/3]
   - [ ] Use segmentio/highlight
   - [ ] Add context headers in code section
+  - [ ] Add code-switcher bar
 ** Models [4/5]
    - [X] Partial template
    - [X] Code example

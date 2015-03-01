@@ -1,54 +1,65 @@
-@mixin box-shadow ($shadows...) {
-  -webkit-box-shadow: $shadows;
-  -moz-box-shadow: $shadows;
-  box-shadow: $shadows;
+
+// ------------------------------------------- Base styles (pre-breakpoint), mobile
+
+// Hide template bases, only the clones should be shown
+[data-template-base] {
+  display: none;
 }
 
-// ------------------------------------------- Wrapper, Top and Nav
-
 #wrapper {
+  background-color: $color-section-right;
   overflow-x: auto;
 }
 
 #top-bar {
-  padding-left: $nav-section-width;
   position: fixed;
   border-top: 0;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
-  @include box-shadow (0px 2px 3px 0px rgba(50, 50, 50, 0.4));
 }
 
 #nav-wrapper {
+  position: fixed;
   overflow: auto;
   background-color: white;
-  width: $nav-section-width;
-  position: fixed;
   bottom: 0;
   top: 0;
-  left: 0;
+  left: -$nav-section-width;
+  width: $nav-section-width;
   z-index: 200;
 }
 
-// ------------------------------------------- Main
-
 [role=main] {
   position: relative;
+  background-color: $color-section-left;
+  margin-left: 0;
 }
 
 .api-section {
   @include clearfix;
   // padding-top: 1.5 * $vertical-unit;
-  padding-top: $topbar-height;
+  margin-top: $topbar-height;
+  position: relative;
   margin-left: -100%;
   position: relative;
+
+  &:before {
+    content: ' ';
+    position: absolute;
+    display: block;
+    left: 3px;
+    top: 1px;
+    right: 0px;
+
+    border-top: 1px solid rgba(128,128,128,0.2);
+  }
 
   // So that when we jump to a section, the top-bar isn't on top of the content
   a.anchor {
     position: absolute;
-    top: 0;//-$topbar-height;
+    top: -$topbar-height;
   }
 
   // TODO: make sure the last section's anchor is on top of viewport
@@ -60,77 +71,57 @@
 
 .api-section-left {
   position: relative;
-  width: 50%;
-  padding: $api-section-padding;
   float: left;
+  margin-left: 50%;
+  width: 50%;
+  padding: $api-section-padding/2;
   z-index: 20;
+
 }
 
+.api-section-right {
+  position: relative;
+  background-color: $color-section-right;
+  padding: $api-section-padding/2;
+  padding-right: 0;
+  width: 51%; // To remove the artifact line that is formed..
+               // ...on the border of this and #wrapper's background
+  clear: left;
+  margin-left: 50%;
 
-
-// ------------------------------------------- Media Queries
-
-@media #{$small-up} {
-  #wrapper {
-    background-color: $color-section-right;
-  }
-
-
-  #top-bar {
-    padding-left: 1rem;
-    .mobile-only {
-      display: initial;
-    }
-  }
-
-  #nav-wrapper {
-    left: -$nav-section-width;
-  }
-
-  [role=main] {
-    background-color: $color-section-left;
-    margin-left: 0;
-  }
-
-  .api-section-left {
-    margin-left: 50%;
-    padding: $api-section-padding/2;
-  }
-
-  .api-section-right {
-    background-color: $color-section-right;
-    padding: $api-section-padding/2;
-    padding-right: 0;
-    width: 51%; // To remove the artifact line that is formed..
-                 // ...on the border of this and #wrapper's background
-    clear: left;
-    margin-left: 50%;
+  &:after {
+    position: absolute;
     display: block;
-  }
+    content: ' ';
+    left: 3px;
+    top: 0px;
+    right: 0px;
 
+    border-top: 1px solid $color-gash-black;
+  }
 }
 
-@media #{$large-up} {
+
+// ------------------------------- Media breakpoints
+
+// Split into two section...
+@media #{$media-split-sections} {
   #wrapper {
     background-color: $color-section-left;
   }
 
-  #top-bar {
-    padding-left: $nav-section-width;
-    .mobile-only {
-      display: none;
-    }
-  }
-
-  #nav-wrapper {
-    left: 0;
-  }
-
-  #main-wrapper {
-    padding-left: $nav-section-width;
-  }
-
   [role=main] {
+    &:before{
+      display: block;
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      right: 0px;
+      left: 0px;
+      content: ' ';
+      border-left: 1px solid $color-gash-white;
+    }
+    border-left: 1px solid $color-gash-black;
     background-color: $color-section-right;
     margin-left: 50%;
   }
@@ -146,8 +137,29 @@
     width: 50%;
     padding: $api-section-padding;
     margin-left: 50%;
+    border: none;
     clear: none;
+    &:before { display: none; }
   }
+}
+
+@media #{$media-show-nav} {
+  // Show nav section....
+  #top-bar {
+    padding-left: $nav-section-width;
+    .mobile-only {
+      display: none;
+    }
+  }
+
+  #nav-wrapper {
+    left: 0;
+  }
+
+  #main-wrapper {
+    padding-left: $nav-section-width;
+  }
+
 
   // #nav-menu-button {
   //   display: hidden;

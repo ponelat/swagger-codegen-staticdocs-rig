@@ -10,10 +10,12 @@ $type-family-offset: 2/3 !default;
 
 // ----------------------------------- Functions and mixins
 
+// Find the nearest step (rounding upwards)
 @function vsnap($val, $snap: $type-snap) {
   @return ceil($val / $snap) * $snap; //Divide, ceiling, then multiply
 }
 
+// Modular scale, a naive implementation... see: http://www.modularscale.com/
 @function ms ($i:1, $scale:$type-modular-scale, $base:$type-size) {
   @return $base * pow($scale,$i - 1);
 }
@@ -41,18 +43,11 @@ $type-family-offset: 2/3 !default;
 }
 
 @mixin h_base {
+  // Nothing here, should I still have this?
 }
 
 // ----------------------------------- Some of my resets
 
-
-p {@include font(ms(1), 1); }
-h1,.h1 {@include h_base; @include font(ms(4)); }
-h2,.h2 {@include h_base; @include font(ms(3)); }
-h3,.h3 {@include h_base; @include font(ms(3)); }
-h4,.h4 {@include h_base; @include font(ms(1)); }
-h5,.h5 {@include h_base; @include font(ms(1)); }
-h6,.h6 {@include h_base; @include font(ms(1)); }
 
 code {
   @include font(ms(1/2), 1);
@@ -71,6 +66,8 @@ dl {
   }
 }
 
+ // ------------------------------- Some particular styles
+
 a.anchor {
   position: absolute;
   visibility: hidden;
@@ -78,32 +75,58 @@ a.anchor {
   height: 0;
 }
 
-dl.middle-list {
+// -------------------------------- Mobile / Tablet - default
 
-  @include clearfix;
 
-  dt {
-    display: block;
+  p {@include font(ms(1), 1); }
+  h1,.h1 {@include h_base; @include font(ms(4)); }
+  h2,.h2 {@include h_base; @include font(ms(3)); }
+  h3,.h3 {@include h_base; @include font(ms(3)); }
+  h4,.h4 {@include h_base; @include font(ms(1)); }
+  h5,.h5 {@include h_base; @include font(ms(1)); }
+  h6,.h6 {@include h_base; @include font(ms(1)); }
+
+  dl.middle-list {
+
+    @include clearfix;
     position: relative;
-    float: left;
-    text-align: right;
-    width: 7em;
-    margin-right: 1em;
-    font-weight: bold;
-  }
 
-  dd {
-    float: left;
+    dt {
+
+      &:before{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        display: block;
+        content: ' ';
+      }
+
+      float: left;
+      text-align: left;
+      width: inherit;
+      margin-right: 0;
+      font-weight: bold;
+      margin-right: 2em;
+    }
+
     .type {
+      float: left;
       color: $aluminum;
       font-family: $font-mono;
     }
+
+    dd {
+      clear: left;
+      float: none;
+      @include clearfix;
+    }
   }
-}
 
-// ----------------------------------- Media Styles
+// ----------------------------------- Desktop
 
-@media #{$medium-up} {
+@media #{$media-split-sections} {
+
 
   h1,.h1 {@include h_base; @include font(ms(6)); }
   h2,.h2 {@include h_base; @include font(ms(5)); }
@@ -111,6 +134,26 @@ dl.middle-list {
   h4,.h3 {@include h_base; @include font(ms(3)); }
   h5,.h5 {@include h_base; @include font(ms(2)); }
   h6,.h6 {@include h_base; @include font(ms(1)); }
+
+  dl.middle-list {
+
+    .type {
+      margin-right: 2em;
+    }
+
+    dt {
+      text-align: right;
+      width: 7em;
+      margin-right: 2em;
+    }
+
+    dd {
+      clear: none;
+      float: left;
+      margin-right: 2em;
+    }
+  }
+
 
 }
 

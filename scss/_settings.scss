@@ -11,7 +11,7 @@ $color-dark-green: #1F7641;
 $color-blue: #4578dd;
 $color-purple: #A055CB;
 
-$color-dark-grey: rgba(51,48,41, 1);
+$color-dark-brown: rgba(51,48,41, 1);
 $color-almost-white: #EBEBEB;
 $color-half-white: #877D6A;
 
@@ -21,6 +21,10 @@ $color-trans-black: rgba(0,0,0,0.1);
 $color-trans-black-heavy: rgba(0,0,0,0.5);
 
 // Named colors
+$color-toc-links: $color-dark-brown;
+$color-toc-term: $color-dark-brown;
+
+$color-right-section-border: #888;
 $color-method-post: $color-green;
 $color-method-put: $color-blue;
 $color-method-get: $color-yellow;
@@ -28,11 +32,20 @@ $color-method-delete: $color-red;
 
 $color-modal-mask: $color-trans-black-heavy;
 $color-section-left: white;
-$color-section-right: $color-dark-grey;
 
+$color-section-right: $color-dark-brown;
+$color-section-right-text-shadow: rgba(0,0,0,0.2);
+$color-section-right-text: lighten($color-dark-brown, 60%);
+$color-section-right-header-text: lighten($color-dark-brown, 40%);
+
+$color-description-summary: $color-dark-brown;
 $color-api-header-separator: $color-almost-white;
-$color-toc-links: $color-dark-grey;
 $color-endpoint-classname: $color-semi-grey;
+$color-params-header: $color-semi-grey;
+$color-gash-white: rgba(255,255,255,0.3);
+$color-gash-black: rgba(0,0,0,0.1);
+
+$color-topbar-shadow: rgba(50, 50, 50, 0.6);
 
 // Vertical rhythm
 $font-size: 15px;
@@ -43,6 +56,9 @@ $vertical-unit: 1.6rem;
 $nav-section-width: 240px;
 $api-section-padding: $vertical-unit;
 $api-description-header-height: $vertical-unit * 5;
+
+
+
 
 // $endpoint-font-size: 1.2rem !default;
 // $endpoint-method-size: $endpoint-font-size * 4 !default;
@@ -178,7 +194,7 @@ $black       : #000000;
 
 // We use these to control various global styles
 // $body-bg: $white;
-$body-font-color: $color-dark-grey;
+$body-font-color: $color-dark-brown;
 // $body-font-family: $font-family-sans-serif;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
@@ -229,6 +245,11 @@ $xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max
 
 $xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})";
 $xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (max-width:#{upper-bound($xxlarge-range)})";
+
+
+// Media breakpoints for swagger
+$media-show-nav: $medium-up;
+$media-split-sections: $large-up;
 
 // Legacy
 // $small: $medium-up;
