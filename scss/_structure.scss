@@ -45,17 +45,6 @@
   margin-left: -100%;
   position: relative;
 
-  &:before {
-    content: ' ';
-    position: absolute;
-    display: block;
-    left: 3px;
-    top: 1px;
-    right: 0px;
-
-    border-top: 1px solid rgba(128,128,128,0.2);
-  }
-
   // So that when we jump to a section, the top-bar isn't on top of the content
   a.anchor {
     position: absolute;
@@ -77,6 +66,17 @@
   padding: $api-section-padding/2;
   z-index: 20;
 
+  &:before {
+    content: ' ';
+    position: absolute;
+    display: block;
+    left: 3px;
+    top: 1px;
+    right: 0px;
+
+    border-top: 1px solid $color-gash-pale;
+  }
+
 }
 
 .api-section-right {
@@ -89,15 +89,25 @@
   clear: left;
   margin-left: 50%;
 
-  &:after {
+  &:before {
     position: absolute;
     display: block;
     content: ' ';
-    left: 3px;
+    left: 1px;
     top: 0px;
     right: 0px;
 
     border-top: 1px solid $color-gash-black;
+  }
+  &:after {
+    content: ' ';
+    position: absolute;
+    display: block;
+    left: 1px;
+    top: 1px;
+    right: 0px;
+
+    border-top: 1px solid $color-gash-pale;
   }
 }
 
@@ -139,7 +149,6 @@
     margin-left: 50%;
     border: none;
     clear: none;
-    &:before { display: none; }
   }
 }
 
