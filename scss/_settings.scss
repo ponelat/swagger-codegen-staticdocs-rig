@@ -36,6 +36,7 @@ $color-section-left: white;
 $color-section-right: $color-dark-brown;
 $color-section-right-text-shadow: rgba(0,0,0,0.2);
 $color-section-right-text: lighten($color-dark-brown, 60%);
+$color-section-right-header-text: lighten($color-dark-brown, 40%);
 
 $color-description-summary: $color-dark-brown;
 $color-api-header-separator: $color-almost-white;
@@ -43,6 +44,8 @@ $color-endpoint-classname: $color-semi-grey;
 $color-params-header: $color-semi-grey;
 $color-gash-white: rgba(255,255,255,0.3);
 $color-gash-black: rgba(0,0,0,0.1);
+
+$color-topbar-shadow: rgba(50, 50, 50, 0.6);
 
 // Vertical rhythm
 $font-size: 15px;

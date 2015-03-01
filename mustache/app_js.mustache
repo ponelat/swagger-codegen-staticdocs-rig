@@ -50,6 +50,52 @@ Accordian.prototype.collapseAll = function(delay, ignore) {
 
 // Imperative ....
 
+function inject_sample_into_markup(el,lang,sections) {
+  var $container = $(el);
+  var $lang_con = $('<div class="lang lang-'+lang+'"></div>');
+
+  $.each(sections, function(i, sec){
+
+    // Flesh out the sections with data
+    var template = $('#code-sample-template').clone().attr('id', null).removeAttr('data-template-base');
+    template.find('.section-header').html(sec.header);
+    template.find('[data-content]').html(sec.content).addClass(sec.syntax);
+    template.appendTo($lang_con);
+  });
+
+  $lang_con.appendTo($container);
+}
+
+function inject_code_samples() {
+  if (!window.code) {
+    console.log('we have no code samples... :(');
+    return;
+  }
+
+  // Merge all the samples into a single object, indexed by <api classname> .. <operationId> ..
+  window.all_code = {};
+  var _langs = [];
+  for (var lang in window.code) {
+    _langs.push(lang);
+    $.extend(true,window.all_code, window.code[lang]);
+  }
+
+  console.log('found '+ _langs.length + ' langs: ' + _langs.join(','));
+
+  // NOTE: These loops are long in the tooth to read.... is there a better OOP approach?
+  // Iterate over each classname/operationId/language
+  $.each(window.all_code, function(classname,ops){
+    $.each(ops, function(opid, langs){
+      $.each(langs, function(lang, sections){
+        var id = '#code-samples-'+classname+'-'+opid;
+        inject_sample_into_markup(id, lang, sections);
+      })
+    });
+
+  });
+
+}
+
 function attach_toc_listeners() {
 
   window.navAccordian = new Accordian('dl.side-nav');
@@ -143,13 +189,16 @@ function add_scroll_highlighter() {
 function app_setup() {
 
   // TOC
-   attach_toc_listeners();
+  attach_toc_listeners();
+  inject_code_samples();
 
 
   // Highlight.js (code syntax highlighting)
   hljs.configure({
-    languages: ['bash']
+    classPrefix: ''
   });
-  hljs.initHighlighting();
+  $('pre>code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
 
 }

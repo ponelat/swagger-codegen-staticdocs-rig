@@ -1,0 +1,5 @@
+#top-bar {
+  // note that most of top-bar's style is in _structure, as it is
+  //... intrinsically linked to other elements
+  @include box-shadow (0px 2px 1px 0px $color-topbar-shadow);
+}

@@ -1,20 +1,23 @@
 
 // ------------------------------------------- Base styles (pre-breakpoint), mobile
 
+// Hide template bases, only the clones should be shown
+[data-template-base] {
+  display: none;
+}
+
 #wrapper {
   background-color: $color-section-right;
   overflow-x: auto;
 }
 
 #top-bar {
-  padding-left: 1rem;
   position: fixed;
   border-top: 0;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
-  @include box-shadow (0px 2px 3px 0px rgba(50, 50, 50, 0.4));
 }
 
 #nav-wrapper {
@@ -94,6 +97,17 @@
   }
 
   [role=main] {
+    &:before{
+      display: block;
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      right: 0px;
+      left: 0px;
+      content: ' ';
+      border-left: 1px solid $color-gash-white;
+    }
+    border-left: 1px solid $color-gash-black;
     background-color: $color-section-right;
     margin-left: 50%;
   }
