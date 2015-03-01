@@ -40,14 +40,26 @@
 .api-section {
   @include clearfix;
   // padding-top: 1.5 * $vertical-unit;
-  padding-top: $topbar-height;
+  margin-top: $topbar-height;
+  position: relative;
   margin-left: -100%;
   position: relative;
+
+  &:before {
+    content: ' ';
+    position: absolute;
+    display: block;
+    left: 3px;
+    top: 1px;
+    right: 0px;
+
+    border-top: 1px solid rgba(128,128,128,0.2);
+  }
 
   // So that when we jump to a section, the top-bar isn't on top of the content
   a.anchor {
     position: absolute;
-    top: 0;//-$topbar-height;
+    top: -$topbar-height;
   }
 
   // TODO: make sure the last section's anchor is on top of viewport
@@ -64,10 +76,11 @@
   width: 50%;
   padding: $api-section-padding/2;
   z-index: 20;
+
 }
 
 .api-section-right {
-  box-sizing: border-box;
+  position: relative;
   background-color: $color-section-right;
   padding: $api-section-padding/2;
   padding-right: 0;
@@ -75,15 +88,16 @@
                // ...on the border of this and #wrapper's background
   clear: left;
   margin-left: 50%;
-  display: block;
-  &:before {
-    display: block;
+
+  &:after {
     position: absolute;
+    display: block;
     content: ' ';
-    border-bottom: 2px solid $color-right-section-border;
-    bottom: 0px;
-    left: 0;
-    right: 0;
+    left: 3px;
+    top: 0px;
+    right: 0px;
+
+    border-top: 1px solid $color-gash-black;
   }
 }
 
