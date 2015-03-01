@@ -14,10 +14,13 @@
     "bs": "browser-sync start --config='bs-config.js'",
     "install": "bower install",
     "compass": "bundle exec compass watch",
+    "compass_build": "bundle exec compass clean && bundle exec compass compile",
 
     "copy_across": "cp -v mustache/* build/app.css $npm_package_vendor_files $npm_package_swagger_path/$npm_package_swagger_templates",
     "swagger_make": "npm run copy_across && ( cd $npm_package_swagger_path && mvn clean && ./$npm_package_swagger_script )",
     "swagger_bs": "(cd $npm_package_swagger_path/$npm_package_swagger_generated && browser-sync start --server --files='index.html' --startPath='index.html')",
+
+    "pages": "(git checkout gh-pages && git merge develop -m 'merge in develop' && npm run compass_build && git add -f build/app.css && git commit -m 'force commit build/app.css' && git push -f)",
 
     "test": "echo \"Error: no test specified\" && exit 1"
   },
