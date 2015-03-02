@@ -5,6 +5,8 @@
 [data-template-base] {
   display: none;
 }
+// Hide things not in mobile
+.not-mobile{ display: none;}
 
 #wrapper {
   background-color: $color-section-right;
@@ -152,8 +154,12 @@
   }
 }
 
+
 @media #{$media-show-nav} {
   // Show nav section....
+
+  .not-mobile{ display: initial;}
+
   #top-bar {
     padding-left: $nav-section-width;
     .mobile-only {
