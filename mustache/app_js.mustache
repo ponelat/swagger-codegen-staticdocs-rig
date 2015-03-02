@@ -56,14 +56,17 @@ function inject_sample_into_markup(el,lang,sections) {
 
   $.each(sections, function(i, sec){
 
-    // Flesh out the sections with data
-    var template = $('#code-sample-template').clone().attr('id', null).removeAttr('data-template-base');
-    template.find('.section-header').html(sec.header);
-    template.find('[data-content]').html(sec.content).addClass(sec.syntax);
-    template.appendTo($lang_con);
+    // Build a template
+    var template = '';
+    template += '<section>';
+    template += '<h6 class="section-header"> '+ sec.header + '</h6>';
+    template += '<pre><code class="'+sec.syntax+'">'+ sec.content + '</code></pre>';
+    template += '</section>';
+
+    $lang_con.append($(template));
   });
 
-  $lang_con.appendTo($container);
+  $container.append($lang_con);
 }
 
 function inject_code_samples() {
