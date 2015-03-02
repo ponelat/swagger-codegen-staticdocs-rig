@@ -5,6 +5,17 @@
       color: $color-endpoint-classname;
     }
 
+    &:before {
+      content: ' ';
+      position: absolute;
+      display: block;
+      left: 1em;
+      top: 1px;
+      right: 1em;
+
+      border-top: 1px solid $color-gash-pale;
+    }
+
     header {
 
       @include clearfix;
