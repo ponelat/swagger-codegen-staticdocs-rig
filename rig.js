@@ -27,6 +27,7 @@ var list_of_partials = {
   'api-endpoint': $.Deferred(),
   'app_js': $.Deferred(),
   'code-sample': $.Deferred(),
+  'intro': $.Deferred(),
   'load-code-scripts': $.Deferred()
 };
 
