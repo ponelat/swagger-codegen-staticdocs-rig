@@ -24,7 +24,8 @@ $color-trans-black-heavy: rgba(0,0,0,0.5);
 $color-toc-links: $color-dark-brown;
 $color-toc-term: $color-dark-brown;
 
-$color-right-section-border: #888;
+$color-model: $color-purple;
+
 $color-method-post: $color-green;
 $color-method-put: $color-blue;
 $color-method-get: $color-yellow;
@@ -42,6 +43,7 @@ $color-description-summary: $color-dark-brown;
 $color-api-header-separator: $color-almost-white;
 $color-endpoint-classname: $color-semi-grey;
 $color-params-header: $color-semi-grey;
+
 $color-gash-white: rgba(255,255,255,0.3);
 $color-gash-black: rgba(0,0,0,0.1);
 $color-gash-pale: rgba(128,128,128,0.2);

@@ -49,12 +49,23 @@ $type-family-offset: 2/3 !default;
 // ----------------------------------- Some of my resets
 
 
-code {
-  padding: 0 0.5em;
+code,.code {
   @include font(ms(1/2), 1);
-  span { @include font(ms(1/2), 1);}
+  font-family: $font-family-monospace;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
   border-radius: rem-calc(4px);
   background-color: $white-smoke;
+}
+
+.code {
+  display: inline-block;
+}
+
+code {
+  span { @include font(ms(1/2), 1);}
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 dl,dt,dd,span {@include font(ms(1), 1); }
@@ -82,6 +93,11 @@ a.anchor {
  text-transform: capitalize;
 }
 
+.inline-h {
+  display: inline-block;
+  float: left;
+  margin-right: 1em;
+}
 // -------------------------------- Mobile / Tablet - default
 
 
@@ -93,21 +109,46 @@ a.anchor {
   h5,.h5 {@include h_base; @include font(ms(1)); }
   h6,.h6 {@include h_base; @include font(ms(1)); }
 
+  table.middle-list {
+    margin-top: $vertical-unit;
+
+    border-horizontal-spacing: 0;
+    border-vertical-spacing: 0;
+    -webkit-border-horizontal-spacing: 0;
+    -webkit-border-vertical-spacing: 0;
+
+    tbody{
+      padding: 0px;
+    }
+    tr {
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+    td {
+      padding-right: 2em;
+      &.name {
+        font-weight: bold;
+      }
+      &.type {
+        color: $aluminum;
+        font-family: $font-mono;
+      }
+      &.extra {
+        border-left: 4px solid scale-color($primary-color, $lightness: 70%);
+        padding-left: 0.5em;
+      }
+      &.required {
+        color: $color-red;
+      }
+    }
+  }
+
   dl.middle-list {
 
     @include clearfix;
     position: relative;
 
     dt {
-
-      &:before{
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        right: 0px;
-        display: block;
-        content: ' ';
-      }
 
       float: left;
       text-align: left;

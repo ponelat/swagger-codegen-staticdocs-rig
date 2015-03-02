@@ -1,6 +1,14 @@
 .api-model {
   .name {
   }
+  header {
+
+    border-left: 3px solid $color-model;
+    padding-left: 1em;
+
+    margin-bottom: $vertical-unit;
+
+  }
   .var-required {
     &:after {
       color: red;
