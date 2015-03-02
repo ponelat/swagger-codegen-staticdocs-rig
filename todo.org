@@ -1,4 +1,4 @@
-* Skype chat 25 Feb Notes: [4/10]
+* Skype chat 25 Feb Notes: [5/9]
 - [X] Integrate with feature/threepan
 
 - [X] Highlight TOC items with scroll
@@ -6,7 +6,7 @@
       Can't, don't have enough info...
 - [X] Delineate the right column with headers and borders
 - [X] Create a code file for samples. js/code-curl.js, js/code-java.js, etc
-- [ ] Flesh out top bar with some details
+- [X] Flesh out top bar with some details
 - [ ] Put a tablet menu for code samples in topbar
 - [ ] Put logo in nav section
 
@@ -23,9 +23,8 @@ curl templaets external file.
 ** Mobile [2/2]
   - [X] Breakpoints
   - [X] Sticky top-bar
-** Code samples [0/3]
-  - [ ] Use segmentio/highlight
-  - [ ] Add context headers in code section
+** Code samples [1/2]
+  - [X] Add context headers in code section
   - [ ] Add code-switcher bar
 ** Models [4/5]
    - [X] Partial template
@@ -36,8 +35,8 @@ curl templaets external file.
 ** Style [2/2]
    - [X] Type layout, vertical rhythym
    - [X] headers, lists
-** Rig [0/1]
-   - [ ] Add a 'pages' script to publish to gh-pages
+** Rig [1/1]
+   - [X] Add a 'pages' script to publish to gh-pages
 ** Scrolling [0/1]
    - [ ] Add jquery.scrollTo, see: [[https://github.com/flesler/jquery.scrollTo]]
 
