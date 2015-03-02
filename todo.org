@@ -1,4 +1,4 @@
-* Skype chat 25 Feb Notes: [5/9]
+* Skype chat 25 Feb Notes: [6/10]
 - [X] Integrate with feature/threepan
 
 - [X] Highlight TOC items with scroll
@@ -7,7 +7,8 @@
 - [X] Delineate the right column with headers and borders
 - [X] Create a code file for samples. js/code-curl.js, js/code-java.js, etc
 - [X] Flesh out top bar with some details
-- [ ] Put a tablet menu for code samples in topbar
+- [X] Put a tablet menu for code samples in topbar
+- [ ] Style Models, in the same fashion as api-desciption
 - [ ] Put logo in nav section
 
 Personal Note
