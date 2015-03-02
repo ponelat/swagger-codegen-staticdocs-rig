@@ -5,6 +5,8 @@
 [data-template-base] {
   display: none;
 }
+// Hide things not in mobile
+.not-mobile{ display: none;}
 
 #wrapper {
   background-color: $color-section-right;
@@ -40,7 +42,9 @@
 .api-section {
   @include clearfix;
   // padding-top: 1.5 * $vertical-unit;
-  margin-top: $topbar-height;
+
+  margin-top: $topbar-height/2;
+
   position: relative;
   margin-left: -100%;
   position: relative;
@@ -63,52 +67,26 @@
   float: left;
   margin-left: 50%;
   width: 50%;
-  padding: $api-section-padding/2;
+  padding-top: $topbar-height/2;
+  padding-bottom: $api-section-padding/2;
+  padding-left: $api-section-padding/2;
+  padding-right: $api-section-padding/2;
   z-index: 20;
-
-  &:before {
-    content: ' ';
-    position: absolute;
-    display: block;
-    left: 3px;
-    top: 1px;
-    right: 0px;
-
-    border-top: 1px solid $color-gash-pale;
-  }
 
 }
 
 .api-section-right {
   position: relative;
   background-color: $color-section-right;
-  padding: $api-section-padding/2;
+  padding-top: $topbar-height/2;
+  padding-bottom: $api-section-padding/2;
+  padding-left: $api-section-padding/2;
   padding-right: 0;
   width: 51%; // To remove the artifact line that is formed..
                // ...on the border of this and #wrapper's background
   clear: left;
   margin-left: 50%;
 
-  &:before {
-    position: absolute;
-    display: block;
-    content: ' ';
-    left: 1px;
-    top: 0px;
-    right: 0px;
-
-    border-top: 1px solid $color-gash-black;
-  }
-  &:after {
-    content: ' ';
-    position: absolute;
-    display: block;
-    left: 1px;
-    top: 1px;
-    right: 0px;
-
-    border-top: 1px solid $color-gash-pale;
-  }
 }
 
 
@@ -152,8 +130,12 @@
   }
 }
 
+
 @media #{$media-show-nav} {
   // Show nav section....
+
+  .not-mobile{ display: initial;}
+
   #top-bar {
     padding-left: $nav-section-width;
     .mobile-only {

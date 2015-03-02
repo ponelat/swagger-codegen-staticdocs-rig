@@ -5,6 +5,25 @@
     <ul class="left mobile-only">
       <li><a href="#" class="menu-icon">&ensp;&#9776;&ensp;</a></li>
     </ul>
+
+    <div class="not-mobile">
+      <ul class="right">
+        {{#infoEmail}}
+        <li><a href="mailto:{{infoEmail}}">{{infoEmail}}
+        </a></li>
+        {{/infoEmail}}
+
+        {{#infoUrl}}
+        <li><a href="{{infoUrl}}">{{infoUrl}}</a></li>
+        {{/infoUrl}}
+
+        {{#licenseInfo}}
+        <li><a href="{{licenseUrl}}"> {{licenseInfo}}
+        </a></li>
+        {{/licenseInfo}}
+      </ul>
+    </div>
+
   </section>
 
   <ul class="title-area">

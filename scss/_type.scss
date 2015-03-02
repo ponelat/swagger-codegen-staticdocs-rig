@@ -50,8 +50,11 @@ $type-family-offset: 2/3 !default;
 
 
 code {
+  padding: 0 0.5em;
   @include font(ms(1/2), 1);
   span { @include font(ms(1/2), 1);}
+  border-radius: rem-calc(4px);
+  background-color: $white-smoke;
 }
 
 dl,dt,dd,span {@include font(ms(1), 1); }

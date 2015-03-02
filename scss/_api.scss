@@ -30,12 +30,39 @@ $api-description-header-height: 1.6rem * 4 !default;
 }
 
 .api-class-header {
-  margin-top: $topbar-height;
+  margin-top: 0;//$topbar-height;
+
   // :first-child {
   //   margin-top: 0;
   // }
 
   &:after {
     bottom: 0;
+  }
+}
+
+.api-section-left { }
+
+.api-section-right {
+
+  &:before {
+    position: absolute;
+    display: block;
+    content: ' ';
+    left: 1px;
+    top: 0px;
+    right: 0px;
+
+    border-top: 1px solid $color-gash-black;
+  }
+  &:after {
+    content: ' ';
+    position: absolute;
+    display: block;
+    left: 1px;
+    top: 1px;
+    right: 0px;
+
+    border-top: 1px solid $color-gash-pale;
   }
 }
