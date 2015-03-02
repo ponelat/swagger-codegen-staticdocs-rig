@@ -36,6 +36,8 @@ curl templaets external file.
 ** Style [2/2]
    - [X] Type layout, vertical rhythym
    - [X] headers, lists
+   - [ ] Move middle-list to use table-layout CSS
+         So that we can support params properly as well as Model variables
 ** Rig [1/1]
    - [X] Add a 'pages' script to publish to gh-pages
 ** Scrolling [0/1]
