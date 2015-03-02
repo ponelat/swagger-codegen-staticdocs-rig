@@ -134,7 +134,7 @@ a.anchor {
         font-family: $font-mono;
       }
       &.extra {
-        border-left: 4px solid scale-color($primary-color, $lightness: 70%);
+        border-left: 2em solid $gainsboro;
         padding-left: 0.5em;
       }
       &.required {
