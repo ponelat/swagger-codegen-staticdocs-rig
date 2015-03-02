@@ -19,6 +19,20 @@ $api-description-header-height: 1.6rem * 4 !default;
   z-index: 100;
 }
 
+@mixin section-left-vert-border {
+
+  &:before {
+    content: ' ';
+    position: absolute;
+    display: block;
+    left: 1em;
+    top: 1px;
+    right: 1em;
+
+    border-top: 1px solid $color-gash-pale;
+  }
+}
+
 // ------------------------------------------- Classes
 
 // All but the first api-class
