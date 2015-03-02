@@ -1,0 +1,11 @@
+.logo-wrapper {
+  background-color: $color-green;
+  position: relative;
+  text-align: center;
+
+  .logo {
+    margin: 0 auto;
+    max-height: $topbar-height;
+    max-height: calc(#{$topbar-height} + #{$topbar-shadow-y});
+  }
+}

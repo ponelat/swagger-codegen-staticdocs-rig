@@ -28,6 +28,7 @@ var list_of_partials = {
   'api-endpoint': $.Deferred(),
   'app_js': $.Deferred(),
   'intro': $.Deferred(),
+  'logo': $.Deferred(),
   'code-samples': $.Deferred()
 };
 

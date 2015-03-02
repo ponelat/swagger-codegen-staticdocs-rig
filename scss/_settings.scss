@@ -3,7 +3,7 @@
 // $font-mono: 'Source Sans Pro' mono;
 $font-mono: Monaco,Consolas,"Lucida Console",monospace;
 
-$color-green: #3BA66D;
+$color-green: #87BE40;
 $color-red: #DB4D42;
 $color-feint-yellow: #FFF0CD;
 $color-yellow: #D9B33D;
@@ -18,6 +18,7 @@ $color-half-white: #877D6A;
 $color-semi-grey: rgba(51,48,41, 0.4);
 
 $color-trans-black: rgba(0,0,0,0.1);
+$color-trans-white: rgba(255,255,255,0.7);
 $color-trans-black-heavy: rgba(0,0,0,0.5);
 
 // Named colors
@@ -49,6 +50,9 @@ $color-gash-black: rgba(0,0,0,0.1);
 $color-gash-pale: rgba(128,128,128,0.2);
 
 $color-topbar-shadow: rgba(50, 50, 50, 0.6);
+$topbar-shadow-x: 0px;
+$topbar-shadow-y: 2px;
+$topbar-shadow-blur: 1px;
 $color-code-bar: rgba(255,255,255,0.9);
 
 // Vertical rhythm
