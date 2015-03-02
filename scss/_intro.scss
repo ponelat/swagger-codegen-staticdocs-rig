@@ -1,5 +1,9 @@
 #intro {
-  padding-top: 3 *$vertical-unit;
+
+  @media #{$media-split-sections} {
+    padding-top: 3 *$vertical-unit;
+  }
+
   &:before{border: 0;}
   &:after{border: 0;}
   & > .api-section, & > .api-section-left, & > .api-section-right {

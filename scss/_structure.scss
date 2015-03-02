@@ -7,6 +7,7 @@
 }
 // Hide things not in mobile
 .not-mobile{ display: none;}
+.two-pane-only {display: none;}
 
 #wrapper {
   background-color: $color-section-right;
@@ -94,6 +95,9 @@
 
 // Split into two section...
 @media #{$media-split-sections} {
+
+  .two-pane-only {display: initial;}
+
   #wrapper {
     background-color: $color-section-left;
   }

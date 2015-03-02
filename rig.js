@@ -21,14 +21,14 @@ var mustache_functions = {
 // Our mustache partials list, keys map to files found in 'mustache'
 var list_of_partials = {
   'top-bar': $.Deferred(),
+  'code-bar': $.Deferred(),
   'toc': $.Deferred(),
   'model': $.Deferred(),
   'api-class': $.Deferred(),
   'api-endpoint': $.Deferred(),
   'app_js': $.Deferred(),
-  'code-sample': $.Deferred(),
   'intro': $.Deferred(),
-  'load-code-scripts': $.Deferred()
+  'code-samples': $.Deferred()
 };
 
 // --------------- jQuery rig to load in our mustache template(s), async

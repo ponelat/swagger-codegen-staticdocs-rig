@@ -50,20 +50,50 @@ Accordian.prototype.collapseAll = function(delay, ignore) {
 
 // Imperative ....
 
+function init_code_bar() {
+  $('#code-bar dd a').click(function(e){
+    e.preventDefault();
+
+    var lang = $(this).parent().attr('data-lang');
+    show_lang(lang);
+  });
+
+  // Show the first language we have...
+  if (window.code) {
+    var lang;
+    // get first property...bit of a hack
+    for(lang in window.code) { break;}
+    show_lang(lang);
+  }
+
+}
+
+function show_lang(lang) {
+  // Show sections that are interested...
+  $('#wrapper').attr('data-show-lang',lang);
+
+  // Toggle active state on code-bar item
+  $('#code-bar [data-lang]').removeClass('active');
+  $('#code-bar [data-lang="'+lang+'"').addClass('active');
+}
+
 function inject_sample_into_markup(el,lang,sections) {
   var $container = $(el);
   var $lang_con = $('<div class="lang lang-'+lang+'"></div>');
 
   $.each(sections, function(i, sec){
 
-    // Flesh out the sections with data
-    var template = $('#code-sample-template').clone().attr('id', null).removeAttr('data-template-base');
-    template.find('.section-header').html(sec.header);
-    template.find('[data-content]').html(sec.content).addClass(sec.syntax);
-    template.appendTo($lang_con);
+    // Build a template
+    var template = '';
+    template += '<section>';
+    template += '<h6 class="section-header"> '+ sec.header + '</h6>';
+    template += '<pre><code class="'+sec.syntax+'">'+ sec.content + '</code></pre>';
+    template += '</section>';
+
+    $lang_con.append($(template));
   });
 
-  $lang_con.appendTo($container);
+  $container.append($lang_con);
 }
 
 function inject_code_samples() {
@@ -190,7 +220,9 @@ function app_setup() {
 
   // TOC
   attach_toc_listeners();
+  // Code Samples
   inject_code_samples();
+  init_code_bar();
 
 
   // Highlight.js (code syntax highlighting)

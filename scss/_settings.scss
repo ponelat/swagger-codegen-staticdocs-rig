@@ -47,6 +47,7 @@ $color-gash-black: rgba(0,0,0,0.1);
 $color-gash-pale: rgba(128,128,128,0.2);
 
 $color-topbar-shadow: rgba(50, 50, 50, 0.6);
+$color-code-bar: rgba(255,255,255,0.9);
 
 // Vertical rhythm
 $font-size: 15px;
@@ -186,12 +187,12 @@ $jet         : #222222;
 $black       : #000000;
 
 // We use these as default colors throughout
-// $primary-color: #008CBA;
-// $secondary-color: #e7e7e7;
-// $alert-color: #f04124;
-// $success-color: #43AC6A;
-// $warning-color: #f08a24;
-// $info-color: #a0d3e8;
+$primary-color: $color-green;
+$secondary-color: $color-blue;
+$alert-color: $color-red;
+$success-color: $color-green;
+$warning-color: #f08a24;
+$info-color: #a0d3e8;
 
 // We use these to control various global styles
 // $body-bg: $white;
@@ -331,7 +332,7 @@ $code-border-size: 0;
 // We use these to style anchors
 // $anchor-text-decoration: none;
 // $anchor-text-decoration-hover: none;
-// $anchor-font-color: $primary-color;
+$anchor-font-color: $secondary-color;
 // $anchor-font-color-hover: scale-color($anchor-font-color, $lightness: -14%);
 
 // We use these to style the <hr> element
@@ -1300,18 +1301,18 @@ $code-border-size: 0;
 // We use this to control the definition
 // $sub-nav-font-family: $body-font-family;
 // $sub-nav-font-size: rem-calc(14);
-// $sub-nav-font-color: $aluminum;
+$sub-nav-font-color: $aluminum;
 // $sub-nav-font-weight: $font-weight-normal;
 // $sub-nav-text-decoration: none;
 // $sub-nav-padding: rem-calc(3 16);
 // $sub-nav-border-radius: 3px;
-// $sub-nav-font-color-hover: scale-color($sub-nav-font-color, $lightness: -25%);
+$sub-nav-font-color-hover: scale-color($sub-nav-font-color, $lightness: -25%);
 
 
 // We use these to control the active item styles
 
 // $sub-nav-active-font-weight: $font-weight-normal;
-// $sub-nav-active-bg: $primary-color;
+$sub-nav-active-bg: $primary-color;
 // $sub-nav-active-bg-hover: scale-color($sub-nav-active-bg, $lightness: -14%);
 // $sub-nav-active-color: $white;
 // $sub-nav-active-padding: $sub-nav-padding;
@@ -1459,7 +1460,7 @@ $topbar-bg-color: $color-green;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
-$topbar-height: $vertical-unit * 3;
+$topbar-height: $vertical-unit * 2;
 // $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar
