@@ -30,7 +30,7 @@
   // @import "foundation/components/reveal";
   @import "foundation/components/side-nav";
   // @import "foundation/components/split-buttons";
-  // @import "foundation/components/sub-nav";
+  @import "foundation/components/sub-nav";
   // @import "foundation/components/switches";
   // @import "foundation/components/tables";
   // @import "foundation/components/tabs";
@@ -51,6 +51,7 @@
 
 // Style of stuctured elements
 @import "top-bar";
+@import "code-bar";
 @import "toc";
 @import "intro";
 @import "api";

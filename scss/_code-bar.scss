@@ -1,0 +1,29 @@
+#code-bar {
+  position: relative;
+  .sub-nav {
+    max-width: 37%;
+    max-width: calc(50% - #{$nav-section-width/2} - 1em);
+    background-color: $color-code-bar;
+    border-radius: rem-calc(4px);
+    padding-left: 1em;
+    padding-right: 0.5em;
+    padding-bottom: 0.5em;
+    position: fixed;
+    top: $topbar-height;
+    right: 0.5em;
+    z-index: 30;
+
+    // Add some style to Foundation's sub-nav
+    dd {
+      & a:hover {
+        @include radius($sub-nav-border-radius);
+        font-weight: $sub-nav-active-font-weight;
+        background: scale-color($sub-nav-active-bg, $lightness: 15%);
+        padding: $sub-nav-active-padding;
+        cursor: $sub-nav-active-cursor;
+        color: $sub-nav-active-color;
+      }
+    }
+
+  }
+}

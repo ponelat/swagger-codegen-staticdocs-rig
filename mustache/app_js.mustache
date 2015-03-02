@@ -50,6 +50,33 @@ Accordian.prototype.collapseAll = function(delay, ignore) {
 
 // Imperative ....
 
+function init_code_bar() {
+  $('#code-bar dd a').click(function(e){
+    e.preventDefault();
+
+    var lang = $(this).parent().attr('data-lang');
+    show_lang(lang);
+  });
+
+  // Show the first language we have...
+  if (window.code) {
+    var lang;
+    // get first property...bit of a hack
+    for(lang in window.code) { break;}
+    show_lang(lang);
+  }
+
+}
+
+function show_lang(lang) {
+  // Show sections that are interested...
+  $('#wrapper').attr('data-show-lang',lang);
+
+  // Toggle active state on code-bar item
+  $('#code-bar [data-lang]').removeClass('active');
+  $('#code-bar [data-lang="'+lang+'"').addClass('active');
+}
+
 function inject_sample_into_markup(el,lang,sections) {
   var $container = $(el);
   var $lang_con = $('<div class="lang lang-'+lang+'"></div>');
@@ -193,7 +220,9 @@ function app_setup() {
 
   // TOC
   attach_toc_listeners();
+  // Code Samples
   inject_code_samples();
+  init_code_bar();
 
 
   // Highlight.js (code syntax highlighting)
