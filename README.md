@@ -31,5 +31,13 @@ npm run bs
 #### To build the CSS from the Sass files
 
 ```bash
-npm run compass
+npm run compass_build
+```
+
+
+### to copy over the templates into swagger-codegen project (folder, not repo), then run the script to compile...
+#### Note: package.json needs to know the path to swagger-codegen (defaults to ../swagger-codegen)
+#### configure 'swagger_path' in package.json accordingly
+```bash
+npm run swagger
 ```
