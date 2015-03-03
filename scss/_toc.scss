@@ -9,7 +9,7 @@
     top: calc(#{$topbar-height} + #{$topbar-shadow-y});
     bottom: 0px;
     right: 1px;
-    z-index: 3000;
+    z-index: 30;
   }
 
   &:after {
@@ -23,7 +23,7 @@
 
     bottom: 0px;
     right: 0px;
-    z-index: 3000;
+    z-index: 30;
   }
   // border-right: 1px solid $color-trans-black;
 }
