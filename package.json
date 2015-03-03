@@ -4,6 +4,7 @@
   "description": "This is an ongoing development rig for working with mustache generator found in swagger-codegen The object is to generate docs based on data from swagger-codegen.",
   "main": "index.html",
   "assets": "assets/*",
+  "style_build": "assets/app.css",
 
   "swagger_path": "../swagger-codegen",
   "swagger_templates": "modules/swagger-codegen/src/main/resources/threepane",
@@ -26,7 +27,7 @@
     "_swagger_make": "( cd $npm_package_swagger_path && mvn clean && ./$npm_package_swagger_script )",
     "_swagger_bs": "(cd $npm_package_swagger_path/$npm_package_swagger_generated && browser-sync start --server --files='index.html' --startPath='index.html')",
 
-    "pages": "(git checkout gh-pages && git merge develop -m 'merge in develop' && npm run compass_build && git add -f build/app.css && git commit -m 'force commit build/app.css' && git push -f)",
+    "pages": "(git checkout gh-pages && git merge develop -m 'merge in develop' && npm run compass_build && git add -f $npm_package_style_build && git commit -m 'force commit app.css' && git push -f)",
 
     "test": "echo \"Error: no test specified\" && exit 1"
   },
