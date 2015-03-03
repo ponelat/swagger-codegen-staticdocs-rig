@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "description": "This is an ongoing development rig for working with mustache generator found in swagger-codegen The object is to generate docs based on data from swagger-codegen.",
   "main": "index.html",
-  "vendor_files": "v/jquery.min.js v/highlight.min.js",
+  "assets": "assets/*",
 
   "swagger_path": "../swagger-codegen",
   "swagger_templates": "modules/swagger-codegen/src/main/resources/threepane",
+  "swagger_assets": "assets",
   "swagger_generated": "samples/threepane",
   "swagger_script": "bin/three-pane-petstore.sh",
 
@@ -16,9 +17,14 @@
     "compass": "bundle exec compass watch",
     "compass_build": "bundle exec compass clean && bundle exec compass compile",
 
-    "copy_across": "cp -v mustache/* build/app.css $npm_package_vendor_files $npm_package_swagger_path/$npm_package_swagger_templates",
-    "swagger_make": "npm run copy_across && ( cd $npm_package_swagger_path && mvn clean && ./$npm_package_swagger_script )",
-    "swagger_bs": "(cd $npm_package_swagger_path/$npm_package_swagger_generated && browser-sync start --server --files='index.html' --startPath='index.html')",
+    "swagger": "npm run _copy_across && npm run _swagger_make",
+
+    "_swagger_clean": "rm -vr $npm_package_swagger_path/$npm_package_swagger_templates/* && mkdir $npm_package_swagger_path/$npm_package_swagger_templates/$npm_package_swagger_assets",
+    "_copy_across": "npm run _swagger_clean && npm run _copy_across_mustache && npm run _copy_across_assets",
+    "_copy_across_mustache": "cp -v mustache/*  $npm_package_swagger_path/$npm_package_swagger_templates",
+    "_copy_across_assets": "npm run compass_build && cp -v $npm_package_assets $npm_package_swagger_path/$npm_package_swagger_templates/$npm_package_swagger_assets",
+    "_swagger_make": "( cd $npm_package_swagger_path && mvn clean && ./$npm_package_swagger_script )",
+    "_swagger_bs": "(cd $npm_package_swagger_path/$npm_package_swagger_generated && browser-sync start --server --files='index.html' --startPath='index.html')",
 
     "pages": "(git checkout gh-pages && git merge develop -m 'merge in develop' && npm run compass_build && git add -f build/app.css && git commit -m 'force commit build/app.css' && git push -f)",
 

@@ -1,10 +1,11 @@
 /bower_components/*
-/.sass-cache/*
-*.DS_Store
-/stylesheets/*
-node_modules/
-.sublime/*
 
-build/
-swagger_gen/
+node_modules/
 npm-debug.log
+
+/.sass-cache/*
+.sublime/*
+*.DS_Store
+
+swagger_gen/
+/asset/app.css
