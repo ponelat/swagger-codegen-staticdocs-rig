@@ -5,24 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{appName}} - Docs</title>
 
-    <!-- highlight.js -->
-    <link rel="stylesheet" href="assets/highlight.css" />
-    <link rel="stylesheet" href="assets/app.css" />
+    <link rel="stylesheet" href="highlight.css" />
+    <link rel="stylesheet" href="app.css" />
   </head>
 
   <body>
     {{>core}}
 
-
     <!-- All content is rendered via index.mustache -->
-    <script src="assets/jquery.min.js"></script>
-    <script src="assets/highlight.min.js"></script>
-
-    <script type="text/javascript" charset="utf-8">
-      // Run our code
-      $(document).ready(app_setup);
+    <script src="assets/jquery.min.js" type='text/javascript'></script>
+    <script src="assets/highlight.min.js" type='text/javascript'></script>
+    <script type='text/javascript'>
+      $(document.body).promise().done(app_setup);
     </script>
-
   </body>
 
   </html>
