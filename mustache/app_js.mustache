@@ -53,6 +53,10 @@ Accordian.prototype.collapseAll = function(delay, ignore) {
 function CodeSamples() {
   this.samples = {};
   this.langs = [];
+  this.settings = {
+    word_wrap: 10,
+    indent: 4
+  };
 }
 
 CodeSamples.prototype.add = function (samples_obj,lang) {
@@ -70,39 +74,91 @@ CodeSamples.prototype.first_lang = function () {
 CodeSamples.prototype._inject = function (id,lang,sections) {
   var $container = $(id);
   var $lang_con = $('<div class="lang lang-'+lang+'"></div>');
+  var self = this;
 
+  // add each section
+  // ...sections schema: [{header:"", syntax:"", content:""}]
   $.each(sections, function(i, sec){
+
+    // Intelligently wrap the lines of code
+    var wrapped = self._word_wrap_content(sec.content);
 
     // Build a template
     var template = '';
     template += '<section>';
+    template += '<small>'+Date.now()+'</small>';
     template += '<h6 class="section-header"> '+ sec.header + '</h6>';
-    template += '<pre><code class="'+sec.syntax+'">'+ sec.content + '</code></pre>';
+    template += '<pre><code class="'+sec.syntax+'">'+ wrapped + '</code></pre>';
     template += '</section>';
 
     $lang_con.append($(template));
   });
 
+  // Remove old lang
+  $container.find('.lang-'+lang).remove();
+
   $container.append($lang_con);
 };
 
-CodeSamples.prototype.inject = function () {
-
+CodeSamples.prototype._each_section = function (fn) {
   var self = this;
-  // Iterate over classname/operationId/languages/sections
-  // create an id and inject the samles into that id
 
+  // Iterate over classname/operationId/languages/sections
   $.each(this.samples, function(classname,ops){
     $.each(ops, function(opid, langs){
       $.each(langs, function(lang, sections){
-
         var id = '#code-samples-'+classname+'-'+opid;
-        self._inject(id,lang,sections);
-
+        fn.call(self,id,lang,sections);
       });
     });
-
   });
+};
+
+CodeSamples.prototype._word_wrap_content = function(content) {
+
+  // normalize newlines, then tabs->spaces, then split
+  var lines = content
+              .replace(/(\r\n|\c\r|\r\c)/g, '\n')
+              .replace(/\t/g, Array(this.settings.indent).join(' '))
+              .split('\n');
+
+  // Process indvidual lines
+  var new_content = '';
+  for (var i = lines.length - 1; i >= 0; i--) {
+    new_content += this._word_wrap_line(lines[i]) + '\n';
+  }
+
+  return new_content;
+};
+
+// format each line, and if that line creates more lines, recursively format those.
+// return a string of formatted lines
+CodeSamples.prototype._word_wrap_line = function(line) {
+
+  // Only work on lines larger than the word wrap
+  if (line.length < this.settings.word_wrap) { return line;}
+
+  // Just wrap for now
+   var str = line.slice(0, this.settings.word_wrap);
+   var remain = line.slice(this.settings.word_wrap);
+   if(remain.length > 0) {
+     remain = Array(this.settings.indent).join(' ') + remain;
+     str += '\n' ;
+     str += this._word_wrap_line(remain);
+   }
+   return str;
+};
+
+CodeSamples.prototype.inject = function(settings) {
+
+  // Just word_wrap, currently
+  $.extend(this.settings, settings);
+
+  var self = this;
+  this._each_section(function(id,lang,sections){
+    self._inject(id,lang,sections);
+  });
+
 };
 
 // ====================  ResizeChoker
@@ -240,6 +296,31 @@ function add_scroll_highlighter() {
 
 }
 
+function calc_word_wrap_length(el) {
+  var $el = $(el).first();
+  var width = $el.width();
+  var px_per_char = calc_px_per_char($el);
+
+  return Math.floor(width/px_per_char) - 1 ; // we reduce by one for margin of error
+}
+
+function calc_px_per_char(el) {
+
+  var $el = $(el);
+  var id = Date.now() + 'random';
+  var str ='abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789' ;
+  var $dummy = $('<span id="josh">\n'+str+'</span>');
+  $dummy.css({
+    'word_wrap': 'none'
+  });
+  $dummy.appendTo($el);
+  var width = $dummy.width();
+  $dummy.remove();
+
+  var px_char  = width/str.length ;
+  return px_char;
+}
+
 // on resize: set the standard for character length to break on
 // on resize: copy code samples, then format/word-wrap
 // on resize: re-inject active code samples
@@ -311,7 +392,11 @@ function app_setup() {
   // Code Samples
   var cs = new CodeSamples();
   init_code_samples(cs);
-  resize.add(function(){ cs.inject(); });
+
+  resize.add(function(){
+    word_wrap = calc_word_wrap_length('.api-section-right pre>code');
+    cs.inject({word_wrap: word_wrap});
+  });
 
   init_code_bar(cs);
 
