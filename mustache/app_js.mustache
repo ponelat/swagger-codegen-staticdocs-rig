@@ -1,8 +1,5 @@
-/* global $,Mustache,document,hljs */
+/* global $,window,document,hljs */
 /* vim: set ft=javascript: */
-
-var TOPBAR_H = 24 * 3;
-var RESIZE_CHOKE = 300; // in millis
 
 // Accordian made into an object
 function Accordian(sel, delay) {
@@ -10,17 +7,16 @@ function Accordian(sel, delay) {
   this.sel = sel || '.side-nav';
   this.sliderCon = 'dt + div';
   this.sliderHeader = 'dt';
-  var self = this;
 
   // Toggle TOC nav
-  this.collapseAll(0)
+  this.collapseAll(0);
   this.attach_click();
 
 }
 
 Accordian.prototype.attach_click = function() {
   var self = this;
-  $(this.sel +' ' + this.sliderHeader).click(function(e){
+  $(this.sel +' ' + this.sliderHeader).click(function(){
     self.collapseAll();
     $(this).next(this.sliderCon).stop().slideToggle(self.delay);
   });
@@ -28,7 +24,7 @@ Accordian.prototype.attach_click = function() {
 
 Accordian.prototype.setTo = function (id){
   var $a = $(this.sel + ' dd a[href=' + id + ']');
-  var $con = $a.parents('dt + div')
+  var $con = $a.parents('dt + div');
 
   this.collapseAll(undefined, $con);
 
@@ -36,10 +32,10 @@ Accordian.prototype.setTo = function (id){
     $a.parents('dt + div').slideDown();
   } // else it is already down
 
-}
+};
 
 Accordian.prototype.collapseAll = function(delay, ignore) {
-  if (delay === undefined) { delay = this.delay }
+  if (delay === undefined) { delay = this.delay; }
 
   if(ignore) {
     $(this.sel +' dt + div').not(ignore).slideUp(delay);
@@ -50,6 +46,16 @@ Accordian.prototype.collapseAll = function(delay, ignore) {
 };
 
 // Imperative ....
+
+
+function show_lang(lang) {
+  // Show sections that are interested...
+  $('#wrapper').attr('data-show-lang',lang);
+
+  // Toggle active state on code-bar item
+  $('#code-bar [data-lang]').removeClass('active');
+  $('#code-bar [data-lang="'+lang+'"').addClass('active');
+}
 
 function init_code_bar(cs) {
   $('#code-bar dd a').click(function(e){
@@ -62,23 +68,10 @@ function init_code_bar(cs) {
   show_lang(cs.first_lang());
 }
 
-function show_lang(lang) {
-  // Show sections that are interested...
-  $('#wrapper').attr('data-show-lang',lang);
-
-  // Toggle active state on code-bar item
-  $('#code-bar [data-lang]').removeClass('active');
-  $('#code-bar [data-lang="'+lang+'"').addClass('active');
-}
-
-function inject_sample_into_markup(el,lang,sections) {
-}
-
 function CodeSamples() {
   this.samples = {};
   this.langs = [];
 }
-
 
 CodeSamples.prototype.add = function (samples_obj,lang) {
   $.extend(true,this.samples, samples_obj);
@@ -191,9 +184,7 @@ function add_scroll_highlighter() {
   $(window).scroll(function(){
 
     var $win = $(window);
-    var winTop = $win.scrollTop()// - TOPBAR_H;
-    var winH = $win.height();
-    var docH = $(document).height();
+    var winTop = $win.scrollTop();
     var topbarH = $('#top-bar').outerHeight(true);
     var top = winTop + topbarH;
 
@@ -205,9 +196,9 @@ function add_scroll_highlighter() {
 
       if (top >= hrefTop && top < (hrefTop + hrefH)) {
         window.navAccordian.setTo(href);
-        $("a[href='" + href + "']").addClass("nav-active");
+        $('a[href="' + href + '"]').addClass('nav-active');
       } else {
-        $("a[href='" + href + "']").removeClass("nav-active");
+        $('a[href="' + href + '"]').removeClass('nav-active');
       }
 
     });
