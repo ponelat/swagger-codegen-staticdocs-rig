@@ -1,7 +1,10 @@
 /* global $,window,document,hljs */
 /* vim: set ft=javascript: */
 
-// Accordian made into an object
+// Objects
+
+// ====================  Accordian
+
 function Accordian(sel, delay) {
   this.delay = delay || 400;
   this.sel = sel || '.side-nav';
@@ -45,28 +48,7 @@ Accordian.prototype.collapseAll = function(delay, ignore) {
 
 };
 
-// Imperative ....
-
-
-function show_lang(lang) {
-  // Show sections that are interested...
-  $('#wrapper').attr('data-show-lang',lang);
-
-  // Toggle active state on code-bar item
-  $('#code-bar [data-lang]').removeClass('active');
-  $('#code-bar [data-lang="'+lang+'"').addClass('active');
-}
-
-function init_code_bar(cs) {
-  $('#code-bar dd a').click(function(e){
-    e.preventDefault();
-
-    var lang = $(this).parent().attr('data-lang');
-    show_lang(lang);
-  });
-
-  show_lang(cs.first_lang());
-}
+// ====================  CodeSamples
 
 function CodeSamples() {
   this.samples = {};
@@ -123,7 +105,59 @@ CodeSamples.prototype.inject = function () {
   });
 };
 
+// ====================  ResizeChoker
 
+function ResizeChoker(choke) {
+  this.choke = choke || 300;
+  this.listeners = [];
+  this.counter = 0;
+}
+
+ResizeChoker.prototype.init = function() {
+  var self = this;
+  $(window).resize(function(){
+    // Throttle, so that we only call 'resize' sparingly
+    if (self.timeout) { clearTimeout(self.timeout); }
+    self.timeout = setTimeout(function(){
+      self.emit();
+    },self.choke);
+  });
+};
+
+ResizeChoker.prototype.emit = function() {
+  this.counter++;
+  for (var i = this.listeners.length - 1; i >= 0; i--) {
+    this.listeners[i].call(this);
+  }
+};
+
+ResizeChoker.prototype.add = function(fn) {
+  this.listeners.push(fn);
+};
+
+
+// ====================  Integrated functions
+
+
+function show_lang(lang) {
+  // Show sections that are interested...
+  $('#wrapper').attr('data-show-lang',lang);
+
+  // Toggle active state on code-bar item
+  $('#code-bar [data-lang]').removeClass('active');
+  $('#code-bar [data-lang="'+lang+'"').addClass('active');
+}
+
+function init_code_bar(cs) {
+  $('#code-bar dd a').click(function(e){
+    e.preventDefault();
+
+    var lang = $(this).parent().attr('data-lang');
+    show_lang(lang);
+  });
+
+  show_lang(cs.first_lang());
+}
 
 function init_code_samples(cs) {
   if (!window.code) {
@@ -206,58 +240,63 @@ function add_scroll_highlighter() {
 
 }
 
+// on resize: set the standard for character length to break on
+// on resize: copy code samples, then format/word-wrap
+// on resize: re-inject active code samples
+// on resize: apply syntax highlighting
 
-function ResizeChoker(choke) {
-  this.choke = choke || 300;
-  this.listeners = [];
-  this.counter = 0;
-}
+// function attach_intelli_code_renderer() {
 
-ResizeChoker.prototype.init = function() {
-  var self = this;
-  $(window).resize(function(){
-    // Throttle, so that we only call 'resize' sparingly
-    if (self.timeout) { clearTimeout(self.timeout); }
-    self.timeout = setTimeout(function(){
-      self.emit();
-    },self.choke);
-  });
-};
-ResizeChoker.prototype.emit = function() {
-  this.counter++;
-  for (var i = this.listeners.length - 1; i >= 0; i--) {
-    this.listeners[i].call(this);
-  }
-};
-ResizeChoker.prototype.add = function(fn) {
-  this.listeners.push(fn);
-};
-
-
-
-
-
-// // #scrollTo Plugin...http://lions-mark.com/jquery/scrollTo/
-// $.fn.scrollTo = function( target, options, callback ){
-//   if(typeof options == 'function' && arguments.length == 2){ callback = options; options = target; }
-//   var settings = $.extend({
-//     scrollTarget  : target,
-//     offsetTop     : 0,
-//     duration      : 500,
-//     easing        : 'swing'
-//   }, options);
-//   return this.each(function(){
-//     var scrollPane = $(this);
-//     var scrollTarget = (typeof settings.scrollTarget == "number") ? settings.scrollTarget : $(settings.scrollTarget);
-//     var scrollY = (typeof scrollTarget == "number") ? scrollTarget : scrollTarget.offset().top + scrollPane.scrollTop() - parseInt(settings.offsetTop);
-//     scrollPane.animate({scrollTop : scrollY }, parseInt(settings.duration), settings.easing, function(){
-//       if (typeof callback == 'function') { callback.call(this); }
-//     });
+//   $('pre>code.bash:visible').each(function(i,block) {
+//     intelli_render(block);
 //   });
+
 // }
 
-// --------------- Entry point...
-// ...after we load-in and render our mustache templates
+// function calc_char_max_width(el) {
+//   var $el = $(el);
+//   $el.css('background-color', 'purple');
+//   return 50;
+// }
+
+// function intelli_render(el, max_chars) {
+//   var $el = $(el);
+//   var $par = $el.parents('.api-section-right');
+//   var scr_w = $el.prop('scrollWidth');
+//   var par_w = $par.width();
+
+
+//   if (scr_w > par_w) {
+//     $el.css('background-color', 'red');
+
+//     var lines = $el.html();
+//     lines.replace(/[\r\n]/g, '\n');
+//     lines = lines.split('\n');
+
+//     var char_break, longest = 0;
+//     for (var i = lines.length - 1; i >= 0; i--) {
+//       longest = Math.max(longest, lines[i].length);
+//     }
+
+//     // A hackish way to get the average character width
+//     var px_per_char = scr_w / longest;
+//     var break_on_len = Math.floor(par_w / px_per_char);
+
+//     // Break lines
+//     for (var i = lines.length - 1; i >= 0; i--) {
+//       longest = Math.max(longest, lines[i].length);
+//     }
+
+//     $el.append('\n' + Array(break_on_len).join('M'));
+
+//   } else {
+//     console.log('good: ' + par_w + '/' + scr_w);
+//   }
+
+// }
+
+
+// ====================  Entry Point
 
 function app_setup() {
 
