@@ -207,20 +207,35 @@ function add_scroll_highlighter() {
 }
 
 
-function attach_resize() {
+function ResizeChoker(choke) {
+  this.choke = choke || 300;
+  this.listeners = [];
+  this.counter = 0;
+}
 
+ResizeChoker.prototype.init = function() {
+  var self = this;
   $(window).resize(function(){
     // Throttle, so that we only call 'resize' sparingly
-    if (attach_resize.choke_timeout) { clearTimeout(attach_resize.choke_timeout); }
-    attach_resize.choke_timeout = setTimeout(function(){
-      resize();
-    },RESIZE_CHOKE);
+    if (self.timeout) { clearTimeout(self.timeout); }
+    self.timeout = setTimeout(function(){
+      self.emit();
+    },self.choke);
   });
-}
+};
+ResizeChoker.prototype.emit = function() {
+  this.counter++;
+  for (var i = this.listeners.length - 1; i >= 0; i--) {
+    this.listeners[i].call(this);
+  }
+};
+ResizeChoker.prototype.add = function(fn) {
+  this.listeners.push(fn);
+};
 
-function resize ( ) {
-  console.log('called resize');
-}
+
+
+
 
 // // #scrollTo Plugin...http://lions-mark.com/jquery/scrollTo/
 // $.fn.scrollTo = function( target, options, callback ){
@@ -246,6 +261,11 @@ function resize ( ) {
 
 function app_setup() {
 
+  // Create a resize choker to ease resize events
+  var resize = new ResizeChoker(300);
+  resize.init();
+  resize.add(function(){console.log('resized called: ' + this.counter;)});
+
   // TOC
   attach_toc_listeners();
 
@@ -254,8 +274,6 @@ function app_setup() {
   init_code_samples(cs);
   resize.add(function(){ cs.inject(); });
 
-  // All/any resize events
-  attach_resize();
   init_code_bar(cs);
 
   // Highlight.js (code syntax highlighting)
@@ -266,4 +284,6 @@ function app_setup() {
     hljs.highlightBlock(block);
   });
 
+  // Call the resize event to start things off
+  resize.emit();
 }
