@@ -47,11 +47,11 @@ Accordian.prototype.collapseAll = function(delay, ignore) {
     $(this.sel +' dt + div').slideUp(delay);
   }
 
-}
+};
 
 // Imperative ....
 
-function init_code_bar() {
+function init_code_bar(cs) {
   $('#code-bar dd a').click(function(e){
     e.preventDefault();
 
@@ -59,14 +59,7 @@ function init_code_bar() {
     show_lang(lang);
   });
 
-  // Show the first language we have...
-  if (window.code) {
-    var lang;
-    // get first property...bit of a hack
-    for(lang in window.code) { break;}
-    show_lang(lang);
-  }
-
+  show_lang(cs.first_lang());
 }
 
 function show_lang(lang) {
@@ -79,7 +72,28 @@ function show_lang(lang) {
 }
 
 function inject_sample_into_markup(el,lang,sections) {
-  var $container = $(el);
+}
+
+function CodeSamples() {
+  this.samples = {};
+  this.langs = [];
+}
+
+
+CodeSamples.prototype.add = function (samples_obj,lang) {
+  $.extend(true,this.samples, samples_obj);
+  if (lang) {this.langs.push(lang); }
+};
+
+CodeSamples.prototype.first_lang = function () {
+  if(this.langs.length > 0) {
+    return this.langs[0];
+  }
+  return '';
+};
+
+CodeSamples.prototype._inject = function (id,lang,sections) {
+  var $container = $(id);
   var $lang_con = $('<div class="lang lang-'+lang+'"></div>');
 
   $.each(sections, function(i, sec){
@@ -95,36 +109,42 @@ function inject_sample_into_markup(el,lang,sections) {
   });
 
   $container.append($lang_con);
-}
+};
 
-function inject_code_samples() {
+CodeSamples.prototype.inject = function () {
+
+  var self = this;
+  // Iterate over classname/operationId/languages/sections
+  // create an id and inject the samles into that id
+
+  $.each(this.samples, function(classname,ops){
+    $.each(ops, function(opid, langs){
+      $.each(langs, function(lang, sections){
+
+        var id = '#code-samples-'+classname+'-'+opid;
+        self._inject(id,lang,sections);
+
+      });
+    });
+
+  });
+};
+
+
+
+function init_code_samples(cs) {
   if (!window.code) {
     console.log('we have no code samples... :(');
     return;
   }
 
-  // Merge all the samples into a single object, indexed by <api classname> .. <operationId> ..
-  window.all_code = {};
   var _langs = [];
   for (var lang in window.code) {
     _langs.push(lang);
-    $.extend(true,window.all_code, window.code[lang]);
+    cs.add(window.code[lang], lang);
   }
 
   console.log('found '+ _langs.length + ' langs: ' + _langs.join(','));
-
-  // NOTE: These loops are long in the tooth to read.... is there a better OOP approach?
-  // Iterate over each classname/operationId/language
-  $.each(window.all_code, function(classname,ops){
-    $.each(ops, function(opid, langs){
-      $.each(langs, function(lang, sections){
-        var id = '#code-samples-'+classname+'-'+opid;
-        inject_sample_into_markup(id, lang, sections);
-      })
-    });
-
-  });
-
 }
 
 function attach_toc_listeners() {
@@ -237,12 +257,15 @@ function app_setup() {
 
   // TOC
   attach_toc_listeners();
+
   // Code Samples
-  inject_code_samples();
-  init_code_bar();
+  var cs = new CodeSamples();
+  init_code_samples(cs);
+  resize.add(function(){ cs.inject(); });
 
   // All/any resize events
   attach_resize();
+  init_code_bar(cs);
 
   // Highlight.js (code syntax highlighting)
   hljs.configure({
