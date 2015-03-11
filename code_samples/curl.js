@@ -1,50 +1,13 @@
-/* generated for the 'petstore' spec file */
-// Create the parnet object if it doesn't exist...
 window.code = window.code || {};
 
-
-// The schema for each language file is as follows...
-// {
-//   <apiClassName>: {
-
-//     <operationId>: {
-//       <language>: [
-//         {
-//           "header": <string> // THe header displayed, possibly "request", "response",
-//           "syntax": <string> // see https://highlightjs.org/static/demo/ for the supported syntaxes...
-//                            // ...although we would need to make a custom build as the current one only covers the basic syntaxes
-//           "content": <code sample> //escaped for JSON and formated for a <pre> block
-//                                  // ... ie: it needs \n's instead of <br>'s
-//         },
-//         {
-//           "header": <string>
-//           "syntax": <string>
-//           "content": <code sample>
-//         }
-//         ...
-//       ]
-//     },
-
-//     <operationId> : {...}
-
-//   },
-
-//   <apiClassName> { ... }
-
-// }
-
-
-// Here is a live version, that is filled with dummy content
-
 window.code.curl = {
-
   "UserApi": {
     "createUser": {
       "curl": [
         {
           "header": "request",
-          "syntax": "bash", // see segmentio/highlight for a list of supported syntaxes
-          "content": "curl 'http://example.com/some/path' \\\n  -d bob=\"hello\" \\\n  -X GET"
+          "syntax": "bash",
+          "content": "curl -X post \'http://petstore.swagger.io/v2/user\'"
         }
       ]
     },
@@ -53,7 +16,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl 'http://example.com/some/path' \\\n  -d bob=\"hello\" \\\n  -X GET"
+          "content": "curl -X post \'http://petstore.swagger.io/v2/user/createWithArray\'"
         }
       ]
     },
@@ -62,7 +25,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl 'http://example.com/some/path' \\\n  -d bob=\"hello\" \\\n  -X GET"
+          "content": "curl -X post \'http://petstore.swagger.io/v2/user/createWithList\'"
         }
       ]
     },
@@ -71,7 +34,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl 'http://example.com/some/path' \\\n  -d bob=\"hello\" \\\n  -X GET"
+          "content": "curl -X get \'http://petstore.swagger.io/v2/user/login?[username={username}],[password={password}]\'"
         }
       ]
     },
@@ -80,7 +43,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl 'http://example.com/some/path' \\\n  -d bob=\"hello\" \\\n  -X GET"
+          "content": "curl -X get \'http://petstore.swagger.io/v2/user/logout\'"
         }
       ]
     },
@@ -89,7 +52,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl 'http://example.com/some/path' \\\n  -d bob=\"hello\" \\\n  -X GET"
+          "content": "curl -X get \'http://petstore.swagger.io/v2/user/{username}\'"
         }
       ]
     },
@@ -98,7 +61,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl 'http://example.com/some/path' \\\n  -d bob=\"hello\" \\\n  -X GET"
+          "content": "curl -X put \'http://petstore.swagger.io/v2/user/{username}\'"
         }
       ]
     },
@@ -107,19 +70,18 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl 'http://example.com/some/path' \\\n  -d bob=\"hello\" \\\n  -X GET"
+          "content": "curl -X delete \'http://petstore.swagger.io/v2/user/{username}\'"
         }
       ]
     },
   },
-
   "PetApi": {
     "updatePet": {
       "curl": [
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl 'http://example.com/some/path' \\\n  -d bob=\"hello\" \\\n  -X GET"
+          "content": "curl -X put \'http://petstore.swagger.io/v2/pet\'"
         }
       ]
     },
@@ -128,7 +90,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl 'http://example.com/some/path' \\\n  -d bob=\"hello\" \\\n  -X GET"
+          "content": "curl -X post \'http://petstore.swagger.io/v2/pet\'"
         }
       ]
     },
@@ -137,7 +99,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl 'http://example.com/some/path' \\\n  -d bob=\"hello\" \\\n  -X GET"
+          "content": "curl -X get \'http://petstore.swagger.io/v2/pet/findByStatus?[status={status1&amp;status=status2}]\'"
         }
       ]
     },
@@ -146,7 +108,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl 'http://example.com/some/path' \\\n  -d bob=\"hello\" \\\n  -X GET"
+          "content": "curl -X get \'http://petstore.swagger.io/v2/pet/findByTags?[tags={tags1&amp;tags=tags2}]\'"
         }
       ]
     },
@@ -155,7 +117,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl 'http://example.com/some/path' \\\n  -d bob=\"hello\" \\\n  -X GET"
+          "content": "curl -X get \'http://petstore.swagger.io/v2/pet/{petId}\'"
         }
       ]
     },
@@ -164,7 +126,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl 'http://example.com/some/path' \\\n  -d bob=\"hello\" \\\n  -X GET"
+          "content": "curl -X post \'http://petstore.swagger.io/v2/pet/{petId}\'"
         }
       ]
     },
@@ -173,19 +135,36 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl 'http://example.com/some/path' \\\n  -d bob=\"hello\" \\\n  -X GET"
+          "content": "curl -X delete \'http://petstore.swagger.io/v2/pet/{petId}\'\ \n  -H 'api_key:{ api_key }'"
+        }
+      ]
+    },
+    "uploadFile": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X post \'http://petstore.swagger.io/v2/pet/{petId}/uploadImage\'"
         }
       ]
     },
   },
-
   "StoreApi": {
+    "getInventory": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X get \'http://petstore.swagger.io/v2/store/inventory\'"
+        }
+      ]
+    },
     "placeOrder": {
       "curl": [
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl 'http://example.com/some/path' \\\n  -d bob=\"hello\" \\\n  -X GET"
+          "content": "curl -X post \'http://petstore.swagger.io/v2/store/order\'"
         }
       ]
     },
@@ -194,7 +173,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl 'http://example.com/some/path' \\\n  -d bob=\"hello\" \\\n  -X GET"
+          "content": "curl -X get \'http://petstore.swagger.io/v2/store/order/{orderId}\'"
         }
       ]
     },
@@ -203,9 +182,9 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl 'http://example.com/some/path' \\\n  -d bob=\"hello\" \\\n  -X GET"
+          "content": "curl -X delete \'http://petstore.swagger.io/v2/store/order/{orderId}\'"
         }
       ]
     },
-  }
+  },
 }
