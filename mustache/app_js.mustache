@@ -2,6 +2,7 @@
 /* vim: set ft=javascript: */
 
 var TOPBAR_H = 24 * 3;
+var RESIZE_CHOKE = 300; // in millis
 
 // Accordian made into an object
 function Accordian(sel, delay) {
@@ -194,6 +195,22 @@ function add_scroll_highlighter() {
 
 }
 
+
+function attach_resize() {
+
+  $(window).resize(function(){
+    // Throttle, so that we only call 'resize' sparingly
+    if (attach_resize.choke_timeout) { clearTimeout(attach_resize.choke_timeout); }
+    attach_resize.choke_timeout = setTimeout(function(){
+      resize();
+    },RESIZE_CHOKE);
+  });
+}
+
+function resize ( ) {
+  console.log('called resize');
+}
+
 // // #scrollTo Plugin...http://lions-mark.com/jquery/scrollTo/
 // $.fn.scrollTo = function( target, options, callback ){
 //   if(typeof options == 'function' && arguments.length == 2){ callback = options; options = target; }
@@ -224,6 +241,8 @@ function app_setup() {
   inject_code_samples();
   init_code_bar();
 
+  // All/any resize events
+  attach_resize();
 
   // Highlight.js (code syntax highlighting)
   hljs.configure({
