@@ -384,7 +384,6 @@ function app_setup() {
   // Create a resize choker to ease resize events
   var resize = new ResizeChoker(300);
   resize.init();
-  resize.add(function(){console.log('resized called: ' + this.counter);});
 
   // TOC
   attach_toc_listeners();
