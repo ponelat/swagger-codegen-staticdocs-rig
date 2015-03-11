@@ -1,16 +1,26 @@
+
+
 #code-bar {
   position: relative;
   .sub-nav {
 
+    @include clearfix;
     position: relative;
     max-width: 100%;
-    padding-top: $topbar-height;
     margin-bottom: -$topbar-height/2;
+    margin-top: 0;
 
+    padding: $topbar-height 1em $vertical-unit/2 1em;;
+    background-color: $codebar-color-bg;
+
+    @media #{$media-show-nav} {
+      padding-left: rem-calc($nav-section-width) + 1rem;
+    }
 
     @media #{$media-split-sections} {
-      border-radius: rem-calc(4px);
+      @include radius($codebar-radius);
       padding-top: 0;
+      padding-left: 1em;
       margin-bottom: 0;
       z-index: 30;
       top: $topbar-height;
@@ -20,24 +30,33 @@
       right: 0.5em;
     }
 
-    background-color: $color-code-bar;
 
     // Put it to the right under the top-bar
 
-    padding-left: 1em;
-    padding-right: 0.5em;
-    padding-bottom: 0.5em;
+    dd + dd {
+      margin-left: 1em;
+    }
 
-    // Add some style to Foundation's sub-nav
     dd {
-      & a:hover {
-        @include radius($sub-nav-border-radius);
-        font-weight: $sub-nav-active-font-weight;
-        background: scale-color($sub-nav-active-bg, $lightness: 15%);
-        padding: $sub-nav-active-padding;
-        cursor: $sub-nav-active-cursor;
-        color: $sub-nav-active-color;
+      float: left;
+      a {
+        padding: $vertical-unit/4 0.5em;
+        color: $codebar-color-text;
       }
+      &.active a, a:hover {
+          @include radius($codebar-radius);
+          color: $codebar-color-text-highlight;
+      }
+
+      &.active a{
+        background: $codebar-color-main;
+      }
+      a:hover {
+          cursor: pointer;
+          background: scale-color($codebar-color-main, $lightness: 15%);
+      }
+
+
     }
 
   }

@@ -10,6 +10,9 @@ $color-yellow: #D9B33D;
 $color-dark-green: #1F7641;
 $color-blue: #4578dd;
 $color-purple: #A055CB;
+$color-white: #f3f3f3;
+
+$color-primary: $color-green;
 
 $color-dark-brown: rgba(51,48,41, 1);
 $color-almost-white: #EBEBEB;
@@ -53,7 +56,12 @@ $color-topbar-shadow: rgba(50, 50, 50, 0.6);
 $topbar-shadow-x: 0px;
 $topbar-shadow-y: 2px;
 $topbar-shadow-blur: 1px;
-$color-code-bar: rgba(255,255,255,0.9);
+
+$codebar-radius: 0.3rem;
+$codebar-color-main: $color-primary;
+$codebar-color-text: $codebar-color-main;
+$codebar-color-text-highlight: $color-white;
+$codebar-color-bg: $color-white;
 
 // Vertical rhythm
 $font-size: 15px;
@@ -193,7 +201,7 @@ $jet         : #222222;
 $black       : #000000;
 
 // We use these as default colors throughout
-$primary-color: $color-green;
+$primary-color: $color-primary;
 $secondary-color: $color-blue;
 $alert-color: $color-red;
 $success-color: $color-green;
