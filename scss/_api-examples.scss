@@ -4,6 +4,7 @@
   padding-bottom: $api-section-padding;
 
   color: $color-section-right-text;
+  overflow-x: auto;
 
   @media #{$media-split-sections} {
     padding-top: $api-section-padding + (1.5 * $vertical-unit);// + $api-description-header-height;
