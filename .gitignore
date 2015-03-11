@@ -8,4 +8,4 @@ npm-debug.log
 *.DS_Store
 
 swagger_gen/
-/asset/app.css
+/assets/app.css
