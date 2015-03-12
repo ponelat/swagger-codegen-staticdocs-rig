@@ -88,7 +88,7 @@ CodeSamples.prototype._inject = function (id,lang,sections) {
   $.each(sections, function(i, sec){
 
     // Intelligently wrap the lines of code
-    var wrapped = self._word_wrap_content(sec.content);
+    var wrapped = self._word_wrap_content(sec.content,sec.syntax);
 
     // Build a template
     var template = '';
@@ -121,7 +121,7 @@ CodeSamples.prototype._each_section = function (fn) {
   });
 };
 
-CodeSamples.prototype._word_wrap_content = function(content) {
+CodeSamples.prototype._word_wrap_content = function(content,lang) {
 
   // normalize newlines, then tabs->spaces, then split
   var lines = content
@@ -131,25 +131,35 @@ CodeSamples.prototype._word_wrap_content = function(content) {
 
   // Process indvidual lines
   var new_content = '';
-  for (var i = lines.length - 1; i >= 0; i--) {
-    new_content += this._word_wrap_line(lines[i]) + '\n';
+  for (var i = 0, len = lines.length; i < len; i++) {
+    new_content += this._word_wrap_line(lines[i], lang) + '\n';
   }
 
   return new_content;
 };
 
+
 // format each line, and if that line creates more lines, recursively format those.
 // return a string of formatted lines
-CodeSamples.prototype._word_wrap_line = function(line, appendage) {
+CodeSamples.prototype._word_wrap_line = function(line, lang) {
 
   // Only work on lines larger than the word wrap
   if (line.length < this.settings.word_wrap) { return line;}
 
-  appendage = appendage || ' \\';
-  var wrap = this.settings.word_wrap - appendage.length;
+  lang = lang.toLowerCase();
+  var appendage = '';
+  // var break_chars = '/?, &.';
 
-  // var break_regex = /([, &?][^, &?]*)$/;
+
   var break_regex = /[\/? ,&.][^\/  ? ,&.]*$/;
+
+  // Language specifics -- pre split
+  if (lang === 'bash') {
+    // if there are an odd number of single quotes, then quote the postfix backslash
+    appendage = '\\';
+  }
+
+  var wrap = this.settings.word_wrap - appendage.length;
 
   var break_point = line
   .slice(0,wrap) // only search visible text (with the assumed appendage)
@@ -165,12 +175,24 @@ CodeSamples.prototype._word_wrap_line = function(line, appendage) {
   var str = line.slice(0, break_point );
   var remain = line.slice( break_point );
 
+
   // Process the remaining str, and include appendage to str if so
   if(remain.length > 0) {
-    str += appendage;
+
+  // Language specifics -- post split
+   if(lang === 'bash') {
+     // prepend 'remain' with a quote, if odd number of quotes in 'str'
+     if ((str.match(/'/) || []).length % 2 === 1) {
+       remain = '\''  + remain;
+       appendage = '\'\\';
+     }
+     // ...and append a quote in the main str
+   }
+
+   str += appendage;
    remain = Array(this.settings.indent).join(' ') + remain;
    str += '\n' ;
-   str += this._word_wrap_line(remain,appendage);
+   str += this._word_wrap_line(remain,lang);
   }
 
   return str;
