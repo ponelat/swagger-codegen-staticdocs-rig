@@ -50,13 +50,20 @@ Accordian.prototype.collapseAll = function(delay, ignore) {
 
 // ====================  CodeSamples
 
-function CodeSamples() {
+function CodeSamples(settings) {
+
+  // John Resig technique for new"-less" javascript
+  if(!(this instanceof CodeSamples)) { return new CodeSamples(settings);}
+
   this.samples = {};
   this.langs = [];
   this.settings = {
     word_wrap: 10,
-    indent: 4
+    indent: 4,
+    min_chars: 10
   };
+
+  this._settings(settings);
 }
 
 CodeSamples.prototype.add = function (samples_obj,lang) {
@@ -133,32 +140,56 @@ CodeSamples.prototype._word_wrap_content = function(content) {
 
 // format each line, and if that line creates more lines, recursively format those.
 // return a string of formatted lines
-CodeSamples.prototype._word_wrap_line = function(line) {
+CodeSamples.prototype._word_wrap_line = function(line, appendage) {
 
   // Only work on lines larger than the word wrap
   if (line.length < this.settings.word_wrap) { return line;}
 
-  // Just wrap for now
-   var str = line.slice(0, this.settings.word_wrap);
-   var remain = line.slice(this.settings.word_wrap);
-   if(remain.length > 0) {
-     remain = Array(this.settings.indent).join(' ') + remain;
-     str += '\n' ;
-     str += this._word_wrap_line(remain);
-   }
-   return str;
+  appendage = appendage || ' \\';
+  var wrap = this.settings.word_wrap - appendage.length;
+
+  // var break_regex = /([, &?][^, &?]*)$/;
+  var break_regex = /[\/? ,&.][^\/  ? ,&.]*$/;
+
+  var break_point = line
+  .slice(0,wrap) // only search visible text (with the assumed appendage)
+  .replace(break_regex, '') // kill everything after the last match
+  .length; // length == breakpoint
+
+  // Don't wrap wrap if the resulting string will be less than minimum
+  if (break_point < this.settings.min_chars) {
+    break_point = wrap;
+  }
+
+  // Divide string based on break_point
+  var str = line.slice(0, break_point );
+  var remain = line.slice( break_point );
+
+  // Process the remaining str, and include appendage to str if so
+  if(remain.length > 0) {
+    str += appendage;
+   remain = Array(this.settings.indent).join(' ') + remain;
+   str += '\n' ;
+   str += this._word_wrap_line(remain,appendage);
+  }
+
+  return str;
 };
 
 CodeSamples.prototype.inject = function(settings) {
-
-  // Just word_wrap, currently
-  $.extend(this.settings, settings);
-
   var self = this;
+  self._settings(settings);
+
   this._each_section(function(id,lang,sections){
     self._inject(id,lang,sections);
   });
 
+};
+
+CodeSamples.prototype._settings = function(obj) {
+  $.extend(this.settings, obj);
+  // Make sure we don't wrap with less than 8 chars
+  this.settings.word_wrap = Math.max(this.settings.word_wrap, 8);
 };
 
 // ====================  ResizeChoker
@@ -393,7 +424,8 @@ function app_setup() {
   init_code_samples(cs);
 
   resize.add(function(){
-    word_wrap = calc_word_wrap_length('.api-section-right pre>code');
+    // make sure the element is visible, otherwise length will be 0
+    word_wrap = calc_word_wrap_length('.api-section-right pre>code:visible');
     cs.inject({word_wrap: word_wrap});
   });
 
