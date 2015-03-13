@@ -60,7 +60,8 @@ function CodeSamples(settings) {
   this.settings = {
     word_wrap: 10,
     indent: 4,
-    min_chars: 10
+    min_chars: 10,
+    parent_sel: 'body'
   };
 
   this._settings(settings);
@@ -83,13 +84,8 @@ CodeSamples.prototype._inject = function (id,lang,sections) {
     // Intelligently wrap the lines of code
     var wrapped = self._word_wrap_content(sec.content,sec.syntax);
 
-    // Build a template
-    var template = '';
-    template += '<section>';
-    template += '<small>'+Date.now()+'</small>';
-    template += '<h6 class="section-header"> '+ sec.header + '</h6>';
-    template += '<pre><code class="'+sec.syntax+'">'+ wrapped + '</code></pre>';
-    template += '</section>';
+    // Create some markup
+    var template = self._render_template(sec.header, sec.syntax, wrapped);
 
     $lang_con.append($(template));
   });
@@ -99,6 +95,43 @@ CodeSamples.prototype._inject = function (id,lang,sections) {
 
   $container.append($lang_con);
 };
+
+CodeSamples.prototype._render_template = function(header,syntax,content) {
+    // Build a template
+    var template = '';
+    template += '<section>';
+    template += '<small>'+Date.now()+'</small>';
+    template += '<h6 class="section-header"> '+ header + '</h6>';
+    template += '<pre><code class="'+syntax+'">'+ content + '</code></pre>';
+    template += '</section>';
+    return template;
+};
+
+CodeSamples.prototype._calc_word_wrap_length = function() {
+  var $el = $(this.settings.parent_sel).first();
+  var width = $el.width();
+  var px_per_char = this._calc_px_per_char($el);
+
+  this._settings({word_wrap: Math.floor(width/px_per_char) - 1}); // we reduce by one for margin of error
+};
+
+CodeSamples.prototype._calc_px_per_char = function (el) {
+
+  var $el = $(el);
+  var str ='abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789' ;
+  var $dummy = $('<span id="josh">\n'+str+'</span>');
+  $dummy.css({
+    'word_wrap': 'none'
+  });
+  $dummy.appendTo($el);
+  var width = $dummy.width();
+  $dummy.remove();
+
+  var px_char  = width/str.length ;
+  return px_char;
+
+};
+
 
 CodeSamples.prototype._each_section = function (fn) {
   var self = this;
@@ -221,6 +254,8 @@ CodeSamples.prototype._word_wrap_line = function(line, lang) {
 CodeSamples.prototype.inject = function(settings) {
   var self = this;
   self._settings(settings);
+
+  this._calc_word_wrap_length();
 
   this._each_section(function(id,lang,sections){
     self._inject(id,lang,sections);
@@ -369,31 +404,6 @@ function add_scroll_highlighter() {
 
 }
 
-function calc_word_wrap_length(el) {
-  var $el = $(el).first();
-  var width = $el.width();
-  var px_per_char = calc_px_per_char($el);
-
-  return Math.floor(width/px_per_char) - 1 ; // we reduce by one for margin of error
-}
-
-function calc_px_per_char(el) {
-
-  var $el = $(el);
-  var id = Date.now() + 'random';
-  var str ='abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789' ;
-  var $dummy = $('<span id="josh">\n'+str+'</span>');
-  $dummy.css({
-    'word_wrap': 'none'
-  });
-  $dummy.appendTo($el);
-  var width = $dummy.width();
-  $dummy.remove();
-
-  var px_char  = width/str.length ;
-  return px_char;
-}
-
 // on resize: set the standard for character length to break on
 // on resize: copy code samples, then format/word-wrap
 // on resize: re-inject active code samples
@@ -462,13 +472,11 @@ function app_setup() {
   attach_toc_listeners();
 
   // Code Samples
-  var cs = new CodeSamples();
+  var cs = new CodeSamples({parent_sel: '.api-section-right pre>code:visible'});
   init_code_samples(cs);
 
   resize.add(function(){
-    // make sure the element is visible, otherwise length will be 0
-    word_wrap = calc_word_wrap_length('.api-section-right pre>code:visible');
-    cs.inject({word_wrap: word_wrap});
+    cs.inject();
   });
 
   // Attach click listener and activate a lang
