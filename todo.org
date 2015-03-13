@@ -1,4 +1,4 @@
-* Skype chat 25 Feb Notes: [7/10]
+* Skype chat 25 Feb Notes: [8/9]
 - [X] Integrate with feature/threepan
 
 - [X] Highlight TOC items with scroll
@@ -9,11 +9,7 @@
 - [X] Flesh out top bar with some details
 - [X] Put a tablet menu for code samples in topbar
 - [X] Style Models, in the same fashion as api-desciption
-- [ ] Put logo in nav section
-
-Personal Note
-- [ ] Api-class should be used as part of anchor ID
-curl templaets external file.
+- [X] Put logo in nav section
 
 * TODO list for Swagger-codegen-staticdocs-rig
 ** Basic [2/2]
@@ -21,12 +17,14 @@ curl templaets external file.
   - [X] Structure panes
     - [X] api block
     - [X] code examples
+** Polishing Up [0/1]
+  - [ ] Api-class should be used as part of anchor ID
 ** Mobile [2/2]
   - [X] Breakpoints
   - [X] Sticky top-bar
-** Code samples [1/2]
+** Code samples [2/2]
   - [X] Add context headers in code section
-  - [ ] Add code-switcher bar
+  - [X] Add code-switcher bar
 ** Models [4/5]
    - [X] Partial template
    - [X] Code example
