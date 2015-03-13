@@ -257,7 +257,7 @@ function show_lang(lang) {
   $('#code-bar [data-lang="'+lang+'"').addClass('active');
 }
 
-function init_code_bar(cs) {
+function init_code_bar() {
   $('#code-bar dd a').click(function(e){
     e.preventDefault();
 
@@ -265,7 +265,8 @@ function init_code_bar(cs) {
     show_lang(lang);
   });
 
-  show_lang(cs.first_lang());
+  var first_lang = $('#code-bar dd').first().attr('data-lang');
+  show_lang(first_lang);
 }
 
 function init_code_samples(cs) {
@@ -274,13 +275,13 @@ function init_code_samples(cs) {
     return;
   }
 
-  var _langs = [];
-  for (var lang in window.code) {
-    _langs.push(lang);
-    cs.add(window.code[lang], lang);
+  var _code_samples = [];
+  for (var sample in window.code) {
+    _code_samples.push(sample);
+    cs.add(window.code[sample]);
   }
 
-  console.log('found '+ _langs.length + ' langs: ' + _langs.join(','));
+  console.log('found '+ _code_samples.length + ' code_sample files: ' + _code_samples.join(','));
 }
 
 function attach_toc_listeners() {
@@ -320,7 +321,6 @@ function get_list_of_toc_hrefs () {
 
 
 function add_scroll_highlighter() {
-
 
   var list_of_hrefs = get_list_of_toc_hrefs();
 
@@ -451,7 +451,8 @@ function app_setup() {
     cs.inject({word_wrap: word_wrap});
   });
 
-  init_code_bar(cs);
+  // Attach click listener and activate a lang
+  init_code_bar();
 
   // Highlight.js (code syntax highlighting)
   hljs.configure({
