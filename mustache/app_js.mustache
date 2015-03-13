@@ -109,29 +109,29 @@ CodeSamples.prototype._render_template = function(header,syntax,content) {
 
 CodeSamples.prototype._calc_word_wrap_length = function() {
   var $el = $(this.settings.parent_sel).first();
-  var width = $el.width();
-  var px_per_char = this._calc_px_per_char($el);
 
-  this._settings({word_wrap: Math.floor(width/px_per_char) - 1}); // we reduce by one for margin of error
-};
-
-CodeSamples.prototype._calc_px_per_char = function (el) {
-
-  var $el = $(el);
+  // Create a dummy element with a string of letters and put it in the DOM
   var str ='abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789' ;
-  var $dummy = $('<span id="josh">\n'+str+'</span>');
-  $dummy.css({
-    'word_wrap': 'none'
-  });
+  var id = Date.now() + 'random';
+  var span = '<span id="'+id+'">\n'+str+'</span>';
+  var $dummy = $(this._render_template('', '', span));
+  $dummy.css({'word_wrap': 'none'});
   $dummy.appendTo($el);
-  var width = $dummy.width();
+
+  // Find the width of letters
+  var span_width = $dummy.find('#'+id).width();
+
+  // Find the width of the container section
+  var section_width = $dummy.width();
+  // No longer need our dummy
   $dummy.remove();
 
-  var px_char  = width/str.length ;
-  return px_char;
+  // Calc px per character
+  var px_per_char  = span_width/str.length ;
 
+  // Calc how many chars will fit in a section
+  this._settings({word_wrap: Math.floor(section_width/px_per_char) - 1}); // we reduce by one for margin of error
 };
-
 
 CodeSamples.prototype._each_section = function (fn) {
   var self = this;
@@ -472,7 +472,10 @@ function app_setup() {
   attach_toc_listeners();
 
   // Code Samples
-  var cs = new CodeSamples({parent_sel: '.api-section-right pre>code:visible'});
+  var cs = new CodeSamples({
+    parent_sel: '.api-section-right:visible'
+  });
+
   init_code_samples(cs);
 
   resize.add(function(){
