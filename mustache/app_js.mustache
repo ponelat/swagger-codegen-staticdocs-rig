@@ -56,7 +56,7 @@ function CodeSamples(settings) {
   if(!(this instanceof CodeSamples)) { return new CodeSamples(settings);}
 
   this.samples = {};
-  this.langs = [];
+  this._langs = [];
   this.settings = {
     word_wrap: 10,
     indent: 4,
@@ -66,16 +66,9 @@ function CodeSamples(settings) {
   this._settings(settings);
 }
 
-CodeSamples.prototype.add = function (samples_obj,lang) {
+CodeSamples.prototype.add = function (samples_obj) {
   $.extend(true,this.samples, samples_obj);
-  if (lang) {this.langs.push(lang); }
-};
-
-CodeSamples.prototype.first_lang = function () {
-  if(this.langs.length > 0) {
-    return this.langs[0];
-  }
-  return '';
+  this._langs_is_dirty = true;
 };
 
 CodeSamples.prototype._inject = function (id,lang,sections) {
@@ -119,6 +112,33 @@ CodeSamples.prototype._each_section = function (fn) {
       });
     });
   });
+};
+
+// Go through each section and add the langs therein
+// .. only if it is dirty (ie: we haven't added any new langs)
+CodeSamples.prototype.langs = function(){
+  if (!this._langs_is_dirty) {return this._langs;}
+
+  // create a hash of unique langs
+  var langs_obj = {};
+  this._each_section(function(id,lang){
+    if(lang !== '') {
+      langs_obj[lang] = true;
+    }
+  });
+
+  // convert our hash into an array
+  for (var lang in langs_obj) {
+    this._langs.push(lang);
+  }
+
+  // We are no longer dirty...
+  this._langs_is_dirty = false;
+  return this._langs;
+};
+
+CodeSamples.prototype.first_lang = function () {
+  return this.langs()[0];
 };
 
 CodeSamples.prototype._word_wrap_content = function(content,lang) {
