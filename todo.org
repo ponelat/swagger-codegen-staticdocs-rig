@@ -1,3 +1,10 @@
+* Notes regarding the long-strings [0/4]
+- [ ] Add Model code samples to CodeSamples' pipeline
+- [ ] Add promises to code samples inejection so that we can highlight at the end.
+*** Swagger [0/2]
+- [ ] Add escape backslash to multilines in code_samples/curl.mustache
+- [ ] Add syntax token to code_samples/java.mustache's xml sections
+
 * Skype chat 25 Feb Notes: [8/9]
 - [X] Integrate with feature/threepan
 
