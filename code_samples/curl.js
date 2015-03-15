@@ -135,7 +135,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X delete \'http://petstore.swagger.wordnik.com/v2\'\ \n  -H 'api_key:{ api_key }'"
+          "content": "curl -X delete \'http://petstore.swagger.wordnik.com/v2\'\\\n  -H 'api_key:{ api_key }'"
         }
       ]
     },

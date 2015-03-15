@@ -11,7 +11,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X {{httpMethod}} \'{{basePath}}{{exampleUrl}}\'{{#headerParams}}\ \n  -H '{{paramName}}:{ {{paramName}} }'{{/headerParams}}"
+          "content": "curl -X {{httpMethod}} \'{{basePath}}{{exampleUrl}}\'{{#headerParams}}\\\n  -H '{{paramName}}:{ {{paramName}} }'{{/headerParams}}"
         }
       ]
     },
