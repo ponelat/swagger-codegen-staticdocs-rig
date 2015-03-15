@@ -214,17 +214,21 @@ CodeSamples.prototype._word_wrap_line = function(line, lang) {
   lang = lang.toLowerCase();
   var appendage = '';
   // var break_chars = '/?, &.';
-
-
-  var break_regex = /[\/? ,&.][^\/  ? ,&.]*$/;
+  var break_chars = './<,{';
 
   // Language specifics -- pre split
   if (lang === 'bash') {
     // if there are an odd number of single quotes, then quote the postfix backslash
     appendage = '\\';
+    break_chars = '/?, &.={';
+  } else if (lang === 'java') {
+    break_chars = './<,:{';
   }
 
   var wrap = this.settings.word_wrap - appendage.length;
+
+  // Create a regex out of the break_chars
+  var break_regex = new RegExp('[' + break_chars + '][^' + break_chars + ']*$');
 
   var break_point = line
   .slice(0,wrap) // only search visible text (with the assumed appendage)
