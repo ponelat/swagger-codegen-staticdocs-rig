@@ -1,8 +1,6 @@
-/* global $,window,document,hljs */
-/* vim: set ft=javascript: */
+/* global $,window,document,hljs,S */
 
 // Objects
-
 // ====================  Accordian
 
 function Accordian(sel, delay) {
@@ -133,11 +131,15 @@ CodeSamples.prototype._calc_word_wrap_length = function() {
   this._settings({word_wrap: Math.floor(section_width/px_per_char) - 1}); // we reduce by one for margin of error
 };
 
-CodeSamples.prototype._each_section = function (fn) {
+CodeSamples.prototype.each_section = function (fn) {
+  this._each_section(this.samples,fn);
+};
+
+CodeSamples.prototype._each_section = function(samples,fn) {
   var self = this;
 
   // Iterate over classname/operationId/languages/sections
-  $.each(this.samples, function(classname,ops){
+  $.each(samples, function(classname,ops){
     $.each(ops, function(opid, langs){
       $.each(langs, function(lang, sections){
         var id = '#code-samples-'+classname+'-'+opid;
@@ -154,7 +156,7 @@ CodeSamples.prototype.langs = function(){
 
   // create a hash of unique langs
   var langs_obj = {};
-  this._each_section(function(id,lang){
+  this.each_section(function(id,lang){
     if(lang !== '') {
       langs_obj[lang] = true;
     }
@@ -257,7 +259,7 @@ CodeSamples.prototype.inject = function(settings) {
 
   this._calc_word_wrap_length();
 
-  this._each_section(function(id,lang,sections){
+  this.each_section(function(id,lang,sections){
     self._inject(id,lang,sections);
   });
 

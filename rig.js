@@ -26,7 +26,6 @@ var list_of_partials = {
   'model': $.Deferred(),
   'api-class': $.Deferred(),
   'api-endpoint': $.Deferred(),
-  'app_js': $.Deferred(),
   'intro': $.Deferred(),
   'logo': $.Deferred(),
   'code-samples': $.Deferred()

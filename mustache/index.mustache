@@ -10,12 +10,11 @@
   </head>
 
   <body>
+
     {{>core}}
 
-    <!-- All content is rendered via index.mustache -->
-    <script src="assets/jquery.min.js" type='text/javascript'></script>
-    <script src="assets/highlight.min.js" type='text/javascript'></script>
     <script type='text/javascript'>
+      // app_setup should be found in app.js
       $(document.body).promise().done(app_setup);
     </script>
   </body>
