@@ -1,4 +1,4 @@
-/* global $,window,document,hljs,S */
+/* global $,window,document,hljs */
 
 // Objects
 // ====================  Accordian
