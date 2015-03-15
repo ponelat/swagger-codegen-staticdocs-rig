@@ -7,7 +7,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X post \'http://petstore.swagger.io/v2/user\'"
+          "content": "curl -X post \'http://petstore.swagger.wordnik.com/v2\'"
         }
       ]
     },
@@ -16,7 +16,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X post \'http://petstore.swagger.io/v2/user/createWithArray\'"
+          "content": "curl -X post \'http://petstore.swagger.wordnik.com/v2\'"
         }
       ]
     },
@@ -25,7 +25,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X post \'http://petstore.swagger.io/v2/user/createWithList\'"
+          "content": "curl -X post \'http://petstore.swagger.wordnik.com/v2\'"
         }
       ]
     },
@@ -34,7 +34,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X get \'http://petstore.swagger.io/v2/user/login?[username={username}],[password={password}]\'"
+          "content": "curl -X get \'http://petstore.swagger.wordnik.com/v2\'"
         }
       ]
     },
@@ -43,7 +43,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X get \'http://petstore.swagger.io/v2/user/logout\'"
+          "content": "curl -X get \'http://petstore.swagger.wordnik.com/v2\'"
         }
       ]
     },
@@ -52,7 +52,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X get \'http://petstore.swagger.io/v2/user/{username}\'"
+          "content": "curl -X get \'http://petstore.swagger.wordnik.com/v2\'"
         }
       ]
     },
@@ -61,7 +61,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X put \'http://petstore.swagger.io/v2/user/{username}\'"
+          "content": "curl -X put \'http://petstore.swagger.wordnik.com/v2\'"
         }
       ]
     },
@@ -70,7 +70,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X delete \'http://petstore.swagger.io/v2/user/{username}\'"
+          "content": "curl -X delete \'http://petstore.swagger.wordnik.com/v2\'"
         }
       ]
     },
@@ -81,7 +81,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X put \'http://petstore.swagger.io/v2/pet\'"
+          "content": "curl -X put \'http://petstore.swagger.wordnik.com/v2\'"
         }
       ]
     },
@@ -90,7 +90,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X post \'http://petstore.swagger.io/v2/pet\'"
+          "content": "curl -X post \'http://petstore.swagger.wordnik.com/v2\'"
         }
       ]
     },
@@ -99,7 +99,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X get \'http://petstore.swagger.io/v2/pet/findByStatus?[status={status1&amp;status=status2}]\'"
+          "content": "curl -X get \'http://petstore.swagger.wordnik.com/v2\'"
         }
       ]
     },
@@ -108,7 +108,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X get \'http://petstore.swagger.io/v2/pet/findByTags?[tags={tags1&amp;tags=tags2}]\'"
+          "content": "curl -X get \'http://petstore.swagger.wordnik.com/v2\'"
         }
       ]
     },
@@ -117,7 +117,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X get \'http://petstore.swagger.io/v2/pet/{petId}\'"
+          "content": "curl -X get \'http://petstore.swagger.wordnik.com/v2\'"
         }
       ]
     },
@@ -126,7 +126,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X post \'http://petstore.swagger.io/v2/pet/{petId}\'"
+          "content": "curl -X post \'http://petstore.swagger.wordnik.com/v2\'"
         }
       ]
     },
@@ -135,36 +135,18 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X delete \'http://petstore.swagger.io/v2/pet/{petId}\'\ \n  -H 'api_key:{ api_key }'"
-        }
-      ]
-    },
-    "uploadFile": {
-      "curl": [
-        {
-          "header": "request",
-          "syntax": "bash",
-          "content": "curl -X post \'http://petstore.swagger.io/v2/pet/{petId}/uploadImage\'"
+          "content": "curl -X delete \'http://petstore.swagger.wordnik.com/v2\'\ \n  -H 'api_key:{ api_key }'"
         }
       ]
     },
   },
   "StoreApi": {
-    "getInventory": {
-      "curl": [
-        {
-          "header": "request",
-          "syntax": "bash",
-          "content": "curl -X get \'http://petstore.swagger.io/v2/store/inventory\'"
-        }
-      ]
-    },
     "placeOrder": {
       "curl": [
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X post \'http://petstore.swagger.io/v2/store/order\'"
+          "content": "curl -X post \'http://petstore.swagger.wordnik.com/v2\'"
         }
       ]
     },
@@ -173,7 +155,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X get \'http://petstore.swagger.io/v2/store/order/{orderId}\'"
+          "content": "curl -X get \'http://petstore.swagger.wordnik.com/v2\'"
         }
       ]
     },
@@ -182,7 +164,7 @@ window.code.curl = {
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X delete \'http://petstore.swagger.io/v2/store/order/{orderId}\'"
+          "content": "curl -X delete \'http://petstore.swagger.wordnik.com/v2\'"
         }
       ]
     },
