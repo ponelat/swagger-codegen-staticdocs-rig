@@ -1,0 +1,17 @@
+window.code = window.code || {};
+
+window.code.models = {
+"models": {
+  {{#models}}
+    {{#model}}
+    "{{{name}}}": { "all": [
+        {
+          "header": "Raw JSON Model",
+          "syntax": "javascript",
+          "content": '{{{modelJson}}}'
+        }
+    ]},
+    {{/model}}
+  {{/models}}
+  }
+}
