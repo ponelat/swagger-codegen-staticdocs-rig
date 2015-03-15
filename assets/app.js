@@ -72,6 +72,8 @@ CodeSamples.prototype.add = function (samples_obj) {
 
 CodeSamples.prototype._inject = function (id,lang,sections) {
   var $container = $(id);
+  var promises = [];
+  var promise = $.Deferred();
   var $lang_con = $('<div class="lang lang-'+lang+'"></div>');
   var self = this;
 
@@ -84,14 +86,19 @@ CodeSamples.prototype._inject = function (id,lang,sections) {
 
     // Create some markup
     var template = self._render_template(sec.header, sec.syntax, wrapped);
-
-    $lang_con.append($(template));
+    promises.push($lang_con.append($(template)).promise());
   });
 
   // Remove old lang
   $container.find('.lang-'+lang).remove();
 
-  $container.append($lang_con);
+  promises.push($container.append($lang_con).promise());
+
+  $.when.apply($, promises).done(function(){
+    promise.resolve();
+  });
+
+  return promise;
 };
 
 CodeSamples.prototype._render_template = function(header,syntax,content) {
@@ -107,6 +114,7 @@ CodeSamples.prototype._render_template = function(header,syntax,content) {
 
 CodeSamples.prototype._calc_word_wrap_length = function() {
   var $el = $(this.settings.parent_sel).first();
+  var promise = $.Deferred();
 
   // Create a dummy element with a string of letters and put it in the DOM
   var str ='abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789' ;
@@ -114,21 +122,24 @@ CodeSamples.prototype._calc_word_wrap_length = function() {
   var span = '<span id="'+id+'">\n'+str+'</span>';
   var $dummy = $(this._render_template('', '', span));
   $dummy.css({'word_wrap': 'none'});
-  $dummy.appendTo($el);
+  $dummy.appendTo($el).promise().then(function(){
+    // Find the width of letters
+    var span_width = $dummy.find('#'+id).width();
 
-  // Find the width of letters
-  var span_width = $dummy.find('#'+id).width();
+    // Find the width of the container section
+    var section_width = $dummy.width();
+    // No longer need our dummy
+    $dummy.remove();
 
-  // Find the width of the container section
-  var section_width = $dummy.width();
-  // No longer need our dummy
-  $dummy.remove();
+    // Calc px per character
+    var px_per_char  = span_width/str.length ;
 
-  // Calc px per character
-  var px_per_char  = span_width/str.length ;
+    // Calc how many chars will fit in a section
+    var word_wrap = Math.floor(section_width/px_per_char) - 1;
+    promise.resolve(word_wrap);
+  });
 
-  // Calc how many chars will fit in a section
-  this._settings({word_wrap: Math.floor(section_width/px_per_char) - 1}); // we reduce by one for margin of error
+  return promise;
 };
 
 CodeSamples.prototype.each_section = function (fn) {
@@ -256,14 +267,30 @@ CodeSamples.prototype._word_wrap_line = function(line, lang) {
 CodeSamples.prototype.inject = function(settings) {
   var self = this;
   self._settings(settings);
+  var promises = [];
 
-  this._calc_word_wrap_length();
+  this._calc_word_wrap_length().then(function(word_wrap){
 
-  this.each_section(function(id,lang,sections){
-    self._inject(id,lang,sections);
+    self._settings({word_wrap: word_wrap});
+
+    self.each_section(function(id,lang,sections){
+      promises.push(self._inject(id,lang,sections));
+    });
+
+    $.when.apply($,promises).done(function(){
+      self.highlight();
+    });
+
   });
 
 };
+
+CodeSamples.prototype.highlight = function() {
+  $(this.settings.parent_sel + ' code').each(function(i,block){
+    hljs.highlightBlock(block);
+  });
+};
+
 
 CodeSamples.prototype._settings = function(obj) {
   $.extend(this.settings, obj);
@@ -491,9 +518,7 @@ function app_setup() {
   hljs.configure({
     classPrefix: ''
   });
-  $('pre>code').each(function(i, block) {
-    hljs.highlightBlock(block);
-  });
+  // The actual highlighting calls are done in CodeSamples
 
   // Call the resize event to start things off
   resize.emit();
