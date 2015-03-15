@@ -105,7 +105,6 @@ CodeSamples.prototype._render_template = function(header,syntax,content) {
     // Build a template
     var template = '';
     template += '<section>';
-    template += '<small>'+Date.now()+'</small>';
     template += '<h6 class="section-header"> '+ header + '</h6>';
     template += '<pre><code class="'+syntax+'">'+ content + '</code></pre>';
     template += '</section>';
