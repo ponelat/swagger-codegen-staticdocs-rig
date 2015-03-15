@@ -1,0 +1,23 @@
+window.code = window.code || {};
+
+window.code.curl = {
+{{#apiInfo}}
+{{#apis}}
+  "{{classname}}": {
+{{#operations}}
+{{#operation}}
+    "{{nickname}}": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X {{httpMethod}} \'{{basePath}}{{exampleUrl}}\'{{#headerParams}}\ \n  -H '{{paramName}}:{ {{paramName}} }'{{/headerParams}}"
+        }
+      ]
+    },
+{{/operation}}
+{{/operations}}
+  },
+{{/apis}}
+{{/apiInfo}}
+}
