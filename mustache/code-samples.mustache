@@ -2,10 +2,16 @@
 <script src="code_samples/{{.}}.js"></script>
 {{/code-samples}}
 
+<!-- a special code_samples file for the models -->
+<script src="code_samples/models.js"></script>
+
 <style>
   .lang {
     display: none;
   }
+
+  /* for langs to be displayed all the time (not based on a seclection from the code-bar) */
+  .lang-all {display: initial; }
 
   {{#code-samples}}
   [data-show-lang="{{.}}"] .lang-{{.}} { display: initial;}

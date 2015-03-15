@@ -18,6 +18,7 @@ module.exports = {
               *.js,\
               js/*.js,\
               mustache/*.mustache,\
+              code_samples/*.js,\
               assets/*.*",
     "server": true,
     "proxy": false,
