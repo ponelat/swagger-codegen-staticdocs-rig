@@ -1,5 +1,8 @@
 /* global $,window,document,hljs */
 
+// Constants for tweaking
+var DEBOUNCE_DELAY = 100;
+
 // Objects
 // ====================  Accordian
 
@@ -30,8 +33,15 @@ Accordian.prototype.setTo = function (id){
   this.collapseAll(undefined, $con);
 
   if ($con.css('display') === 'none' ) {
-    $a.parents('dt + div').slideDown();
-  } // else it is already down
+    $a.parents('dt + div').slideDown(function() {});
+  }
+
+  // Scroll to toc element
+  var half_height = $(window).height() / 2;
+  var root = $('#nav-wrapper');
+  var top = $a.offset().top - root.offset().top - half_height;
+  $('#nav-wrapper').animate({scrollTop: top})
+
 
 };
 
