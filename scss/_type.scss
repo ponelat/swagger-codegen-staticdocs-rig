@@ -111,6 +111,9 @@ a.anchor {
 
   table.middle-list {
     margin-top: $vertical-unit;
+    table-layout: fixed;
+    width: 100%;
+    word-wrap: break-word;
 
     border-horizontal-spacing: 0;
     border-vertical-spacing: 0;

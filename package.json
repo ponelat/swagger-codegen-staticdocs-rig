@@ -6,36 +6,17 @@
   "assets": "assets/*",
   "images": "images/*",
   "style_build": "assets/app.css",
-
   "swagger_path": "../swagger-codegen",
-  "swagger_templates": "modules/swagger-codegen/src/main/resources/threepane",
-  "swagger_assets": "assets",
-  "swagger_images": "images",
-  "swagger_generated": "samples/threepane",
   "swagger_script": "bin/three-pane-petstore.sh",
-
   "scripts": {
     "bs": "browser-sync start --config='bs-config.js'",
     "install": "bower install",
     "compass": "bundle exec compass watch",
+    "code_samples": "for file in code_samples/*.mustache; do mustache data.json $file > code_samples/`basename $file .mustache`.js; done",
     "compass_build": "bundle exec compass clean && bundle exec compass compile",
-
-    "swagger": "npm run _copy_across && npm run _swagger_make",
-
-    "_swagger_clean": "rm -vr $npm_package_swagger_path/$npm_package_swagger_templates/* && npm run _swagger_mkdirs",
-    "_swagger_mkdirs": "(cd $npm_package_swagger_path/$npm_package_swagger_templates && mkdir $npm_package_swagger_assets $npm_package_swagger_images)",
-
-    "_copy_across": "npm run _swagger_clean && npm run _copy_across_mustache && npm run _copy_across_assets && npm run _copy_across_images",
-    "_copy_across_mustache": "cp -v mustache/*  $npm_package_swagger_path/$npm_package_swagger_templates",
-    "_copy_across_assets": "npm run compass_build && cp -v $npm_package_assets $npm_package_swagger_path/$npm_package_swagger_templates/$npm_package_swagger_assets",
-    "_copy_across_images": "cp -v $npm_package_images $npm_package_swagger_path/$npm_package_swagger_templates/$npm_package_swagger_images",
-
+    "swagger": "./copy_across.sh && npm run _swagger_make",
     "_swagger_make": "( cd $npm_package_swagger_path && mvn clean && ./$npm_package_swagger_script )",
-
-    "_swagger_bs": "(cd $npm_package_swagger_path/$npm_package_swagger_generated && browser-sync start --server --files='index.html' --startPath='index.html')",
-
     "pages": "(git checkout gh-pages && git merge develop -m 'merge in develop' && npm run compass_build && git add -f $npm_package_style_build && git commit -m 'force commit app.css' && git push -f)",
-
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -50,6 +31,7 @@
   "homepage": "https://github.com/ponelat/swagger-codegen-staticdocs-rig",
   "devDependencies": {
     "bower": "latest",
-    "browser-sync": "latest"
+    "browser-sync": "latest",
+    "mustache": "^1.2.0"
   }
 }

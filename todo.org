@@ -1,3 +1,7 @@
+* Skype chat Mar 20
+- [ ] Hyperlink models, arrays have complexType field for the important bit
+- [ ] code_samples will be escaped: they will be inside a string, inside a javascript file
+- [ ] Guess the syntax of sections
 * Notes regarding the long-strings [0/4]
 - [ ] Add Model code samples to CodeSamples' pipeline
 - [ ] Add promises to code samples inejection so that we can highlight at the end.

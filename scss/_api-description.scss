@@ -20,10 +20,10 @@
 
       margin-bottom: $vertical-unit;
 
-      &.method-post {border-left-color: $color-method-post; }
-      &.method-get {border-left-color: $color-method-get; }
-      &.method-put {border-left-color: $color-method-put; }
-      &.method-delete {border-left-color: $color-method-delete; }
+      &.method-POST {border-left-color: $color-method-post; }
+      &.method-GET {border-left-color: $color-method-get; }
+      &.method-PUT {border-left-color: $color-method-put; }
+      &.method-DELETE {border-left-color: $color-method-delete; }
 
       .method {
         color: $color-half-white;
@@ -42,16 +42,16 @@
         padding-right: 0.5rem;
         float: left;
       }
-      .path-post {
+      .path-POST {
           background-color: $color-green;
       }
-      .path-get {
+      .path-GET {
           background-color: $color-yellow;
       }
-      .path-put {
+      .path-PUT {
           background-color: $color-blue;
       }
-      .path-delete {
+      .path-DELETE {
           background-color: $color-red;
       }
       .method-arg {
