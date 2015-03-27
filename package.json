@@ -11,6 +11,7 @@
   "scripts": {
     "bs": "browser-sync start --config='bs-config.js'",
     "install": "bower install",
+    "build": "npm run compass_build && npm run code_samples",
     "compass": "bundle exec compass watch",
     "code_samples": "for file in code_samples/*.mustache; do mustache data.json $file > code_samples/`basename $file .mustache`.js; done",
     "compass_build": "bundle exec compass clean && bundle exec compass compile",
