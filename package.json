@@ -6,21 +6,17 @@
   "assets": "assets/*",
   "images": "images/*",
   "style_build": "assets/app.css",
-
   "swagger_path": "../swagger-codegen",
   "swagger_script": "bin/three-pane-petstore.sh",
-
   "scripts": {
     "bs": "browser-sync start --config='bs-config.js'",
     "install": "bower install",
     "compass": "bundle exec compass watch",
+    "code_samples": "for file in code_samples/*.mustache; do mustache data.json $file > code_samples/`basename $file .mustache`.js; done",
     "compass_build": "bundle exec compass clean && bundle exec compass compile",
-
     "swagger": "./copy_across.sh && npm run _swagger_make",
     "_swagger_make": "( cd $npm_package_swagger_path && mvn clean && ./$npm_package_swagger_script )",
-
     "pages": "(git checkout gh-pages && git merge develop -m 'merge in develop' && npm run compass_build && git add -f $npm_package_style_build && git commit -m 'force commit app.css' && git push -f)",
-
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -35,6 +31,7 @@
   "homepage": "https://github.com/ponelat/swagger-codegen-staticdocs-rig",
   "devDependencies": {
     "bower": "latest",
-    "browser-sync": "latest"
+    "browser-sync": "latest",
+    "mustache": "^1.2.0"
   }
 }
