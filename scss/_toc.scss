@@ -86,25 +86,25 @@ dl.side-nav {
           }
 
         }
-        &.method-post {
+        &.method-POST {
           &:before {
             content: "P";
             background-color: $color-green;
           }
         }
-        &.method-put {
+        &.method-PUT {
           &:before {
             content: "P";
             background-color: $color-blue;
           }
         }
-        &.method-get {
+        &.method-GET {
           &:before {
             content: "G";
             background-color: $color-yellow;
           }
         }
-        &.method-delete {
+        &.method-DELETE {
           &:before {
             content: "D";
             background-color: $color-red;
