@@ -4,28 +4,15 @@
     content: ' ';
     display: block;
     position: absolute;
-    border-right: 1px solid $color-topbar-shadow;
+    border-right: 1px solid $color-toc-right-border;
     top: $topbar-height;
-    top: calc(#{$topbar-height} + #{$topbar-shadow-y});
-    bottom: 0px;
-    right: 1px;
-    z-index: 30;
-  }
-
-  &:after {
-    content: ' ';
-    display: block;
-    position: absolute;
-    border-right: 1px solid scale-color($color-topbar-shadow, $lightness: 60%);
-
-    top: $topbar-height;
-    top: calc(#{$topbar-height} + #{$topbar-shadow-y});
-
+    top: calc(#{$topbar-height} + #{$topbar-shadow-y} );
     bottom: 0px;
     right: 0px;
     z-index: 30;
   }
-  // border-right: 1px solid $color-trans-black;
+  border-right: 1px solid $color-toc-right-border;
+
 }
 
 dl.side-nav {
