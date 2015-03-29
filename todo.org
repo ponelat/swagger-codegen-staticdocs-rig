@@ -1,8 +1,9 @@
 * Pending upstream
 - [ ] Unescape code_samples (Pending code_samples escaped for JS)
-* Tweaks for bigger data.json file...(flight/hotels) [2/2]
-   - [X] Polish scroll highlighter
-   - [X] Use upcase classes for get,post,delete,put
+* Tweaks for bigger data.json file...(flight/hotels) [3/4]
+- [X] Polish scroll highlighter
+- [X] Use upcase classes for get,post,delete,put
+- [ ] Add all parameter types (form in particular)
 * Skype chat Mar 20
 - [ ] Hyperlink models, arrays have complexType field for the important bit
 - [ ] Guess the syntax of sections, use string#indexOf or highlight.js
