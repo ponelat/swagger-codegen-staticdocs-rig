@@ -6,11 +6,12 @@ var DEBOUNCE_DELAY = 100;
 // Objects
 // ====================  Accordian
 
-function Accordian(sel, delay) {
+function Accordian(sel, delay, rootScrollable) {
   this.delay = delay || 400;
   this.sel = sel || '.side-nav';
   this.sliderCon = 'dt + div';
   this.sliderHeader = 'dt';
+  this.rootScrollable = rootScrollable || '#nav-wrapper';
 
   // Toggle TOC nav
   this.collapseAll(0);
@@ -26,34 +27,58 @@ Accordian.prototype.attach_click = function() {
   });
 };
 
+Accordian.prototype.slideDown = function (el) {
+  el = $(el);
+  var $parent = el.parents('dt + div');
+  if($parent.css('display') === 'none') {
+    return $parent.slideDown();
+  }
+};
+
+
+Accordian.prototype._removeAllActive = function (){
+  $(this.sel + ' dd a ').removeClass('active');
+};
+
 Accordian.prototype.setTo = function (id){
+  if(!id) {
+    this.collapseAll();
+    this._removeAllActive();
+    return;
+  }
+
   var $a = $(this.sel + ' dd a[href=' + id + ']');
   var $con = $a.parents('dt + div');
 
-  this.collapseAll(undefined, $con);
 
-  if ($con.css('display') === 'none' ) {
-    $a.parents('dt + div').slideDown(function() {});
-  }
+  var self = this;
+  $.when(this.collapseAll(undefined, $con), this.slideDown($a)).then(function(){
+    // Scroll to toc element
+    var half_height = $(window).height() / 2;
+    var root = $(self.rootScrollable);
+    var root_scroll = root.scrollTop();
+    var root_top = root.offset().top ;
 
-  // Scroll to toc element
-  var half_height = $(window).height() / 2;
-  var root = $('#nav-wrapper');
-  var top = $a.offset().top - root.offset().top - half_height;
-  $('#nav-wrapper').animate({scrollTop: top})
+    var a_top = $a.offset().top + root_scroll;
+    var rel_top = a_top - root_top;
+
+    var top =  rel_top;
+    top -= half_height; // middle of viewPort
+
+    root.stop().animate({scrollTop: top});
+
+    // Highlight element
+    self._removeAllActive();
+    $a.addClass('active');
+
+  });
 
 
 };
 
 Accordian.prototype.collapseAll = function(delay, ignore) {
   if (delay === undefined) { delay = this.delay; }
-
-  if(ignore) {
-    $(this.sel +' dt + div').not(ignore).slideUp(delay);
-  } else {
-    $(this.sel +' dt + div').slideUp(delay);
-  }
-
+  return $(this.sel +' dt + div').not(ignore).slideUp(delay);
 };
 
 // ====================  CodeSamples
@@ -383,7 +408,7 @@ function init_code_samples(cs) {
 
 function attach_toc_listeners() {
 
-  window.navAccordian = new Accordian('dl.side-nav');
+  window.navAccordian = new Accordian('dl.side-nav', undefined, '#nav-wrapper');
 
   // Handle flyout TOC
   $('.mobile-only .menu-icon').click(function(){
@@ -419,88 +444,122 @@ function get_list_of_toc_hrefs () {
 
 function add_scroll_highlighter() {
 
+  $(window).scroll(debounce(highlight_visible_section, DEBOUNCE_DELAY));
+}
+
+function highlight_visible_section () {
   var list_of_hrefs = get_list_of_toc_hrefs();
+  var $win = $(window);
+  var winTop = $win.scrollTop();
+  var topbarH = $('#top-bar').outerHeight(true);
+  var top = winTop + topbarH;
+  var tops = [];
+  var smallest_top = Infinity;
 
-  $(window).scroll(function(){
+  $.each(list_of_hrefs, function(i, href) {
 
-    var $win = $(window);
-    var winTop = $win.scrollTop();
-    var topbarH = $('#top-bar').outerHeight(true);
-    var top = winTop + topbarH;
+    var $href = $(href);
+    var hrefTop = $href.offset().top; // get the offset of the div from the top of page
+    var hrefH= $href.parents('.api-section').outerHeight(true); // get the height of the div in question
 
-    $.each(list_of_hrefs, function(i, href) {
+    smallest_top = Math.min(smallest_top, hrefTop);
 
-      var $href = $(href);
-      var hrefTop = $href.offset().top; // get the offset of the div from the top of page
-      var hrefH= $href.parents('.api-section').outerHeight(true); // get the height of the div in question
+    if (top >= hrefTop && top < (hrefTop + hrefH)) {
+      window.navAccordian.setTo(href);
+      return;
+    }
 
-      if (top >= hrefTop && top < (hrefTop + hrefH)) {
-        window.navAccordian.setTo(href);
-        $('a[href="' + href + '"]').addClass('nav-active');
-      } else {
-        $('a[href="' + href + '"]').removeClass('nav-active');
-      }
-
-    });
   });
+
+  if (top < smallest_top) {
+    window.navAccordian.setTo();
+  }
+
 
 }
 
-// on resize: set the standard for character length to break on
-// on resize: copy code samples, then format/word-wrap
-// on resize: re-inject active code samples
-// on resize: apply syntax highlighting
 
-// function attach_intelli_code_renderer() {
+// ====================  Helpful 3rd parties
 
-//   $('pre>code.bash:visible').each(function(i,block) {
-//     intelli_render(block);
-//   });
+// ---- Underscore debounce
+// Returns a function, that, as long as it continues to be invoked, will not
+// be triggered. The function will be called after it stops being called for
+// N milliseconds. If `immediate` is passed, trigger the function on the
+// leading edge, instead of the trailing.
+function debounce(func, wait, immediate) {
+  var timeout;
+  return function() {
+    var context = this, args = arguments;
+    var later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
 
-// }
+// Imperative, an idea to redo the TOC
+// $('[data-toc-inview]').currently_viewing(function(el){
+//   var id = $(this).find('[data-toc-anchor]').attr('href');
+//   window.navAccordian.setTo(id);
+// });
 
-// function calc_char_max_width(el) {
-//   var $el = $(el);
-//   $el.css('background-color', 'purple');
-//   return 50;
-// }
+// ---- jQuery 'inview' event
+// -- helper
+// function getViewportHeight() {
+//     var height = window.innerHeight; // Safari, Opera
+//     var mode = document.compatMode;
 
-// function intelli_render(el, max_chars) {
-//   var $el = $(el);
-//   var $par = $el.parents('.api-section-right');
-//   var scr_w = $el.prop('scrollWidth');
-//   var par_w = $par.width();
-
-
-//   if (scr_w > par_w) {
-//     $el.css('background-color', 'red');
-
-//     var lines = $el.html();
-//     lines.replace(/[\r\n]/g, '\n');
-//     lines = lines.split('\n');
-
-//     var char_break, longest = 0;
-//     for (var i = lines.length - 1; i >= 0; i--) {
-//       longest = Math.max(longest, lines[i].length);
+//     if ( (mode || !$.support.boxModel) ) { // IE, Gecko
+//         height = (mode == 'CSS1Compat') ?
+//         document.documentElement.clientHeight : // Standards
+//         document.body.clientHeight; // Quirks
 //     }
-
-//     // A hackish way to get the average character width
-//     var px_per_char = scr_w / longest;
-//     var break_on_len = Math.floor(par_w / px_per_char);
-
-//     // Break lines
-//     for (var i = lines.length - 1; i >= 0; i--) {
-//       longest = Math.max(longest, lines[i].length);
-//     }
-
-//     $el.append('\n' + Array(break_on_len).join('M'));
-
-//   } else {
-//     console.log('good: ' + par_w + '/' + scr_w);
-//   }
-
+//     return height;
 // }
+//
+// $(window).scroll(debounce(function ()  {
+//     var vpH = getViewportHeight(),
+//         scrolltop = (document.documentElement.scrollTop ?
+//             document.documentElement.scrollTop :
+//             document.body.scrollTop),
+//         elems = [];
 
+//     // naughty, but this is how it knows which elements to check for
+//     if(!$.cache) {
+//       console.log('no cache :(')
+//       return;
+//     }
+//     $.each($.cache, function () {
+//         if (this.events && this.events.inview) {
+//             elems.push(this.handle.elem);
+//         }
+//     });
+
+//     if (elems.length) {
+//         $(elems).each(function () {
+//             var $el = $(this),
+//                 top = $el.offset().top,
+//                 height = $el.height(),
+//                 inview = $el.data('inview') || false;
+
+//             if (scrolltop > (top + height) || scrolltop + vpH < top) {
+//                 if (inview) {
+//                     $el.data('inview', false);
+//                     $el.trigger('inview', [ false ]);
+//                 }
+//             } else if (scrolltop < (top + height)) {
+//                 if (!inview) {
+//                     $el.data('inview', true);
+//                     $el.trigger('inview', [ true ]);
+//                 }
+//             }
+//         });
+//     }
+// },DEBOUNCE_DELAY));
 
 // ====================  Entry Point
 

@@ -1,20 +1,23 @@
+* Pending upstream
+- [ ] Unescape code_samples (Pending code_samples escaped for JS)
+* Tweaks for bigger data.json file...(flight/hotels) [2/2]
+   - [X] Polish scroll highlighter
+   - [X] Use upcase classes for get,post,delete,put
 * Skype chat Mar 20
 - [ ] Hyperlink models, arrays have complexType field for the important bit
-- [ ] code_samples will be escaped: they will be inside a string, inside a javascript file
-- [ ] Guess the syntax of sections
-* Notes regarding the long-strings [0/4]
-- [ ] Add Model code samples to CodeSamples' pipeline
-- [ ] Add promises to code samples inejection so that we can highlight at the end.
+- [ ] Guess the syntax of sections, use string#indexOf or highlight.js
+* Notes regarding the long-strings [2/2]
+- [X] Add Model code samples to CodeSamples' pipeline
+- [X] Add promises to code samples inejection so that we can highlight at the end.
 *** Swagger [0/2]
-- [ ] Add escape backslash to multilines in code_samples/curl.mustache
-- [ ] Add syntax token to code_samples/java.mustache's xml sections
+- [X] Add escape backslash to multilines in code_samples/curl.mustache
+- [X] Add syntax token to code_samples/java.mustache's xml sections - Moved
+      to top
 
-* Skype chat 25 Feb Notes: [8/9]
+* Skype chat 25 Feb Notes: [9/9]
 - [X] Integrate with feature/threepan
-
 - [X] Highlight TOC items with scroll
-- [ ] Hyperlink Models
-      Can't, don't have enough info...
+- [X] Hyperlink Models - Moved to top
 - [X] Delineate the right column with headers and borders
 - [X] Create a code file for samples. js/code-curl.js, js/code-java.js, etc
 - [X] Flesh out top bar with some details
@@ -28,8 +31,8 @@
   - [X] Structure panes
     - [X] api block
     - [X] code examples
-** Polishing Up [0/1]
-  - [ ] Api-class should be used as part of anchor ID
+** Polishing Up [1/1]
+  - [X] Api-class should be used as part of anchor ID
 ** Mobile [2/2]
   - [X] Breakpoints
   - [X] Sticky top-bar
