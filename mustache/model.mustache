@@ -4,39 +4,36 @@
   <a class="anchor" id="api-model-{{name}}">&nbsp;</a>
   <header class="api-class-header">
     <h3 class="api-class-name">{{name}} Model</h3>
-    <h6 class="inline-h">Contains:</h6>
+    <h6 class="inline-h">Contains: {{^imports}}<span class="code">*nothing</span>{{/imports}}</h6>
     {{#imports}} <span class="code">{{.}}</span> {{/imports}}
   </header>
 
     <div class="params params-vars" {{^ vars }}style="display: none;"{{/vars}}>
       <h6> Variables </h6>
 
-      <table class="middle-list">
+      <dl class="middle-list">
+        {{#vars}}
 
-      {{#vars}}
+          <dt>{{name}}{{#required}}<span class="required">*</span>{{/required}} </dt>
+          <dd>
+           <span class="type">
+             {{#complexType}}
+               {{^isNotContainer}}
+                {{datatype}}
+               {{/isNotContainer}}
+               <a href="#api-model-{{complexType}}"> {{complexType}}</a>
+             {{/complexType}}
 
-      <tr>
-        <td class="name">{{name}}</td>
-        <td class="type">{{datatype}}</td>
-      </tr>
-      {{#description}}
-        <tr>
-          <td colspan="2" class="extra description">{{description}}</td>
-        </tr>
-      {{/description}}
-      {{#required}}
-        <tr>
-          <td colspan="2" class="extra required">Required</td>
-        </tr>
-      {{/required}}
+             {{^complexType}}
+               {{datatype}}
+             {{/complexType}}
+           </span>
+           {{description}}
+         </dd>
 
-      <!-- spacer -->
-      <tr><td>&nbsp;</td></tr>
-
-      {{/vars}}
-
-      </table>
-    </div>
+       {{/vars}}
+     </dl>
+   </div>
 
   </div>
 
