@@ -2,169 +2,382 @@ window.code = window.code || {};
 
 window.code.curl = {
   "UserApi": {
-    "createUser": {
+    "user-associate-to-trip": {
       "curl": [
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X post \'http://petstore.swagger.wordnik.com/v2\'"
+          "content": "curl -X POST \'https:&#x2F;&#x2F;localhost&#x2F;\'"
         }
       ]
     },
-    "createUsersWithArrayInput": {
+    "create-user": {
       "curl": [
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X post \'http://petstore.swagger.wordnik.com/v2\'"
+          "content": "curl -X POST \'https:&#x2F;&#x2F;localhost&#x2F;\'"
         }
       ]
     },
-    "createUsersWithListInput": {
+    "profile-user": {
       "curl": [
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X post \'http://petstore.swagger.wordnik.com/v2\'"
+          "content": "curl -X GET \'https:&#x2F;&#x2F;localhost&#x2F;\'"
         }
       ]
     },
-    "loginUser": {
+    "signin-user": {
       "curl": [
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X get \'http://petstore.swagger.wordnik.com/v2\'"
+          "content": "curl -X POST \'https:&#x2F;&#x2F;localhost&#x2F;\'"
         }
       ]
     },
-    "logoutUser": {
+    "update-traveler": {
       "curl": [
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X get \'http://petstore.swagger.wordnik.com/v2\'"
-        }
-      ]
-    },
-    "getUserByName": {
-      "curl": [
-        {
-          "header": "request",
-          "syntax": "bash",
-          "content": "curl -X get \'http://petstore.swagger.wordnik.com/v2\'"
-        }
-      ]
-    },
-    "updateUser": {
-      "curl": [
-        {
-          "header": "request",
-          "syntax": "bash",
-          "content": "curl -X put \'http://petstore.swagger.wordnik.com/v2\'"
-        }
-      ]
-    },
-    "deleteUser": {
-      "curl": [
-        {
-          "header": "request",
-          "syntax": "bash",
-          "content": "curl -X delete \'http://petstore.swagger.wordnik.com/v2\'"
+          "content": "curl -X POST \'https:&#x2F;&#x2F;localhost&#x2F;\'"
         }
       ]
     },
   },
-  "PetApi": {
-    "updatePet": {
+  "CarsApi": {
+    "cars-create-trip": {
       "curl": [
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X put \'http://petstore.swagger.wordnik.com/v2\'"
+          "content": "curl -X POST \'https:&#x2F;&#x2F;localhost&#x2F;\'"
         }
       ]
     },
-    "addPet": {
+    "cars-search": {
       "curl": [
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X post \'http://petstore.swagger.wordnik.com/v2\'"
+          "content": "curl -X GET \'https:&#x2F;&#x2F;localhost&#x2F;\'"
         }
       ]
     },
-    "findPetsByStatus": {
+    "cars-search": {
       "curl": [
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X get \'http://petstore.swagger.wordnik.com/v2\'"
+          "content": "curl -X GET \'https:&#x2F;&#x2F;localhost&#x2F;\'"
         }
       ]
     },
-    "findPetsByTags": {
+    "cars-checkout": {
       "curl": [
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X get \'http://petstore.swagger.wordnik.com/v2\'"
-        }
-      ]
-    },
-    "getPetById": {
-      "curl": [
-        {
-          "header": "request",
-          "syntax": "bash",
-          "content": "curl -X get \'http://petstore.swagger.wordnik.com/v2\'"
-        }
-      ]
-    },
-    "updatePetWithForm": {
-      "curl": [
-        {
-          "header": "request",
-          "syntax": "bash",
-          "content": "curl -X post \'http://petstore.swagger.wordnik.com/v2\'"
-        }
-      ]
-    },
-    "deletePet": {
-      "curl": [
-        {
-          "header": "request",
-          "syntax": "bash",
-          "content": "curl -X delete \'http://petstore.swagger.wordnik.com/v2\'\\\n  -H 'api_key:{ api_key }'"
+          "content": "curl -X POST \'https:&#x2F;&#x2F;localhost&#x2F;\'"
         }
       ]
     },
   },
-  "StoreApi": {
-    "placeOrder": {
+  "PackagesApi": {
+    "packages-apply-coupon": {
       "curl": [
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X post \'http://petstore.swagger.wordnik.com/v2\'"
+          "content": "curl -X POST \'https:&#x2F;&#x2F;localhost&#x2F;\'"
         }
       ]
     },
-    "getOrderById": {
+    "packages-remove-coupon": {
       "curl": [
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X get \'http://petstore.swagger.wordnik.com/v2\'"
+          "content": "curl -X POST \'https:&#x2F;&#x2F;localhost&#x2F;\'"
         }
       ]
     },
-    "deleteOrder": {
+    "packages-checkout": {
       "curl": [
         {
           "header": "request",
           "syntax": "bash",
-          "content": "curl -X delete \'http://petstore.swagger.wordnik.com/v2\'"
+          "content": "curl -X POST \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "packages-create-trip": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X POST \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "packages-offers": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X GET \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+  },
+  "FlightsApi": {
+    "flights-airport-dropdown": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X GET \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "flights-checkout": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X POST \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "flights-details": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X GET \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "flights-image": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X GET \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "flights-search": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X GET \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "flights-create-trip": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X POST \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "packages-apply-coupon": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X POST \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "packages-remove-coupon": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X POST \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "flights-mobile-image": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X GET \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+  },
+  "TripsApi": {
+    "trips-search": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X GET \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "trips-search-id": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X GET \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "trips-update-trip": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X POST \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "trips-by-user-id": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X GET \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "trips-user-trips": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X GET \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+  },
+  "HotelsApi": {
+    "packages-apply-coupon": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X POST \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "packages-remove-coupon": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X POST \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "hotels-info": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X GET \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "hotels-offers": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X GET \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "hotels-product": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X GET \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "hotels-room-cancel": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X POST \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "hotels-search": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X GET \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "hotels-cancel-enquiry": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X GET \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "hotels-trip-cancel": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X POST \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "hotels-cancel-enquiry": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X GET \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "hotels-checkout": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X POST \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "hotels-checkout-fields": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X GET \'https:&#x2F;&#x2F;localhost&#x2F;\'"
+        }
+      ]
+    },
+    "hotels-create-trip": {
+      "curl": [
+        {
+          "header": "request",
+          "syntax": "bash",
+          "content": "curl -X POST \'https:&#x2F;&#x2F;localhost&#x2F;\'"
         }
       ]
     },
