@@ -19,10 +19,22 @@
       {{#pathParams}}
 
         <dt> {{paramName}} </dt>
-        <p class="type">{{dataType}}</p>
-        <dd> {{description}} </dd>
+        <dd><span class="type">{{dataType}}</span> {{description}} </dd>
 
       {{/pathParams}}
+      </dl>
+    </div>
+
+    <div class="params params-form" {{^ formParams }}style="display: none;"{{/formParams }}>
+      <h6> Form Params </h6>
+
+      <dl class="middle-list">
+      {{#formParams}}
+
+        <dt> {{paramName}} </dt>
+        <dd><span class="type">{{dataType}}</span> {{description}} </dd>
+
+      {{/formParams}}
       </dl>
     </div>
 
@@ -32,8 +44,7 @@
       <dl class="middle-list">
 
         <dt> {{paramName}} </dt>
-        <p class="type">{{dataType}}</p>
-        <dd> {{description}} </dd>
+        <dd><span class="type">{{dataType}}</span> {{description}} </dd>
 
       </dl>
       {{/bodyParams}}
@@ -42,7 +53,7 @@
     <div class="params params-response" {{^ responses }}style="display: none;"{{/responses }} >
       <h6> Error Responses </h6>
       {{#responses}}
-      <dl class="middle-list">
+      <dl class="middle-list without-type">
 
         <dt> {{code}} </dt>
         <dd> {{message}} </dd>
